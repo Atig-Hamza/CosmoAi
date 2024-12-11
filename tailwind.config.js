@@ -5,7 +5,11 @@ module.exports = {
     './static/**/*.{js,html}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jura: ['Jura'],
+      },
+    },
   },
   plugins: [],
 }
