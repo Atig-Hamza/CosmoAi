@@ -13,12 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
-<body class="bg-black h-screen w-screen overflow-hidden font-jura">
-    <nav class="bg-white p-1 pl-5 pr-5 absolute w-full flex flex-row align-middle gap-72 z-50">
+<body class="bg-white font-jura overflow-x-hidden">
+    <nav class="bg-white p-1 pl-5 pr-5 absolute w-full flex flex-row align-middle gap-72 z-50 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
         <div class="flex flex-row align-middle gap-96">
             <img src="../images/logos/banner logo.png" class="h-12" alt="">
             <ul class="flex flex-row gap-52 items-center">
-                <li><a href="/" class="text-black hover:text-gray-700 hover:underline">Home</a></li>
+                <li><a href="#" class="text-black hover:text-gray-700 hover:underline">Home</a></li>
                 <li><a href="" class="text-black hover:text-gray-700 hover:underline">Authors</a></li>
                 <li><a href="" class="text-ckack hover:text-gray-700 hover:underline">Support</a></li>
             </ul>
@@ -28,5 +28,23 @@
             <li><a href="./signup.html" class="text-white bg-blue-600 p-2 rounded-lg hover:bg-blue-800">Signup</a></li>
         </ul>
     </nav>
+
+    <!-- section 1 -->
+    <div class="absolute top-1/2 transform -translate-y-1/2 translate-x-12 flex justify-start w-full">
+        <div class="w-1/2 text-left pl-6">
+            <h1 class="text-6xl font-extrabold text-gray-800 mb-4">Welcome to Cosmo AI</h1>
+            <p class="text-xl font-bold text-gray-600 mb-6">Your Gateway to Smarter Solutions</p>
+            <p class="text-lg font-semibold text-gray-700 mb-8">
+              Cosmo AI is designed to revolutionize the way you work, learn, and create. Whether you're brainstorming ideas, solving complex problems, or exploring new knowledge, Cosmo is your ultimate companion in achieving more with ease.
+            </p>
+            <p class="text-lg font-semibold text-gray-700 mb-8">
+              Discover possibilities beyond imagination, powered by intelligent insights.
+            </p>
+            <div class="flex space-x-4">
+              <a href="" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">Learn More</a>
+              <a href="./signup.html" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">Get Started For Free</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
