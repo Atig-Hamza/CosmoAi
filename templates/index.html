@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
-<body class="bg-white font-jura overflow-x-hidden">
-    <nav class="bg-white p-1 pl-5 pr-5 absolute w-full flex flex-row align-middle gap-72 z-50 drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+
+<body class="bg-white font-jura w-screen overflow-x-hidden">
+    <nav
+        class="bg-white p-1 pl-5 pr-5 absolute w-full flex flex-row align-middle gap-72 z-50 drop-shadow-sm">
         <div class="flex flex-row align-middle gap-96">
             <img src="../images/logos/banner logo.png" class="h-12" alt="">
             <ul class="flex flex-row gap-52 items-center">
@@ -29,22 +32,218 @@
         </ul>
     </nav>
 
+    <canvas class="absolute top-0 left-0 w-screen h-screen"></canvas>
+
     <!-- section 1 -->
-    <div class="absolute top-1/2 transform -translate-y-1/2 translate-x-12 flex justify-start w-full">
-        <div class="w-1/2 text-left pl-6">
-            <h1 class="text-6xl font-extrabold text-gray-800 mb-4">Welcome to Cosmo AI</h1>
-            <p class="text-xl font-bold text-gray-600 mb-6">Your Gateway to Smarter Solutions</p>
-            <p class="text-lg font-semibold text-gray-700 mb-8">
-              Cosmo AI is designed to revolutionize the way you work, learn, and create. Whether you're brainstorming ideas, solving complex problems, or exploring new knowledge, Cosmo is your ultimate companion in achieving more with ease.
+    <div class="flex justify-center items-center h-screen z-50">
+        <div class="w-1/2 text-center pl-6">
+            <h1 class="text-8xl font-extrabold text-gray-800 mb-4">Welcome to Cosmo AI</h1>
+            <p class="text-2xl font-bold text-gray-600 mb-6">Your Gateway to Smarter Solutions</p>
+            <p class="text-xl font-semibold text-gray-700 mb-8">
+                Cosmo AI is designed to revolutionize the way you work, learn, and create. Whether you're brainstorming
+                ideas, solving complex problems, or exploring new knowledge, Cosmo is your ultimate companion in
+                achieving more with ease.
             </p>
-            <p class="text-lg font-semibold text-gray-700 mb-8">
-              Discover possibilities beyond imagination, powered by intelligent insights.
+            <p class="text-xl font-semibold text-gray-700 mb-8">
+                Discover possibilities beyond imagination, powered by intelligent insights.
             </p>
-            <div class="flex space-x-4">
-              <a href="" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">Learn More</a>
-              <a href="./signup.html" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">Get Started For Free</a>
+            <div class="flex space-x-4 w-full justify-center">
+                <a href="" class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg px-6 py-3 rounded-lg transition duration-500 ease-in-out transform hover:scale-105">Learn More</a>
+                <a href="./signup.html" class="bg-gradient-to-r from-green-500 to-teal-500 text-white text-lg px-6 py-3 rounded-lg transition duration-500 ease-in-out transform hover:scale-105">Get Started For Free</a>
             </div>
         </div>
     </div>
+
+    <div class="flex justify-center items-center h-screen z-20">
+        
+    </div>
+    <script>
+        const STAR_COLOR = '#0000FF';
+        const STAR_SIZE = 0.5;
+        const STAR_MIN_SCALE = 2;
+        const OVERFLOW_THRESHOLD = 50;
+        const STAR_COUNT = (window.innerWidth + window.innerHeight) / 8;
+
+        const canvas = document.querySelector('canvas'),
+            context = canvas.getContext('2d');
+
+        let scale = 1, // device pixel ratio
+            width,
+            height;
+
+        let stars = [];
+
+        let pointerX,
+            pointerY;
+
+        let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0005 };
+
+        let touchInput = false;
+
+        generate();
+        resize();
+        step();
+
+        window.onresize = resize;
+        canvas.onmousemove = onMouseMove;
+        canvas.ontouchmove = onTouchMove;
+        canvas.ontouchend = onMouseLeave;
+        document.onmouseleave = onMouseLeave;
+
+        function generate() {
+            for (let i = 0; i < STAR_COUNT; i++) {
+                stars.push({
+                    x: 0,
+                    y: 0,
+                    z: STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE)
+                });
+            }
+        }
+
+        function placeStar(star) {
+            star.x = Math.random() * width;
+            star.y = Math.random() * height;
+        }
+
+        function recycleStar(star) {
+            let direction = 'z';
+
+            let vx = Math.abs(velocity.x),
+                vy = Math.abs(velocity.y);
+
+            if (vx > 1 || vy > 1) {
+                let axis;
+
+                if (vx > vy) {
+                    axis = Math.random() < vx / (vx + vy) ? 'h' : 'v';
+                }
+                else {
+                    axis = Math.random() < vy / (vx + vy) ? 'v' : 'h';
+                }
+
+                if (axis === 'h') {
+                    direction = velocity.x > 0 ? 'l' : 'r';
+                }
+                else {
+                    direction = velocity.y > 0 ? 't' : 'b';
+                }
+            }
+
+            star.z = STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE);
+
+            if (direction === 'z') {
+                star.z = 0.1;
+                star.x = Math.random() * width;
+                star.y = Math.random() * height;
+            }
+            else if (direction === 'l') {
+                star.x = -OVERFLOW_THRESHOLD;
+                star.y = height * Math.random();
+            }
+            else if (direction === 'r') {
+                star.x = width + OVERFLOW_THRESHOLD;
+                star.y = height * Math.random();
+            }
+            else if (direction === 't') {
+                star.x = width * Math.random();
+                star.y = -OVERFLOW_THRESHOLD;
+            }
+            else if (direction === 'b') {
+                star.x = width * Math.random();
+                star.y = height + OVERFLOW_THRESHOLD;
+            }
+        }
+
+        function resize() {
+            scale = window.devicePixelRatio || 1;
+            width = window.innerWidth * scale;
+            height = window.innerHeight * scale;
+
+            canvas.width = width;
+            canvas.height = height;
+
+            stars.forEach(placeStar);
+        }
+
+        function step() {
+            context.clearRect(0, 0, width, height);
+
+            update();
+            render();
+
+            requestAnimationFrame(step);
+        }
+
+        function update() {
+            velocity.tx *= 0.96;
+            velocity.ty *= 0.96;
+
+            velocity.x += (velocity.tx - velocity.x) * 0.8;
+            velocity.y += (velocity.ty - velocity.y) * 0.8;
+
+            stars.forEach((star) => {
+                star.x += velocity.x * star.z;
+                star.y += velocity.y * star.z;
+
+                star.x += (star.x - width / 2) * velocity.z * star.z;
+                star.y += (star.y - height / 2) * velocity.z * star.z;
+                star.z += velocity.z;
+
+                if (star.x < -OVERFLOW_THRESHOLD || star.x > width + OVERFLOW_THRESHOLD || star.y < -OVERFLOW_THRESHOLD || star.y > height + OVERFLOW_THRESHOLD) {
+                    recycleStar(star);
+                }
+            });
+        }
+
+        function render() {
+            stars.forEach((star) => {
+                context.beginPath();
+                context.lineCap = 'round';
+                context.lineWidth = STAR_SIZE * star.z * scale;
+                context.globalAlpha = 0.5 + 0.5 * Math.random();
+                context.strokeStyle = STAR_COLOR;
+
+                context.moveTo(star.x, star.y);
+
+                var tailX = velocity.x * 2,
+                    tailY = velocity.y * 2;
+
+                if (Math.abs(tailX) < 0.1) tailX = 0.5;
+                if (Math.abs(tailY) < 0.1) tailY = 0.5;
+
+                context.lineTo(star.x + tailX, star.y + tailY);
+                context.stroke();
+            });
+        }
+
+        function movePointer(x, y) {
+            if (typeof pointerX === 'number' && typeof pointerY === 'number') {
+                let ox = x - pointerX,
+                    oy = y - pointerY;
+
+                velocity.tx = velocity.tx + (ox / 8 * scale) * (touchInput ? 1 : -1);
+                velocity.ty = velocity.ty + (oy / 8 * scale) * (touchInput ? 1 : -1);
+            }
+            pointerX = x;
+            pointerY = y;
+        }
+
+        function onMouseMove(event) {
+            touchInput = false;
+            movePointer(event.clientX, event.clientY);
+        }
+
+        function onTouchMove(event) {
+            touchInput = true;
+            movePointer(event.touches[0].clientX, event.touches[0].clientY, true);
+            event.preventDefault();
+        }
+
+        function onMouseLeave() {
+            pointerX = null;
+            pointerY = null;
+        }
+    </script>
 </body>
+
 </html>
