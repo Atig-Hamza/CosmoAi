@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmo-Home</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <meta name="description"
+        content="Cosmo-Login is a simple web interface to manage login credentials for your astronomical observatory.">
+    <link rel="shortcut icon" href="../images/favicon/favicon-32x32.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="bg-white font-jura w-screen overflow-x-hidden">
+    <nav class="bg-white p-1 pl-5 pr-5 absolute w-full flex flex-row align-middle gap-72 z-50 drop-shadow-sm">
+        <div class="flex flex-row align-middle gap-96">
+            <img src="../images/logos/banner logo.png" class="h-12" alt="">
+            <ul class="flex flex-row gap-52 items-center">
+                <li><a href="./index.html" class="text-black hover:text-gray-700 hover:underline">Home</a></li>
+                <li><a href="" class="text-black hover:text-gray-700 hover:underline">Authors</a></li>
+                <li><a href="" class="text-ckack hover:text-gray-700 hover:underline">Support</a></li>
+            </ul>
+        </div>
+        <ul class="flex flex-row gap-6 items-center">
+            <li><a href="./login.html" class="text-black hover:text-gray-700 hover:underline ">Login</a></li>
+            <li><a href="./signup.html" class="text-white bg-blue-600 p-2 rounded-lg hover:bg-blue-800">Signup</a></li>
+        </ul>
+    </nav>
+
+    <!-- support form -->
+
+    <section id="features" class="container mx-auto px-4 space-y-6 bg-slate-50 py-8 md:py-12 lg:py-20">
+
+        <div class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+
+            <h2 class="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl">Support</h2>
+
+            <p class="max-w-[85%] sm:text-lg">
+                Need help? Fill out the form below or check our FAQ. Common issues include account problems, billing, and more.
+            </p>
+
+        </div>
+
+        <div class="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+
+            <div
+                class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <svg viewBox="0 0 24 24" class="h-12 w-12 fill-current">
+                        <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 4c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0 14c-2.67 0-5.155-1.337-6.633-3.447.032-1.998 4-3.09 6.633-3.09 2.633 0 6.601 1.092 6.633 3.09C17.155 18.663 14.67 20 12 20z"></path>
+                    </svg>                    
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Account Support</h3>
+                        <p class="text-sm text-muted-foreground">Assistance with creating, managing, and securing user accounts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <svg viewBox="0 0 24 24" class="h-12 w-12 fill-current">
+                        <path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM2 6h20v2H2V6zm0 4h20v8H2v-8zm7 3h6v2H9v-2z"></path>
+                    </svg>                    
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Payment Support</h3>
+                        <p class="text-sm">Help with processing payments, refunds, and billing issues.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <svg viewBox="0 0 24 24" class="h-12 w-12 fill-current">
+                        <path d="M14.71 9.29a1 1 0 0 1 0 1.42l-2.83 2.83a1 1 0 0 1-1.42-1.42l2.83-2.83a1 1 0 0 1 1.42 0zM12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"></path>
+                    </svg>                                                                                                                                                                                
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Technical Support</h3>
+                        <p class="text-sm text-muted-foreground">Guidance on resolving technical issues with using Cosmo’s features.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <svg viewBox="0 0 24 24" class="h-12 w-12 fill-current">
+                        <path d="M12 2c-4.971 0-9 4.029-9 9 0 4.971 4.029 9 9 9s9-4.029 9-9c0-4.971-4.029-9-9-9zm0 16c-3.866 0-7-3.134-7-7s3.134-7 7-7 7 3.134 7 7-3.134 7-7 7zm-1-9h2v6h-2zm0-4h2v2h-2z"></path>
+                    </svg>                    
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Feature Support</h3>
+                        <p class="text-sm text-muted-foreground">Explaining how to use various features of Cosmo effectively.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <svg viewBox="0 0 24 24" class="h-12 w-12 fill-current">
+                        <path d="M20 2H4c-1.104 0-2 .896-2 2v12c0 1.104.896 2 2 2h4v4l4-4h8c1.104 0 2-.896 2-2V4c0-1.104-.896-2-2-2zm0 14H11.586L9 18.586V16H4V4h16v12z"></path>
+                    </svg>                                       
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Customer Feedback Support</h3>
+                        <p class="text-sm text-muted-foreground">A channel for users to provide feedback or suggestions to improve the AI platform.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+                <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                    <svg viewBox="0 0 24 24" class="h-12 w-12 fill-current">
+                        <path d="M6 4h12c1.104 0 2 .896 2 2v12c0 1.104-.896 2-2 2H6c-1.104 0-2-.896-2-2V6c0-1.104.896-2 2-2zm1 2v12h10V6H7zm2 2h6v2H9V8zm0 4h6v2H9v-2z"></path>
+                    </svg>                                                       
+                    <div class="space-y-2">
+                        <h3 class="font-bold">Developer and API Support</h3>
+                        <p class="text-sm text-muted-foreground">Assistance for developers integrating Cosmo’s API into their applications.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+</body>
