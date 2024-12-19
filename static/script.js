@@ -47,3 +47,16 @@ a.forEach(item => {
     cursor.classList.remove('hover');
   });
 })
+
+//Loading animation hidde after 5 s
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    const content = document.getElementById('content');
+  
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+      content.style.display = 'block';
+      document.body.style.overflow = 'auto';
+    }, 3000);
+  });
+  
