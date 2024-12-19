@@ -19,22 +19,74 @@
         ::-webkit-scrollbar {
             width: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: #ccc;
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb {
             background: rgb(0, 0, 0);
             border-radius: 24px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             transform: scale(1.1);
+        }
+
+        .cursor {
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+            background-color: rgba(128, 128, 128, 0.485);
+            transition: all 200ms ease-out;
+            position: fixed;
+            pointer-events: none;
+            left: 0;
+            top: 0;
+            transform: translate(calc(-50% + 15px), -50%);
+            z-index: 99999;
+        }
+
+        .cursor2 {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: rgba(128, 128, 128, 0.527);
+            opacity: 0.3;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: width 0.3s, height 0.3s, opacity 0.3s;
+            z-index: 99999;
+        }
+
+        .hover {
+            background-color: rgba(64, 0, 255, 0.389);
+            opacity: 0.5;
+        }
+
+        .cursor:hover {
+            background-color: rgba(64, 0, 255, 0.389);
+            border-color: rgba(64, 0, 255, 0.7);
+        }
+
+        .cursor2.hover {
+            background-color: rgba(64, 0, 255, 0.5);
+            opacity: 0.6;
+        }
+
+        .cursorinnerhover {
+            width: 40px;
+            height: 40px;
+            opacity: 0.5;
+            z-index: 99999;
         }
     </style>
 
 </head>
 
-<body class="bg-white font-jura w-screen overflow-x-hidden overflow-y-scroll">
+<body class="bg-white font-jura w-screen overflow-x-hidden overflow-y-scroll cursor-none">
     <nav class="bg-white p-1 pl-5 pr-5 absolute w-full flex flex-row align-middle gap-72 z-50 drop-shadow-sm">
         <div class="flex flex-row align-middle gap-96">
             <img src="../images/logos/banner logo.png" class="h-12" alt="">
@@ -65,10 +117,10 @@
             </p>
             <div class="flex space-x-4 w-full justify-center">
                 <a href="#second-section"
-                    class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg px-6 py-3 rounded-lg transition duration-500 ease-in-out transform hover:scale-105">Learn
+                    class="cursor-none bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg px-6 py-3 rounded-lg transition duration-500 ease-in-out transform hover:scale-105">Learn
                     More</a>
                 <a href="./signup.html"
-                    class="bg-gradient-to-r from-green-500 to-teal-500 text-white text-lg px-6 py-3 rounded-lg transition duration-500 ease-in-out transform hover:scale-105">Get
+                    class="cursor-none bg-gradient-to-r from-green-500 to-teal-500 text-white text-lg px-6 py-3 rounded-lg transition duration-500 ease-in-out transform hover:scale-105">Get
                     Started For Free</a>
             </div>
         </div>
@@ -165,7 +217,7 @@
                 class="transition duration-500 ease-in-out transform scale-100 translate-x-0 translate-y-0 opacity-100">
                 <div class="mb-12 space-y-5 md:mb-16 md:text-center">
                     <div
-                        class="inline-block px-3 py-1 text-sm font-semibold text-indigo-100 rounded-lg md:text-center text-cn bg-[#202c47] bg-opacity-60 hover:cursor-pointer hover:bg-opacity-40">
+                        class="inline-block px-3 py-1 text-sm font-semibold text-indigo-100 rounded-lg md:text-center text-cn bg-[#202c47] bg-opacity-60 hover:bg-opacity-40">
                         Words from Others
                     </div>
                     <h1 class="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
@@ -184,7 +236,7 @@
                         <div class="relative group">
                             <div
                                 class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                            </div><a href="" class="cursor-pointer">
+                            </div><a href="" class="cursor-none">
                                 <div
                                     class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
                                     <div class="flex items-center space-x-4"><img
@@ -207,7 +259,7 @@
                         <div class="relative group">
                             <div
                                 class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                            </div><a href="" class="cursor-pointer">
+                            </div><a href="" class="cursor-none">
                                 <div
                                     class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
                                     <div class="flex items-center space-x-4"><img
@@ -232,7 +284,7 @@
                         <div class="relative group">
                             <div
                                 class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                            </div><a href="" class="cursor-pointer">
+                            </div><a href="" class="cursor-none">
                                 <div
                                     class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
                                     <div class="flex items-center space-x-4"><img
@@ -257,7 +309,7 @@
                         <div class="relative group">
                             <div
                                 class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                            </div><a href="" class="cursor-pointer">
+                            </div><a href="" class="cursor-none">
                                 <div
                                     class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
                                     <div class="flex items-center space-x-4"><img
@@ -284,7 +336,7 @@
                         <div class="relative group">
                             <div
                                 class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                            </div><a href="" class="cursor-pointer">
+                            </div><a href="" class="cursor-none">
                                 <div
                                     class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
                                     <div class="flex items-center space-x-4"><img
@@ -308,7 +360,7 @@
                         <div class="relative group">
                             <div
                                 class="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200">
-                            </div><a href="" class="cursor-pointer">
+                            </div><a href="" class="cursor-none">
                                 <div
                                     class="relative p-6 space-y-6 leading-none rounded-lg bg-slate-800 ring-1 ring-gray-900/5">
                                     <div class="flex items-center space-x-4"><img
@@ -391,7 +443,7 @@
                             </div>
                             <div class="pt-2">
                                 <a href="/billing" type="button" target="_blank"
-                                    class="appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl cursor-pointer"><span
+                                    class="cursor-none appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl "><span
                                         class="w-full font-semibold text-base">Choose Basic</span>
                                     <svg class="inline-block h-6" viewBox="0 0 24 25" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -500,7 +552,7 @@
                             </div>
                             <div class="pt-2">
                                 <a href="/billing" type="button" target="_blank"
-                                    class="appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl cursor-pointer"><span
+                                    class="cursor-none appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl "><span
                                         class="w-full font-semibold text-base">Choose Pro</span>
                                     <svg class="inline-block h-6" viewBox="0 0 24 25" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -563,7 +615,7 @@
                             </div>
                             <div class="pt-2">
                                 <a href="/billing" type="button" target="_blank"
-                                    class="appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl cursor-pointer"><span
+                                    class="cursor-none appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl "><span
                                         class="w-full font-semibold text-base">Choose Vip</span>
                                     <svg class="inline-block h-6" viewBox="0 0 24 25" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -626,7 +678,7 @@
                             </div>
                             <div class="pt-2">
                                 <a href="./login.html" type="button" target="_blank"
-                                    class="appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl cursor-pointer"><span
+                                    class="cursor-none appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl "><span
                                         class="w-full font-semibold text-base">Choose Free</span>
                                     <svg class="inline-block h-6" viewBox="0 0 24 25" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -691,7 +743,7 @@
                         </div>
                         <div class="pt-2">
                             <a href="./enterprise.html" type="button"
-                                class="appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl cursor-pointer"><span
+                                class="cursor-none appearance-none inline-flex hover:shadow-2xl transition-all duration-300 hover:scale-105 items-center group space-x-2.5 bg-black text-white py-4 px-5 rounded-2xl "><span
                                     class="w-full font-semibold text-base">Contact Sales</span>
                                 <svg class="inline-block h-6" viewBox="0 0 24 25" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -729,7 +781,7 @@
                         <div class="flex space-x-2">
                             <a href="" target="_blank" class="text-black hover:text-gray-800">
                                 <span class="sr-only">Linkedin</span><svg fill="currentColor" viewBox="0 0 24 24"
-                                    class="h-6 w-6" aria-hidden="true">
+                                    class="cursor-none h-6 w-6" aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
                                         clip-rule="evenodd"></path>
@@ -737,7 +789,7 @@
                             </a>
                             <a href="" target="_blank" class="text-black hover:text-gray-800">
                                 <span class="sr-only">Twitter</span><svg fill="currentColor" viewBox="0 0 24 24"
-                                    class="h-6 w-6" aria-hidden="true">
+                                    class="cursor-none h-6 w-6" aria-hidden="true">
                                     <path
                                         d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
                                     </path>
@@ -752,17 +804,17 @@
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
                                         <a href="/aiplatform"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">AI Platform
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">AI Platform
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/aialgorithms"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">AI Algorithms
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">AI Algorithms
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/industryapplications"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">Industry
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Industry
                                             Applications
                                         </a>
                                     </li>
@@ -773,19 +825,19 @@
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
                                         <a href="/predictiveanalysis"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">Predictive
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Predictive
                                             Analysis
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/customerexperience"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">Customer
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Customer
                                             Experience
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/automation"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">Automation
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Automation
                                         </a>
                                     </li>
                                 </ul>
@@ -796,23 +848,23 @@
                                 <h3 class="text-md font-semibold leading-6 text-black">Resources</h3>
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
-                                        <a href="/blog" class="text-md leading-6 text-gray-900 hover:text-gray-700">Blog
+                                        <a href="/blog" class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Blog
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/casestudies"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">Case Studies
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Case Studies
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/terms"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">Terms
+                                            class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Terms
                                             of Service
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/privacy"
-                                            class="text-md leading-6 text-gray-900 hover:text-gray-700">Privacy Policy
+                                            class="cursor-none cursor-nonetext-md leading-6 text-gray-900 hover:text-gray-700">Privacy Policy
                                         </a>
                                     </li>
                                 </ul>
@@ -821,15 +873,15 @@
                                 <h3 class="text-md font-semibold leading-6 text-black">Company</h3>
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
-                                        <a href="" class="text-md leading-6 text-gray-900 hover:text-gray-700">About Us
+                                        <a href="" class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">About Us
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="text-md leading-6 text-gray-900 hover:text-gray-700">Careers
+                                        <a href="" class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Careers
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="text-md leading-6 text-gray-900 hover:text-gray-700">Contact
+                                        <a href="" class="cursor-none text-md leading-6 text-gray-900 hover:text-gray-700">Contact
                                             Us
                                         </a>
                                     </li>
@@ -848,6 +900,8 @@
             </div>
         </div>
     </footer>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
 
     <canvas class="absolute top-0 left-0 w-screen h-screen -z-10"></canvas>
     <script src="../static/homeef.js"></script>
