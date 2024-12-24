@@ -60,3 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   });
   
+
+//images animation by scrolling
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const image1 = document.getElementById('image1');
+  const image2 = document.getElementById('image2');
+  image1.style.transform = `translateY(-${scrollPosition * 0.5}px) rotate(8deg)`;
+  image2.style.transform = `translateY(-${scrollPosition * 0.5}px) rotate(-8deg)`;
+});
