@@ -157,83 +157,98 @@
         </div>
         <div class="col-start-3 col-end-13 row-start-1 row-end-13 gap-3 grid grid-cols-12 grid-rows-12 p-4">
             <div
-                class="flex flex-row justify-evenly col-start-1 col-end-13 row-start-1 row-end-13 bg-gray-100 rounded-lg p-6 space-x-6">
-                <!-- Chat History Section -->
-                <div class="flex-1">
-                    <h1 class="text-3xl font-bold mb-4 cursor-pointer">Chat History</h1>
-                    <ul class="space-y-3">
-                        <li class="flex items-start space-x-4">
-                            <div class="w-4 h-4 bg-indigo-500 rounded-full mt-1"></div>
-                            <div>
-                                <h2 class="text-lg font-bold cursor-pointer">[12:00] <span
-                                        class="text-gray-500">Title</span>: Asking about Algorithms</h2>
-                            </div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="w-4 h-4 bg-indigo-500 rounded-full mt-1"></div>
-                            <div>
-                                <h2 class="text-lg font-bold cursor-pointer">[13:00] <span
-                                        class="text-gray-500">Title</span>: Creating Home Page</h2>
-                            </div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="w-4 h-4 bg-indigo-500 rounded-full mt-1"></div>
-                            <div>
-                                <h2 class="text-lg font-bold cursor-pointer">[14:00] <span
-                                        class="text-gray-500">Title</span>: 10 steps to get started</h2>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Image Generating History Section -->
-                <div class="flex-1">
-                    <h1 class="text-3xl font-bold mb-4 cursor-pointer">Image Generating History</h1>
-                    <ul class="space-y-3">
-                        <li class="flex items-start space-x-4">
-                            <div class="w-4 h-4 bg-indigo-500 rounded-full mt-1"></div>
-                            <div>
-                                <h2 class="text-lg font-bold cursor-pointer">[12:00] <span
-                                        class="text-gray-500">You</span>: Generate image with prompt: "a cat"</h2>
-                                <p class="text-gray-500">Generated image:
-                                    <a href="https://picsum.photos/200/300" target="_blank">
-                                        <img class="w-20 h-20 mt-2 cursor-pointer" src="https://picsum.photos/200/300"
-                                            alt="Generated cat image">
-                                    </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="w-4 h-4 bg-indigo-500 rounded-full mt-1"></div>
-                            <div>
-                                <h2 class="text-lg font-bold cursor-pointer">[12:00] <span
-                                        class="text-gray-500">You</span>: Generate image with prompt: "a dog"</h2>
-                                <p class="text-gray-500">Generated image:
-                                    <a href="https://picsum.photos/200/301" target="_blank">
-                                        <img class="w-20 h-20 mt-2 cursor-pointer" src="https://picsum.photos/200/301"
-                                            alt="Generated dog image">
-                                    </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="w-4 h-4 bg-indigo-500 rounded-full mt-1"></div>
-                            <div>
-                                <h2 class="text-lg font-bold cursor-pointer">[12:00] <span
-                                        class="text-gray-500">You</span>: Generate image with prompt: "a house"</h2>
-                                <p class="text-gray-500">Generated image:
-                                    <a href="https://picsum.photos/200/302" target="_blank">
-                                        <img class="w-20 h-20 mt-2 cursor-pointer" src="https://picsum.photos/200/302"
-                                            alt="Generated house image">
-                                    </a>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                class="flex flex-row justify-evenly col-start-1 col-end-13 row-start-1 row-end-13 bg-gray-100 rounded-lg p-6 space-x-6 h-[95.5vh]">
+                <!-- Notification Section -->
+                <div class="grid grid-cols-12 gap-4 p-8 h-[100%] bg-gray-50 rounded-lg shadow-lg overflow-y-auto">
+                    <div class="col-span-12 flex flex-col space-y-6">
+                        <h1 class="text-4xl font-extrabold text-gray-800 mb-6">Notifications</h1>
+                        <ul class="space-y-4">
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-indigo-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-indigo-700">New Update!</h2>
+                                    <p class="text-gray-600">Our system has been updated to version 2.0. Check out the new features and improvements!</p>
+                                    <button class="bg-indigo-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-indigo-600 transition-colors">Learn More</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-orange-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-orange-700">Hot Deal!</h2>
+                                    <p class="text-gray-600">Get 20% off on all premium plans for the next 48 hours. Don't miss out!</p>
+                                    <button class="bg-orange-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-orange-600 transition-colors">Redeem Now</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-green-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-green-700">New Feature!</h2>
+                                    <p class="text-gray-600">Our new AI-powered feature is now live. Try it out and share your feedback!</p>
+                                    <button class="bg-green-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-green-600 transition-colors">Try Now</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-blue-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-blue-700">System Alert!</h2>
+                                    <p class="text-gray-600">Scheduled maintenance will occur tomorrow at 2 AM. Expect downtime of approximately 1 hour.</p>
+                                    <button class="bg-blue-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-blue-600 transition-colors">More Info</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-purple-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-purple-700">Exclusive Offer!</h2>
+                                    <p class="text-gray-600">Enjoy free upgrades on all plans for a limited time. Grab the opportunity now!</p>
+                                    <button class="bg-purple-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-purple-600 transition-colors">Claim Now</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-red-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-red-700">Security Alert!</h2>
+                                    <p class="text-gray-600">We've updated our security protocols. Please review the changes to stay informed.</p>
+                                    <button class="bg-red-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-red-600 transition-colors">View Details</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-yellow-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-yellow-700">Reminder!</h2>
+                                    <p class="text-gray-600">Your subscription will renew in 3 days. Ensure your payment method is updated.</p>
+                                    <button class="bg-yellow-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-yellow-600 transition-colors">Update Now</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-teal-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-teal-700">New Blog Post!</h2>
+                                    <p class="text-gray-600">Read our latest blog on productivity tips for managing tasks effectively.</p>
+                                    <button class="bg-teal-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-teal-600 transition-colors">Read Now</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-pink-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-pink-700">Happy Holidays!</h2>
+                                    <p class="text-gray-600">Celebrate the season with a special discount on all our services. Offer ends soon!</p>
+                                    <button class="bg-pink-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-pink-600 transition-colors">Shop Now</button>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+                                <div class="w-5 h-5 bg-cyan-500 rounded-full mt-1.5"></div>
+                                <div>
+                                    <h2 class="text-xl font-semibold text-cyan-700">Webinar Invite!</h2>
+                                    <p class="text-gray-600">Join our free webinar on AI trends and technologies. Limited seats available!</p>
+                                    <button class="bg-cyan-500 text-white py-2 px-5 rounded-md mt-4 hover:bg-cyan-600 transition-colors">Register Now</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                
             </div>
         </div>
-
+    </div>
 </body>
 
 </html>
