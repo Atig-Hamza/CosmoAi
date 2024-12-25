@@ -932,6 +932,10 @@ video {
   height: 100vh;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .max-h-\[640px\] {
   max-height: 640px;
 }
@@ -986,6 +990,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-20 {
+  width: 5rem;
 }
 
 .max-w-2xl {
@@ -1263,6 +1271,12 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -2295,6 +2309,10 @@ video {
 
 .duration-500 {
   transition-duration: 500ms;
+}
+
+.duration-150 {
+  transition-duration: 150ms;
 }
 
 .ease-in {
