@@ -11,6 +11,104 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <style>
+        :root {
+            --purple: rgb(183, 31, 31);
+            --violet: rgb(162, 58, 58);
+            --pink: rgb(244, 104, 104);
+        }
+
+        @keyframes background-pan {
+            from {
+                background-position: 0% center;
+            }
+
+            to {
+                background-position: -200% center;
+            }
+        }
+
+        @keyframes scale {
+
+            from,
+            to {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(180deg);
+            }
+        }
+
+        #slogan {
+            color: black;
+            font-family: "Rubik", sans-serif;
+            font-size: clamp(3em, 3vw, 8em);
+            font-weight: 400;
+            margin: 0px;
+            padding: 20px;
+            text-align: center;
+        }
+        #slogan2 {
+            color: black;
+            font-family: "Rubik", sans-serif;
+            font-size: clamp(2em, 2vw, 4em);
+            font-weight: 400;
+            margin: 0px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1>.magic {
+            display: inline-block;
+            position: relative;
+        }
+
+        h1>.magic>.magic-star {
+            --size: clamp(20px, 1.5vw, 30px);
+
+            animation: scale 700ms ease forwards;
+            display: block;
+            height: var(--size);
+            left: var(--star-left);
+            position: absolute;
+            top: var(--star-top);
+            width: var(--size);
+        }
+
+        h1>.magic>.magic-star>svg {
+            animation: rotate 1000ms linear infinite;
+            display: block;
+            opacity: 0.7;
+        }
+
+        h1>.magic>.magic-star>svg>path {
+            fill: var(--violet);
+        }
+
+        h1>.magic>.magic-text {
+            animation: background-pan 3s linear infinite;
+            background: linear-gradient(to right,
+                    var(--purple),
+                    var(--violet),
+                    var(--pink),
+                    var(--purple));
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 
 <body>
@@ -157,9 +255,33 @@
         </div>
         <div class="col-start-3 col-end-13 row-start-1 row-end-13 gap-3 grid grid-cols-12 grid-rows-12 p-4">
             <div class="flex-1 col-start-1 col-end-13 row-start-1 row-end-13">
-                <div class="h-full flex flex-col items-center justify-center gap-7">
-                    <p class="text-gray-500 text-6xl text-center">Join the AI debate corner</p>
-                    <p class="text-gray-500 text-4xl text-center">Discuss the future of AI and its implications!</p>
+                <div class="h-full flex flex-col items-center justify-center">
+                    <h1 id="slogan">
+                        Join the
+                        <span class="magic">
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-text">AI debate</span>
+                        </span>
+                        corner
+                    </h1>
+                    <p id="slogan2" class="text-gray-500 text-4xl text-center">Discuss the future of AI and its implications!</p>
                 </div>
             </div>
             <div class="row-span-12 col-start-2 col-end-12 border border-gray-300 rounded-lg p-6">
@@ -185,6 +307,30 @@
             </div>
         </div>
     </div>
+    <script>
+        let index = 0,
+            interval = 1000;
+
+        const rand = (min, max) =>
+            Math.floor(Math.random() * (max - min + 1)) + min;
+
+        const animate = star => {
+            star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
+            star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
+
+            star.style.animation = "none";
+            star.offsetHeight;
+            star.style.animation = "";
+        }
+
+        for (const star of document.getElementsByClassName("magic-star")) {
+            setTimeout(() => {
+                animate(star);
+
+                setInterval(() => animate(star), 1000);
+            }, index++ * (interval / 3))
+        }
+    </script>
 
 </body>
 
