@@ -127,6 +127,80 @@
                 transform: rotate(calc(var(--s, 1) * 1turn));
             }
         }
+
+        .home-logo-wrapper {
+            grid-column-gap: 3rem;
+            grid-row-gap: 3rem;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 1rem;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-logo-wrapper.reverse {
+            margin-top: -2rem;
+        }
+
+        .clients-grid.logo-animate {
+            grid-column-gap: 3rem;
+            opacity: 1;
+            flex: none;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            width: 100rem;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: 0;
+            display: flex;
+        }
+
+        .logo-animate {
+            animation: slide 35s infinite linear;
+        }
+
+        .clients-grid.logo-animate-alt {
+            grid-column-gap: 3rem;
+            flex: none;
+            width: 100rem;
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: auto;
+            display: flex;
+        }
+
+        .logo-animate-alt {
+            animation: slidealt 35s infinite linear;
+            animation-direction: reverse;
+        }
+        @keyframes slide {
+            0% {
+                transform: translateX(calc(0% + 50px));
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .logo-animate {
+            animation: slide 35s infinite linear;
+        }
+
+        @keyframes slidealt {
+            0% {
+                transform: translateX(calc(0% + 50px));
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .logo-animate-alt {
+            animation: slidealt 35s infinite linear;
+            animation-direction: reverse;
+        }
     </style>
 
 </head>
@@ -168,8 +242,10 @@
         </div>
     </div>
     <div class="absolute top-0 left-0 w-screen h-screen">
-        <img id="image1" src="../images/imgs/iscreen.jpg" class="absolute top-80 right-[30px] rotate-6 h-80 mt-5 rounded-xl border-[22px] border-opacity-50 " alt="">
-        <img id="image2" src="../images/imgs/bscreen.jpg" class="absolute top-80 left-[30px] -rotate-6 h-80 mt-5 rounded-xl border-[22px] border-opacity-50 " alt="">
+        <img id="image1" src="../images/imgs/iscreen.jpg"
+            class="absolute top-80 right-[30px] rotate-6 h-80 mt-5 rounded-xl border-[22px] border-opacity-50 " alt="">
+        <img id="image2" src="../images/imgs/bscreen.jpg"
+            class="absolute top-80 left-[30px] -rotate-6 h-80 mt-5 rounded-xl border-[22px] border-opacity-50 " alt="">
     </div>
 
     <div class="h-16 bg-gradient-to-b from-white to-black"></div>
@@ -261,145 +337,201 @@
         <div class="relative h-full overflow-x-hidden">
             <div class="flex space-x-6 w-max h-full items-center px-6">
                 <!-- Card 1 - Feature 1 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+1" alt="Feature 1" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+1"
+                            alt="Feature 1" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Advanced Natural Language Processing</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Advanced
+                                Natural Language Processing</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI understands and processes human language at an advanced level, making conversations feel more natural.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI understands and processes
+                            human language at an advanced level, making conversations feel more natural.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <!-- Card 2 - Feature 2 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+2" alt="Feature 2" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+2"
+                            alt="Feature 2" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Image Recognition</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Image
+                                Recognition</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-powered image recognition helps in analyzing and interpreting visual content efficiently.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-powered image recognition helps
+                            in analyzing and interpreting visual content efficiently.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <!-- Card 3 - Feature 3 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+3" alt="Feature 3" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+3"
+                            alt="Feature 3" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Predictive Analytics</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Predictive
+                                Analytics</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI leverages predictive analytics to forecast trends and behaviors based on historical data.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI leverages predictive
+                            analytics to forecast trends and behaviors based on historical data.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <!-- Card 4 - Feature 4 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+4" alt="Feature 4" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+4"
+                            alt="Feature 4" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Real-time Data Processing</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Real-time
+                                Data Processing</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI can process data in real-time, providing immediate insights and decisions.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI can process data in
+                            real-time, providing immediate insights and decisions.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <!-- Card 5 - Feature 5 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+5" alt="Feature 5" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+5"
+                            alt="Feature 5" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Voice Recognition</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Voice
+                                Recognition</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-enabled voice recognition systems that understand and respond to verbal commands.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-enabled voice recognition
+                            systems that understand and respond to verbal commands.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <!-- Card 6 - Feature 6 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+6" alt="Feature 6" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+6"
+                            alt="Feature 6" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Automated Decision Making</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Automated
+                                Decision Making</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI can make automated decisions based on data and pre-set criteria, increasing efficiency.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI can make automated decisions
+                            based on data and pre-set criteria, increasing efficiency.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <!-- Card 7 - Feature 7 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+7" alt="Feature 7" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+7"
+                            alt="Feature 7" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Personalized Recommendations</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                Personalized Recommendations</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-driven recommendations to personalize user experiences based on previous interactions.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-driven recommendations to
+                            personalize user experiences based on previous interactions.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <!-- Card 8 - Feature 8 -->
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+8" alt="Feature 8" />
+                        <img class="rounded-t-lg" src="https://via.placeholder.com/400x200?text=AI+Feature+8"
+                            alt="Feature 8" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">AI-Driven Security</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">AI-Driven
+                                Security</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI enhances security with automated threat detection and real-time monitoring systems.</p>
-                        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI enhances security with
+                            automated threat detection and real-time monitoring systems.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </a>
                     </div>
@@ -407,7 +539,7 @@
             </div>
         </div>
     </section>
-          
+
 
     <div class="h-16 bg-gradient-to-b from-white to-slate-900"></div>
 
@@ -587,6 +719,99 @@
     </section>
 
     <div class="h-16 bg-gradient-to-b from-slate-900 to-white"></div>
+    <div class="logos-marquee">
+        <div class="home-logo-wrapper">
+            <div class="clients-grid logo-animate"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542556_Frame%2018608.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac48-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542559_deloitte.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac49-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542554_Amazon%20logo.svg"
+                    loading="eager" alt="" class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542555_Frame%2018610.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac4b-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542558_Frame%2018611.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac4c-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542557_Frame%2018612.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac4d-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255a_EY.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac4e-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255d_toyota.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac4f-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255c_Frame%2018608.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac50-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255b_airbus.svg"
+                    loading="eager" alt="" class="client-logo"></div>
+            <div class="clients-grid logo-animate"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542556_Frame%2018608.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac53-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542559_deloitte.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac54-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542554_Amazon%20logo.svg"
+                    loading="eager" alt="" class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542555_Frame%2018610.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac56-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542558_Frame%2018611.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac57-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542557_Frame%2018612.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac58-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255a_EY.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac59-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255d_toyota.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac5a-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255c_Frame%2018608.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac5b-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255b_airbus.svg"
+                    loading="eager" alt="" class="client-logo"></div>
+            <div class="clients-grid logo-animate"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542556_Frame%2018608.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac5e-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542559_deloitte.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac5f-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542554_Amazon%20logo.svg"
+                    loading="eager" alt="" class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542555_Frame%2018610.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac61-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542558_Frame%2018611.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac62-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542557_Frame%2018612.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac63-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255a_EY.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac64-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255d_toyota.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac65-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255c_Frame%2018608.svg"
+                    loading="eager" id="w-node-_672280b4-ff28-8ac3-f54a-c76ee9bfac66-09ede84c" alt=""
+                    class="client-logo"><img
+                    src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f54255b_airbus.svg"
+                    loading="eager" alt="" class="client-logo"></div>
+            <div class="home-logo-left-gradient"></div>
+            <div class="home-logo-left-gradient right"></div>
+        </div>
+    </div>
 
     <div class="space-y-5 px-8 py-12">
         <div class="container flex space-x-2">
