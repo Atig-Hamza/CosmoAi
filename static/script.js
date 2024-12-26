@@ -7,6 +7,7 @@ const lenis = new Lenis({
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
+    ScrollTrigger.update();
   }
   
   requestAnimationFrame(raf);
@@ -69,3 +70,25 @@ window.addEventListener('scroll', () => {
   image1.style.transform = `translateY(-${scrollPosition * 0.5}px) rotate(8deg)`;
   image2.style.transform = `translateY(-${scrollPosition * 0.5}px) rotate(-8deg)`;
 });
+
+const enableHorizontalScrollInSection = () => {
+  const section = document.querySelector('.section-scroll-text');
+  const scrollContainer = section.querySelector('.flex');
+
+  if (scrollContainer) {
+    gsap.to(scrollContainer, {
+      x: () => -(scrollContainer.scrollWidth - window.innerWidth),
+      ease: 'linear',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top top',
+        end: () => `+=${scrollContainer.scrollWidth}`,
+        scrub: true,
+        pin: true,
+        invalidateOnRefresh: true,
+      },
+    });
+  }
+};
+
+enableHorizontalScrollInSection();
