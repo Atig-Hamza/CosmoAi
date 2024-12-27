@@ -290,6 +290,38 @@
             -webkit-text-fill-color: transparent;
             white-space: nowrap;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            overflow: hidden;
+            height: 70vh;
+        }
+
+        .card__content {
+            float: left;
+            width: 75%;
+        }
+
+        .card__inner {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transform: translateY(-35vh);
+        }
+
+        .card__title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .card__text {
+            color: #ccc;
+        }
     </style>
 
 </head>
@@ -453,8 +485,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/1.jpeg"
-                            alt="Feature 1" />
+                        <img class="rounded-t-lg" src="../images/imgs/1.jpeg" alt="Feature 1" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -478,8 +509,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/2.jpeg"
-                            alt="Feature 2" />
+                        <img class="rounded-t-lg" src="../images/imgs/2.jpeg" alt="Feature 2" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -503,8 +533,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/3.jpeg"
-                            alt="Feature 3" />
+                        <img class="rounded-t-lg" src="../images/imgs/3.jpeg" alt="Feature 3" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -528,8 +557,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/4.jpeg"
-                            alt="Feature 4" />
+                        <img class="rounded-t-lg" src="../images/imgs/4.jpeg" alt="Feature 4" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -553,8 +581,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/5.jpeg"
-                            alt="Feature 5" />
+                        <img class="rounded-t-lg" src="../images/imgs/5.jpeg" alt="Feature 5" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -578,8 +605,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/6.jpeg"
-                            alt="Feature 6" />
+                        <img class="rounded-t-lg" src="../images/imgs/6.jpeg" alt="Feature 6" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -603,8 +629,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/7.jpeg"
-                            alt="Feature 7" />
+                        <img class="rounded-t-lg" src="../images/imgs/7.jpeg" alt="Feature 7" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -628,8 +653,7 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/8.jpeg"
-                            alt="Feature 8" />
+                        <img class="rounded-t-lg" src="../images/imgs/8.jpeg" alt="Feature 8" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -832,7 +856,66 @@
     </section>
 
     <div class="h-16 bg-gradient-to-b from-slate-900 to-white"></div>
+
+    <section class="container">
+        <ul class="list">
+            <li class="list__item">
+                <article class="card">
+                    <section class="card__content">
+                        <section class="card__inner">
+                            <h1 class="card__title text-8xl">1. Boost your productivity</h1>
+                            <p class="card__text text-4xl">With Cosmo AI, you can automate most of your development tasks, allowing you to focus on higher-level tasks and boost your overall productivity.</p>
+                        </section>
+                    </section>
+                </article>
+            </li>
+            <li class="list__item">
+                <article class="card">
+                    <section class="card__content">
+                        <section class="card__inner">
+                            <h1 class="card__title text-8xl">2. Get more done in less time</h1>
+                            <p class="card__text text-4xl">Cosmo AI is designed to help you get more done in less time. With its advanced AI algorithms, you can quickly prototype, build, and deploy your ideas.</p>
+                        </section>
+                    </section>
+                </article>
+            </li>
+            <li class="list__item">
+                <article class="card">
+                    <section class="card__content">
+                        <section class="card__inner">
+                            <h1 class="card__title text-8xl">3. Reduce development costs</h1>
+                            <p class="card__text text-4xl">By automating most of your development tasks, you can reduce your development costs and allocate more resources to other areas of your business.</p>
+                        </section>
+                    </section>
+                </article>
+            </li>
+            <li class="list__item">
+                <article class="card">
+                    <section class="card__content">
+                        <section class="card__inner">
+                            <h1 class="card__title text-8xl">4. Improve your code quality</h1>
+                            <p class="card__text text-4xl">With Cosmo AI, you can improve the overall quality of your codebase. It can help you identify bugs, suggest better coding practices, and even refactor your code for better performance.</p>
+                        </section>
+                    </section>
+                </article>
+            </li>
+            <li class="list__item">
+                <article class="card">
+                    <section class="card__content">
+                        <section class="card__inner">
+                            <h1 class="card__title text-8xl">5. Get free features</h1>
+                            <p class="card__text text-4xl">We have some free features for you to try out. You can use our AI-powered code editor, code review tool, and even our AI-powered chatbot for free.</p>
+                        </section>
+                    </section>
+                </article>
+            </li>
+        </ul>
+    </section>
+
     <div class="logos-marquee">
+        <div class="container flex space-x-2">
+            <p class="text-2xl md:text-3xl font-bold">Our Partners</p>
+        </div>
         <div class="home-logo-wrapper">
             <div class="clients-grid logo-animate"><img
                     src="https://cdn.prod.website-files.com/65aebad6eb424b0209ede842/65afaf92263c2c5d3f542556_Frame%2018608.svg"

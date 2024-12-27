@@ -116,3 +116,43 @@ for(const star of document.getElementsByClassName("magic-star")) {
     setInterval(() => animate(star), 1000);
   }, index++ * (interval / 3))
 }
+
+//section animation
+let panels = gsap.utils.toArray(".card__content");
+
+panels.forEach((item, i) => {
+  const contentElements = item.querySelectorAll(".card__inner > *");
+
+  gsap.set(contentElements, {
+    y: 0,
+    opacity: 0
+  });
+
+  
+  ScrollTrigger.create({
+    trigger: item,
+    
+    pin: true,
+    start: "top 50%",
+    end: "bottom 50%",
+    
+    snap: { snapTo: [0.5], duration: 1, delay: 0},
+    
+    onEnter: ({ progress, direction, isActive }) => {
+      console.log("onEnter", progress, direction, isActive);
+      gsap.fromTo(contentElements, { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05 });
+    },
+    onLeave: ({ progress, direction, isActive }) => {
+      console.log("onLeave", progress, direction, isActive);
+      gsap.fromTo(contentElements, { y: 0, opacity: 1 }, { y: -80, opacity: 0, stagger: 0.05 });
+    },
+    onLeaveBack: ({ progress, direction, isActive }) => {
+      console.log("onLeaveBack", progress, direction, isActive);      
+      gsap.fromTo(contentElements, { y: 0, opacity: 1 }, { y: -80, opacity: 0, stagger: 0.05 });
+    },
+    onEnterBack: ({ progress, direction, isActive }) => {
+      console.log("onEnterBack", progress, direction, isActive);
+      gsap.fromTo(contentElements, { y: -80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.05 });
+    }
+  });
+});
