@@ -241,11 +241,21 @@
             }
         }
 
-        #slogan {
+        #slogan1 {
             color: black;
             font-family: "Rubik", sans-serif;
             font-size: clamp(2em, 2vw, 4em);
             font-weight: 400;
+            margin: 0px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #slogan2 {
+            color: black;
+            font-family: "Jura", sans-serif;
+            font-size: clamp(4em, 4vw, 20em);
+            font-weight: 500;
             margin: 0px;
             padding: 20px;
             text-align: center;
@@ -347,7 +357,7 @@
         <div class="backdrop-blur-[2px] absolute top-0 left-0 w-screen h-screen"></div>
         <div class="w-1/2 text-center pl-6 z-30">
             <h1 class="text-8xl font-extrabold text-gray-800 mb-4">Welcome to Cosmo AI</h1>
-            <h1 id="slogan">
+            <h1 id="slogan1">
                 Your Gateway to
                 <span class="magic">
                     <span class="magic-star">
@@ -483,195 +493,68 @@
             <div class="flex space-x-6 w-max h-full items-center px-6">
                 <!-- Card 1 - Feature 1 -->
                 <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/1.jpeg" alt="Feature 1" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Advanced
-                                Natural Language Processing</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI understands and processes
-                            human language at an advanced level, making conversations feel more natural.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
+                    class="w-[900px] flex flex-col gap-11">
+                    <h1 id="slogan2">
+                        Describe what you want to see and the 
+                        <span class="magic">
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-text">AI</span>
+                        </span>
+                        will generate an image for you.
+                    </h1>
                 </div>
                 <!-- Card 2 - Feature 2 -->
-                <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/2.jpeg" alt="Feature 2" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Image
-                                Recognition</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-powered image recognition helps
-                            in analyzing and interpreting visual content efficiently.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
+                <div>
+                    <img src="../images/imgs/usage1.png" class="w-[70%] ml-48" alt="">
                 </div>
                 <!-- Card 3 - Feature 3 -->
                 <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/3.jpeg" alt="Feature 3" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Predictive
-                                Analytics</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI leverages predictive
-                            analytics to forecast trends and behaviors based on historical data.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
+                    class="w-[900px]">
+                    <h1 id="slogan2">
+                        <span class="magic">
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-star">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                                </svg>
+                            </span>
+                            <span class="magic-text">Super Resolution</span>
+                        </span>
+                        Image Generation.
+                    </h1>
                 </div>
                 <!-- Card 4 - Feature 4 -->
-                <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/4.jpeg" alt="Feature 4" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Real-time
-                                Data Processing</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI can process data in
-                            real-time, providing immediate insights and decisions.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Card 5 - Feature 5 -->
-                <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/5.jpeg" alt="Feature 5" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Voice
-                                Recognition</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-enabled voice recognition
-                            systems that understand and respond to verbal commands.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Card 6 - Feature 6 -->
-                <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/6.jpeg" alt="Feature 6" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Automated
-                                Decision Making</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI can make automated decisions
-                            based on data and pre-set criteria, increasing efficiency.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Card 7 - Feature 7 -->
-                <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/7.jpeg" alt="Feature 7" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                Personalized Recommendations</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">AI-driven recommendations to
-                            personalize user experiences based on previous interactions.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Card 8 - Feature 8 -->
-                <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="rounded-t-lg" src="../images/imgs/8.jpeg" alt="Feature 8" />
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">AI-Driven
-                                Security</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Our AI enhances security with
-                            automated threat detection and real-time monitoring systems.</p>
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Read more
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </a>
-                    </div>
+                <div class="">
+                    <img src="../images/imgs/usage2.png" class="w-[120%]" alt="">
                 </div>
             </div>
         </div>
@@ -864,7 +747,9 @@
                     <section class="card__content">
                         <section class="card__inner">
                             <h1 class="card__title text-8xl">1. Boost your productivity</h1>
-                            <p class="card__text text-4xl">With Cosmo AI, you can automate most of your development tasks, allowing you to focus on higher-level tasks and boost your overall productivity.</p>
+                            <p class="card__text text-4xl">With Cosmo AI, you can automate most of your development
+                                tasks, allowing you to focus on higher-level tasks and boost your overall productivity.
+                            </p>
                         </section>
                     </section>
                 </article>
@@ -874,7 +759,9 @@
                     <section class="card__content">
                         <section class="card__inner">
                             <h1 class="card__title text-8xl">2. Get more done in less time</h1>
-                            <p class="card__text text-4xl">Cosmo AI is designed to help you get more done in less time. With its advanced AI algorithms, you can quickly prototype, build, and deploy your ideas.</p>
+                            <p class="card__text text-4xl">Cosmo AI is designed to help you get more done in less time.
+                                With its advanced AI algorithms, you can quickly prototype, build, and deploy your
+                                ideas.</p>
                         </section>
                     </section>
                 </article>
@@ -884,7 +771,8 @@
                     <section class="card__content">
                         <section class="card__inner">
                             <h1 class="card__title text-8xl">3. Reduce development costs</h1>
-                            <p class="card__text text-4xl">By automating most of your development tasks, you can reduce your development costs and allocate more resources to other areas of your business.</p>
+                            <p class="card__text text-4xl">By automating most of your development tasks, you can reduce
+                                your development costs and allocate more resources to other areas of your business.</p>
                         </section>
                     </section>
                 </article>
@@ -894,7 +782,9 @@
                     <section class="card__content">
                         <section class="card__inner">
                             <h1 class="card__title text-8xl">4. Improve your code quality</h1>
-                            <p class="card__text text-4xl">With Cosmo AI, you can improve the overall quality of your codebase. It can help you identify bugs, suggest better coding practices, and even refactor your code for better performance.</p>
+                            <p class="card__text text-4xl">With Cosmo AI, you can improve the overall quality of your
+                                codebase. It can help you identify bugs, suggest better coding practices, and even
+                                refactor your code for better performance.</p>
                         </section>
                     </section>
                 </article>
@@ -904,7 +794,9 @@
                     <section class="card__content">
                         <section class="card__inner">
                             <h1 class="card__title text-8xl">5. Get free features</h1>
-                            <p class="card__text text-4xl">We have some free features for you to try out. You can use our AI-powered code editor, code review tool, and even our AI-powered chatbot for free.</p>
+                            <p class="card__text text-4xl">We have some free features for you to try out. You can use
+                                our AI-powered code editor, code review tool, and even our AI-powered chatbot for free.
+                            </p>
                         </section>
                     </section>
                 </article>

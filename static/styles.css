@@ -852,6 +852,26 @@ video {
   margin-top: 2rem;
 }
 
+.mr-32 {
+  margin-right: 8rem;
+}
+
+.-ml-20 {
+  margin-left: -5rem;
+}
+
+.ml-20 {
+  margin-left: 5rem;
+}
+
+.ml-28 {
+  margin-left: 7rem;
+}
+
+.ml-48 {
+  margin-left: 12rem;
+}
+
 .block {
   display: block;
 }
@@ -1033,6 +1053,54 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-\[700px\] {
+  width: 700px;
+}
+
+.w-\[900px\] {
+  width: 900px;
+}
+
+.w-\[00px\] {
+  width: 00px;
+}
+
+.w-\[1000px\] {
+  width: 1000px;
+}
+
+.w-\[800px\] {
+  width: 800px;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+.w-\[\] {
+  width: ;
+}
+
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.w-\[100\%\] {
+  width: 100%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
+.w-\[120\%\] {
+  width: 120%;
 }
 
 .min-w-\[3\.5rem\] {
@@ -1240,6 +1308,10 @@ video {
 
 .gap-96 {
   gap: 24rem;
+}
+
+.gap-11 {
+  gap: 2.75rem;
 }
 
 .-space-x-52 > :not([hidden]) ~ :not([hidden]) {
@@ -1857,6 +1929,10 @@ video {
   padding: 2rem;
 }
 
+.p-44 {
+  padding: 11rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2010,6 +2086,18 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pl-52 {
+  padding-left: 13rem;
+}
+
+.pl-44 {
+  padding-left: 11rem;
+}
+
+.pl-24 {
+  padding-left: 6rem;
 }
 
 .text-left {
