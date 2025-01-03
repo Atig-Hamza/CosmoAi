@@ -1,7 +1,7 @@
 //smooth scroll
 const lenis = new Lenis({
     smooth: true,
-    lerp: 0.12,
+    lerp: 0.11,
   });
   
   function raf(time) {
