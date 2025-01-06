@@ -81,6 +81,26 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                 codeBlock.style.color = '#fff';
                 codeBlock.style.padding = '10px';
                 codeBlock.style.borderRadius = '5px';
+
+                // Add copy button
+                const copyButton = document.createElement('button');
+                copyButton.textContent = 'Copy';
+                copyButton.style.marginTop = '5px';
+                copyButton.style.padding = '5px 10px';
+                copyButton.style.backgroundColor = '#383734';
+                copyButton.style.color = '#fff';
+                copyButton.style.border = 'none';
+                copyButton.style.borderRadius = '5px';
+                copyButton.style.cursor = 'pointer';
+
+                copyButton.addEventListener('click', () => {
+                    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+                        copyButton.textContent = 'Copied!';
+                        setTimeout(() => (copyButton.textContent = 'Copy'), 2000);
+                    });
+                });
+
+                codeBlock.parentNode.appendChild(copyButton);
             });
 
             if (isScrolledToBottom) {
