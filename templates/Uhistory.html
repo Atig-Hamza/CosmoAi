@@ -11,6 +11,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+    
 </head>
 
 <body class="font-jura">
@@ -155,98 +175,69 @@
                 Upgrade Plan
             </a>
         </div>
-        <div class="col-start-3 col-end-13 row-start-1 row-end-13 gap-3 grid grid-cols-12 grid-rows-12 p-4">
-            <div
-                class="flex flex-row justify-evenly col-start-1 col-end-13 row-start-1 row-end-13 bg-gray-100 rounded-lg p-6 space-x-6">
-                <!-- Chat History Section -->
-                <div
-                    class="flex-1 bg-white p-6 rounded-xl shadow-lg border border-gray-200 overflow-y-auto max-h-[640px]">
-                    <h1 class="text-4xl font-bold mb-6 text-gray-800 hover:text-blue-600 transition-colors">Chat History
-                    </h1>
-                    <ul class="space-y-5">
-                        <li class="flex items-center gap-4">
-                            <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
-                            <div>
-                                <h2 class="text-xl font-semibold hover:text-blue-600 transition-colors cursor-pointer">
-                                    [12:00] <span class="text-gray-500 italic">Title</span>: Asking about Algorithms
-                                </h2>
-                            </div>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
-                            <div>
-                                <h2 class="text-xl font-semibold hover:text-blue-600 transition-colors cursor-pointer">
-                                    [13:00] <span class="text-gray-500 italic">Title</span>: Creating Home Page
-                                </h2>
-                            </div>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-6 h-6 bg-blue-500 rounded-full"></div>
-                            <div>
-                                <h2 class="text-xl font-semibold hover:text-blue-600 transition-colors cursor-pointer">
-                                    [14:00] <span class="text-gray-500 italic">Title</span>: 10 Steps to Get Started
-                                </h2>
-                            </div>
-                        </li>
-                    </ul>
+        <div class="col-start-3 col-end-13 row-start-1 row-end-13 gap-3 flex flex-col p-4 overflow-y-scroll scrollbar-none">
+            <div class="flex flex-col divide-y divide-gray-300 p-5 h-[95vh] bg-gray-50">
+                <!-- Today Section -->
+                <div class="py-4">
+                    <div class="flex items-center">
+                        <h3 class="text-xl font-semibold text-gray-800">Today</h3>
+                    </div>
+                    <div class="divide-y divide-gray-200 pl-4">
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">Exploring AI in Healthcare</p>
+                            <span class="ml-auto text-gray-500 text-sm">10:15 AM</span>
+                        </div>
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">AI-Powered Chatbot Discussion</p>
+                            <span class="ml-auto text-gray-500 text-sm">11:45 AM</span>
+                        </div>
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">Future of AI in Education</p>
+                            <span class="ml-auto text-gray-500 text-sm">1:30 PM</span>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Image Generating History Section -->
-                <div
-                    class="flex-1 bg-white p-6 rounded-xl shadow-lg border border-gray-200 overflow-y-auto max-h-[640px]">
-                    <h1 class="text-4xl font-bold mb-6 text-gray-800 hover:text-yellow-500 transition-colors">
-                        Image Generating History
-                    </h1>
-                    <ul class="space-y-8">
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-yellow-500 rounded-full"></div>
-                            <div>
-                                <h2 class="text-xl font-semibold hover:text-yellow-500 transition-colors cursor-pointer">
-                                    [12:00] <span class="text-gray-500 italic">You</span>: Generate image with prompt:
-                                    "a cat"
-                                </h2>
-                                <p class="text-gray-600 mt-2">
-                                    Generated image:
-                                    <a href="https://picsum.photos/200/300" target="_blank" class="hover:underline">
-                                        <img class="w-28 h-28 mt-2 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105"
-                                            src="https://picsum.photos/200/300" alt="Generated cat image">
-                                    </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-yellow-500 rounded-full"></div>
-                            <div>
-                                <h2 class="text-xl font-semibold hover:text-yellow-500 transition-colors cursor-pointer">
-                                    [12:00] <span class="text-gray-500 italic">You</span>: Generate image with prompt:
-                                    "a dog"
-                                </h2>
-                                <p class="text-gray-600 mt-2">
-                                    Generated image:
-                                    <a href="https://picsum.photos/200/301" target="_blank" class="hover:underline">
-                                        <img class="w-28 h-28 mt-2 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105"
-                                            src="https://picsum.photos/200/301" alt="Generated dog image">
-                                    </a>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-6 h-6 bg-yellow-500 rounded-full"></div>
-                            <div>
-                                <h2 class="text-xl font-semibold hover:text-yellow-500 transition-colors cursor-pointer">
-                                    [12:00] <span class="text-gray-500 italic">You</span>: Generate image with prompt:
-                                    "a house"
-                                </h2>
-                                <p class="text-gray-600 mt-2">
-                                    Generated image:
-                                    <a href="https://picsum.photos/200/302" target="_blank" class="hover:underline">
-                                        <img class="w-28 h-28 mt-2 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105"
-                                            src="https://picsum.photos/200/302" alt="Generated house image">
-                                    </a>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
+            
+                <!-- Yesterday Section -->
+                <div class="py-4">
+                    <div class="flex items-center">
+                        <h3 class="text-xl font-semibold text-gray-800">Yesterday</h3>
+                    </div>
+                    <div class="divide-y divide-gray-200 pl-4">
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">AI and Climate Change Solutions</p>
+                            <span class="ml-auto text-gray-500 text-sm">9:00 AM</span>
+                        </div>
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">Ethics in AI Development</p>
+                            <span class="ml-auto text-gray-500 text-sm">2:15 PM</span>
+                        </div>
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">AI in Creative Industries</p>
+                            <span class="ml-auto text-gray-500 text-sm">4:45 PM</span>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- December Section -->
+                <div class="py-4">
+                    <div class="flex items-center">
+                        <h3 class="text-xl font-semibold text-gray-800">December</h3>
+                    </div>
+                    <div class="divide-y divide-gray-200 pl-4">
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">AI in Autonomous Vehicles</p>
+                            <span class="ml-auto text-gray-500 text-sm">12:00 PM</span>
+                        </div>
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">AI and Cybersecurity</p>
+                            <span class="ml-auto text-gray-500 text-sm">3:20 PM</span>
+                        </div>
+                        <div class="py-3 hover:bg-gray-100 transition duration-200 ease-in-out rounded-lg">
+                            <p class="text-gray-700 flex items-center">AI in Financial Markets</p>
+                            <span class="ml-auto text-gray-500 text-sm">6:10 PM</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
