@@ -100,3 +100,23 @@ const next = () => {
 }
 
 next()
+
+
+//handel submition of form
+document.getElementById('chat-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const messageInput = document.getElementById('message-input');
+    const message = messageInput.value.trim();
+
+    if (message) {
+        console.log('Message submitted:', message);
+
+        messageInput.value = '';
+    } else {
+        alert('Please enter a message before submitting.');
+    }
+});
+
+document.getElementById('talkto').addEventListener('click', function () {
+    console.log('Talk to Cosmo button clicked');
+});
