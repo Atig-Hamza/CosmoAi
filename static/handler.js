@@ -1,5 +1,20 @@
 const userId = Math.random().toString(36).substring(7);
 
+document.getElementById('message-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        if (event.shiftKey) {
+            const cursorPosition = this.selectionStart;
+            const text = this.value;
+            this.value = text.slice(0, cursorPosition) + '\n' + text.slice(cursorPosition);
+            this.selectionStart = this.selectionEnd = cursorPosition + 1;
+            event.preventDefault();
+        } else {
+            event.preventDefault();
+            document.getElementById('chat-form').dispatchEvent(new Event('submit'));
+        }
+    }
+});
+
 document.getElementById('chat-form').addEventListener('submit', async function (event) {
     event.preventDefault();
     const messageInput = document.getElementById('message-input');
