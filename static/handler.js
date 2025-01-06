@@ -15,13 +15,25 @@ document.getElementById('chat-form').addEventListener('submit', async function (
 
         const sentMessageElement = document.createElement('div');
         sentMessageElement.className = 'user-message';
-        sentMessageElement.textContent = `You: ${userMessage}`;
+        sentMessageElement.style.paddingLeft = '88px';
+        sentMessageElement.style.paddingRight = '88px';
+        const youElement = document.createElement('div');
+        youElement.style.fontWeight = 'bold';
+        youElement.textContent = 'You';
+        sentMessageElement.appendChild(youElement);
+
+        const messageElement = document.createElement('div');
+        messageElement.style.fontWeight = 'normal';
+        messageElement.textContent = userMessage;
+        sentMessageElement.appendChild(messageElement);
         chatContainer.appendChild(sentMessageElement);
 
         messageInput.value = '';
 
         const loadingElement = document.createElement('div');
         loadingElement.className = 'cosmo-message';
+        loadingElement.style.paddingLeft = '88px';
+        loadingElement.style.paddingRight = '88px';
         loadingElement.textContent = `Cosmo: Thinking...`;
         chatContainer.appendChild(loadingElement);
 
@@ -44,16 +56,25 @@ document.getElementById('chat-form').addEventListener('submit', async function (
 
             const cosmoMessageElement = document.createElement('div');
             cosmoMessageElement.className = 'cosmo-message';
+            cosmoMessageElement.style.paddingLeft = '88px';
+            cosmoMessageElement.style.paddingRight = '88px';
+
+            const cosmoNameElement = document.createElement('div');
+            cosmoNameElement.style.fontWeight = 'bold';
+            cosmoNameElement.textContent = 'Cosmo: ';
+            cosmoMessageElement.appendChild(cosmoNameElement);
 
             const reader = new commonmark.Parser();
             const writer = new commonmark.HtmlRenderer();
             const parsedMarkdown = reader.parse(data.response);
             const htmlOutput = writer.render(parsedMarkdown);
 
-            cosmoMessageElement.innerHTML = htmlOutput;
+            const messageElement = document.createElement('div');
+            messageElement.innerHTML = htmlOutput;
+            cosmoMessageElement.appendChild(messageElement);
             chatContainer.appendChild(cosmoMessageElement);
 
-            cosmoMessageElement.querySelectorAll('pre code').forEach((codeBlock) => {
+            messageElement.querySelectorAll('pre code').forEach((codeBlock) => {
                 codeBlock.classList.add('hljs');
                 hljs.highlightElement(codeBlock);
                 codeBlock.style.backgroundColor = '#000';
