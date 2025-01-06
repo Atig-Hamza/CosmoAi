@@ -106,17 +106,24 @@ next()
 document.getElementById('chat-form').addEventListener('submit', function (event) {
     event.preventDefault();
     const messageInput = document.getElementById('message-input');
-    const message = messageInput.value.trim();
+    const userMessage = messageInput.value.trim();
+    if (userMessage) {
+        const chatContainer = document.getElementById('chat-container');
+        if (chatContainer.querySelector('#slogan') || chatContainer.querySelector('#slogan2')) {
+            chatContainer.innerHTML = '';
+        }
+        const sentMessageElement = document.createElement('div');
+        sentMessageElement.className = 'user-message';
+        sentMessageElement.textContent = `You: ${userMessage}`;
+        chatContainer.appendChild(sentMessageElement);
 
-    if (message) {
-        console.log('Message submitted:', message);
+        const defaultAnswerElement = document.createElement('div');
+        defaultAnswerElement.className = 'cosmo-message';
+        defaultAnswerElement.textContent = `Cosmo: Hello! How can I assist you today?`;
+        chatContainer.appendChild(defaultAnswerElement);
 
         messageInput.value = '';
-    } else {
-        alert('Please enter a message before submitting.');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 });
 
-document.getElementById('talkto').addEventListener('click', function () {
-    console.log('Talk to Cosmo button clicked');
-});
