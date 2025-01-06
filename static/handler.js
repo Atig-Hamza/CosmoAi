@@ -30,11 +30,14 @@ document.getElementById('chat-form').addEventListener('submit', async function (
 
         const sentMessageElement = document.createElement('div');
         sentMessageElement.className = 'user-message';
-        sentMessageElement.style.paddingLeft = '88px';
-        sentMessageElement.style.paddingRight = '88px';
+        sentMessageElement.style.paddingLeft = '95px';
+        sentMessageElement.style.paddingRight = '95px';
+        sentMessageElement.style.marginBottom = '20px';
+        sentMessageElement.style.fontSize = '18px';
         const youElement = document.createElement('div');
         youElement.style.fontWeight = 'bold';
         youElement.textContent = 'You';
+        youElement.style.fontSize = '16px';
         sentMessageElement.appendChild(youElement);
 
         const messageElement = document.createElement('div');
@@ -47,8 +50,9 @@ document.getElementById('chat-form').addEventListener('submit', async function (
 
         const loadingElement = document.createElement('div');
         loadingElement.className = 'cosmo-message';
-        loadingElement.style.paddingLeft = '88px';
-        loadingElement.style.paddingRight = '88px';
+        loadingElement.style.paddingLeft = '95px';
+        loadingElement.style.paddingRight = '95px';
+        loadingElement.style.fontSize = '18px';
         loadingElement.textContent = `Cosmo: Thinking...`;
         chatContainer.appendChild(loadingElement);
 
@@ -71,12 +75,14 @@ document.getElementById('chat-form').addEventListener('submit', async function (
 
             const cosmoMessageElement = document.createElement('div');
             cosmoMessageElement.className = 'cosmo-message';
-            cosmoMessageElement.style.paddingLeft = '88px';
-            cosmoMessageElement.style.paddingRight = '88px';
+            cosmoMessageElement.style.paddingLeft = '95px';
+            cosmoMessageElement.style.paddingRight = '95px';
+            cosmoMessageElement.style.fontSize = '18px';
 
             const cosmoNameElement = document.createElement('div');
             cosmoNameElement.style.fontWeight = 'bold';
             cosmoNameElement.textContent = 'Cosmo: ';
+            cosmoNameElement.style.fontSize = '16px';
             cosmoMessageElement.appendChild(cosmoNameElement);
 
             const reader = new commonmark.Parser();
@@ -127,3 +133,4 @@ document.getElementById('chat-form').addEventListener('submit', async function (
         }
     }
 });
+
