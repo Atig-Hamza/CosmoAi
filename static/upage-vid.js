@@ -15,12 +15,30 @@ const gocall = document.getElementById("gocall");
 gocall.addEventListener("click", () => {
     document.getElementById("callmodal").classList.remove("hidden");
     document.getElementById("videomodal").classList.add("hidden");
+    const videoElement = document.getElementById('videoElement');
+    const stream = videoElement.srcObject;
+    const tracks = stream.getTracks();
+    
+    tracks.forEach(function(track) {
+        track.stop();
+    });
+    
+    videoElement.srcObject = null;
 });
 
 const closemodal2 = document.getElementById("closemodal2");
 closemodal2.addEventListener("click", () => {
     document.getElementById("callmodal").classList.add("hidden");
     document.getElementById("videomodal").classList.add("hidden");
+    const videoElement = document.getElementById('videoElement');
+    const stream = videoElement.srcObject;
+    const tracks = stream.getTracks();
+    
+    tracks.forEach(function(track) {
+        track.stop();
+    });
+    
+    videoElement.srcObject = null;
 })
 
 govid.addEventListener("click", () => {
