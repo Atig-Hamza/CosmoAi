@@ -3,7 +3,7 @@ const { HfInference } = require('@huggingface/inference');
 const cors = require('cors');
 
 const app = express();
-const client = new HfInference('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');
+const client = new HfInference('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');
 
 app.use(cors());
 app.use(express.json());
