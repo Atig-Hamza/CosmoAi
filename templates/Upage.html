@@ -126,7 +126,6 @@
             position: absolute;
             opacity: 0.15;
             border-radius: 47%;
-
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
@@ -213,6 +212,65 @@
 
         #chat-container::-webkit-scrollbar-thumb:hover {
             background: #555;
+        }
+
+        .circleb {
+            background: #4567b7;
+            background-image: linear-gradient(90deg, #0d47a1, #1976d2, #2196f3, #42a5f5, #64b5f6, #90caf9, #bbdefb, #e3f2fd, #bbdefb, #90caf9, #64b5f6);
+            width: 100px;
+            height: 90px;
+            opacity: 0.15;
+            border-radius: 47%;
+            position: absolute;
+            top: 550px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .oneb {
+            transform: rotateZ(15deg);
+            animation: snurr 4s linear infinite;
+            box-shadow: 0px 0px 60px 20px rgba(255, 255, 255, 1);
+            animation-direction: reverse;
+        }
+
+        .twob {
+            transform: rotateZ(30deg);
+            animation: snurr 4.5s linear infinite;
+        }
+
+        .threeb {
+            transform: rotateZ(45deg);
+            animation: snurr 6s linear infinite;
+            border: 1px dotted white;
+            animation-direction: reverse;
+        }
+
+        .fourb {
+            transform: rotateZ(60deg);
+            animation: snurr 5s linear infinite;
+
+        }
+
+        .fiveb {
+            transform: rotateZ(75deg);
+            animation: snurr 7s linear infinite;
+        }
+
+        .sixb {
+            transform: rotateZ(90deg);
+            animation: snurr 7.5s linear infinite;
+            animation-direction: reverse;
+        }
+
+
+        @keyframes snurr {
+            0% {
+                transform: rotateZ(0deg);
+            }
+
+            100% {
+                transform: rotateZ(360deg);
+            }
         }
     </style>
 </head>
@@ -438,6 +496,10 @@
 
     <div id="callmodal" class="hidden absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
         <div id="callmodal2" class="z-10 flex flex-col justify-center items-center w-[100%] h-[100%] bg-white">
+            <button id="gotovideo" style="position: absolute; left: 10px; top: 10px;"
+                class="text-gray-600 hover:border border-blue-400 font-jura py-2 px-4 rounded">
+                <strong>Go video</strong>
+            </button>
             <div id="black" class="flex justify-center items-center w-full h-full">
                 <div class="circle one"></div>
                 <div class="circle two"></div>
@@ -460,7 +522,42 @@
             </p>
         </div>
     </div>
+    <div id="videomodal" class="hidden absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
+        <div id="callmodal2" class="z-10 flex flex-col justify-center items-center w-[100%] h-[100%] bg-white">
+            <button id="gocall" style="position: absolute; left: 10px; top: 10px;"
+                class="text-gray-600 hover:border border-blue-400 font-jura py-2 px-4 rounded">
+                <strong>Go call</strong>
+            </button>
+            <div id="live-video" class="absolute top-28 w-[600px] h-[400px] flex justify-center items-center">
+                <div class="w-[600px] h-[400px] rounded-lg overflow-hidden border-4 border-blue-500">
+                    <video id="videoElement" autoplay class="w-full h-full object-cover"></video>
+                </div>
+            </div>
 
+            <div id="blackb" class="flex justify-center items-center w-full h-full">
+                <div class="circleb oneb"></div>
+                <div class="circleb twob"></div>
+                <div class="circleb threeb"></div>
+                <div class="circleb fourb"></div>
+                <div class="circleb fiveb"></div>
+                <div class="circleb sixb"></div>
+            </div>
+            <button id="closemodal2" type="button"
+                class="absolute top-5 right-5 focus:outline-none text-gray-500 hover:text-gray-800 transition duration-150 ease-in-out"
+                onclick="document.getElementById('callmodal').classList.add('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <p class="absolute bottom-5 text-center text-gray-600 text-lg mt-4 font-jura">
+                <strong>Note:</strong> All conversations are secured by Cosmo.
+            </p>
+        </div>
+    </div>
+
+    <script src="../static/upage-vid.js"></script>
     <script src="../static/upage.js"></script>
     <script src="../static/handler.js"></script>
     <script src="../static/server.js"></script>
