@@ -92,14 +92,14 @@ document.getElementById('chat-form').addEventListener('submit', async function (
         ];
 
         const searchLinkPrompts = [
-            'Search for relevant links related to this and append them at the end of the response.',
-            'Provide relevant links for this topic at the end of the response.',
+            'Search for relevant links related to this and append them at the end of the response. suggest 1 youtube link',
+            'Provide relevant links for this topic at the end of the response. suggest 1 youtube link',
             'Include a list of useful links related to this in the response.',
-            'Find and append related links at the bottom of the response.',
-            'Add relevant links regarding this topic at the end of the answer.',
-            'Search for and include helpful links related to this query in the response.',
+            'Find and append related links at the bottom of the response. suggest 1 youtube link',
+            'Add relevant links regarding this topic at the end of the answer. suggest 1 youtube link',
+            'Search for and include helpful links related to this query in the response. suggest 1 youtube link',
             'Attach links relevant to this topic at the conclusion of the answer.',
-            'Provide a response and add related links at the end.',
+            'Provide a response and add related links at the end. suggest 1 youtube link',
             'Look for useful links regarding this and include them at the bottom.',
             'Find and append the most relevant links for this query at the end of the reply.',
             'Deliver a detailed response and attach relevant links at the end.',
@@ -158,11 +158,57 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                     color: blue;
                     text-decoration: underline;
                 }
+                .cosmo-message a:visited {
+                    color: purple; /* Optional: Change color for visited links */
+                }
+                .youtube-thumbnail {
+                    cursor: pointer;
+                    max-width: 100%;
+                    border-radius: 10px;
+                    margin-top: 10px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .youtube-iframe {
+                    width: 100%;
+                    height: 400px;
+                    border: none;
+                    border-radius: 10px;
+                    margin-top: 10px;
+                }
             `;
             document.head.appendChild(style);
-
+        
             messageElement.querySelectorAll('a').forEach((link) => {
                 link.setAttribute('target', '_blank');
+        
+                const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+                const match = link.href.match(youtubeRegex);
+        
+                if (match) {
+                    const videoId = match[4];
+                    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+                    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        
+                    const thumbnail = document.createElement('img');
+                    thumbnail.src = thumbnailUrl;
+                    thumbnail.className = 'youtube-thumbnail';
+                    thumbnail.alt = 'YouTube Video Thumbnail';
+        
+                    const iframe = document.createElement('iframe');
+                    iframe.src = embedUrl;
+                    iframe.className = 'youtube-iframe';
+                    iframe.style.display = 'none';
+        
+                    thumbnail.addEventListener('click', () => {
+                        thumbnail.style.display = 'none';
+                        iframe.style.display = 'block';
+                    });
+        
+                    link.parentNode.insertBefore(thumbnail, link.nextSibling);
+                    link.parentNode.insertBefore(iframe, link.nextSibling);
+                }
             });
         
             cosmoMessageElement.appendChild(messageElement);
