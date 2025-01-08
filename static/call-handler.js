@@ -17,7 +17,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
     const synth = window.speechSynthesis;
 
-    const hiddenPrompt = "Answer like a human. Keep it concise, natural, and conversational.";
+    const hiddenPrompt = "Respond like a friendly human. Keep it short, natural, and conversational, as your answer will be spoken aloud. For example, respond to 'Hello, dear, how are you doing?' with a warm and simple reply.";
 
     const sendToServerAndRespond = async (message) => {
         const userId = 'unique-user-id';
@@ -38,7 +38,8 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
             const utterance = new SpeechSynthesisUtterance(aiResponse);
             utterance.lang = 'en-US';
             utterance.rate = 1.0; // rate of natural speech
-            utterance.pitch = 1.0; // pitch of clarity
+            utterance.pitch = 1.8; // pitch of clarity
+            utterance.voice = synth.getVoices().filter(voice => voice.name === 'Google US English Female')[0];
             utterance.onstart = () => {
                 isSpeaking = true;
                 console.log('Speaking started.');
@@ -116,3 +117,4 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
     observer.observe(callmodal, { attributes: true, attributeFilter: ['class'] });
     handleModalState();
 }
+
