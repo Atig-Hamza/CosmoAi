@@ -123,43 +123,51 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                 },
                 body: JSON.stringify({ message: userMessage + " " + hiddenPrompt, userId }),
             });
-
+        
             if (!response.ok) {
                 throw new Error('Failed to fetch response from the server');
             }
-
+        
             const data = await response.json();
-
+        
             loadingElement.remove();
-
+        
             const cosmoMessageElement = document.createElement('div');
             cosmoMessageElement.className = 'cosmo-message';
             cosmoMessageElement.style.paddingLeft = '95px';
             cosmoMessageElement.style.paddingRight = '95px';
             cosmoMessageElement.style.fontSize = '18px';
-
+        
             const cosmoNameElement = document.createElement('div');
             cosmoNameElement.style.fontWeight = 'bold';
             cosmoNameElement.textContent = 'Cosmo: ';
             cosmoNameElement.style.fontSize = '16px';
             cosmoMessageElement.appendChild(cosmoNameElement);
-
+        
             const reader = new commonmark.Parser();
             const writer = new commonmark.HtmlRenderer();
             const parsedMarkdown = reader.parse(data.response);
             const htmlOutput = writer.render(parsedMarkdown);
-
+        
             const messageElement = document.createElement('div');
             messageElement.innerHTML = htmlOutput;
+        
+            const style = document.createElement('style');
+            style.textContent = `
+                .cosmo-message a {
+                    color: blue;
+                    text-decoration: underline;
+                }
+            `;
+            document.head.appendChild(style);
 
-            messageElement.innerHTML = messageElement.innerHTML.replace(
-                /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi,
-                (url) => `<span style="color: #007bff; cursor: pointer;" onclick="window.open('${url}', '_blank')">${url}</span>`
-            );
-
+            messageElement.querySelectorAll('a').forEach((link) => {
+                link.setAttribute('target', '_blank');
+            });
+        
             cosmoMessageElement.appendChild(messageElement);
             chatContainer.appendChild(cosmoMessageElement);
-
+        
             messageElement.querySelectorAll('pre code').forEach((codeBlock) => {
                 codeBlock.classList.add('hljs');
                 hljs.highlightElement(codeBlock);
@@ -167,7 +175,7 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                 codeBlock.style.color = '#fff';
                 codeBlock.style.padding = '10px';
                 codeBlock.style.borderRadius = '5px';
-
+        
                 const copyButton = document.createElement('button');
                 copyButton.textContent = 'Copy';
                 copyButton.style.marginTop = '5px';
@@ -177,17 +185,17 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                 copyButton.style.border = 'none';
                 copyButton.style.borderRadius = '5px';
                 copyButton.style.cursor = 'pointer';
-
+        
                 copyButton.addEventListener('click', () => {
                     navigator.clipboard.writeText(codeBlock.textContent).then(() => {
                         copyButton.textContent = 'Copied!';
                         setTimeout(() => (copyButton.textContent = 'Copy'), 2000);
                     });
                 });
-
+        
                 codeBlock.parentNode.appendChild(copyButton);
             });
-
+        
             if (isScrolledToBottom) {
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }

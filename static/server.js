@@ -23,7 +23,7 @@ app.post('/chat', async (req, res) => {
     conversationHistory.push({ role: 'user', content: message });
 
     const response = await client.chatCompletion({
-      model: '01-ai/Yi-1.5-34B-Chat',
+      model: 'Qwen/Qwen2.5-Coder-32B-Instruct',
       messages: conversationHistory,
       temperature: 0.6,
       max_tokens: 2000,
