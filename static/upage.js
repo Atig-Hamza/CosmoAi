@@ -102,22 +102,32 @@ const next = () => {
 next()
 
 //activate features
+const toggleOnlyOne = (element) => {
+    const activeElements = document.querySelectorAll('.bg-blue-700');
+    activeElements.forEach(el => {
+        if (el !== element) {
+            el.classList.remove('bg-blue-700');
+            el.classList.remove('text-white');
+            el.dataset.toggled = false;
+        }
+    });
+    element.classList.toggle('bg-blue-700');
+    element.classList.toggle('text-white');
+    element.dataset.toggled = element.classList.contains('bg-blue-700');
+};
+
 const deepThinkingButton = document.getElementById('deepthinking');
-const BoostButton = document.getElementById('boost');
-const WebSearchButton = document.getElementById('websearch');
-const UploadButton = document.getElementById('upload');
-
 deepThinkingButton.addEventListener('click', () => {
-    deepThinkingButton.classList.toggle('bg-blue-700')
-    deepThinkingButton.classList.toggle('text-white')
+    toggleOnlyOne(deepThinkingButton);
 });
 
+const BoostButton = document.getElementById('boost');
 BoostButton.addEventListener('click', () => {
-    BoostButton.classList.toggle('bg-blue-700');
-    BoostButton.classList.toggle('text-white');
+    toggleOnlyOne(BoostButton);
 });
 
+const WebSearchButton = document.getElementById('websearch');
 WebSearchButton.addEventListener('click', () => {
-    WebSearchButton.classList.toggle('bg-blue-700');
-    WebSearchButton.classList.toggle('text-white');
+    toggleOnlyOne(WebSearchButton);
 });
+
