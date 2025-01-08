@@ -20,6 +20,7 @@ document.getElementById('chat-form').addEventListener('submit', async function (
     const messageInput = document.getElementById('message-input');
     const userMessage = messageInput.value.trim();
     const chatContainer = document.getElementById('chat-container');
+    let hiddenPrompt = '';
 
     if (chatContainer.querySelector('#slogan') || chatContainer.querySelector('#slogan2')) {
         chatContainer.innerHTML = '';
@@ -56,13 +57,25 @@ document.getElementById('chat-form').addEventListener('submit', async function (
         loadingElement.textContent = `Cosmo: Thinking...`;
         chatContainer.appendChild(loadingElement);
 
+        const deepThinkingButton = document.getElementById('deepthinking');
+        const boostButton = document.getElementById('boost');
+        const webSearchButton = document.getElementById('websearch');
+
+        if (webSearchButton.classList.contains('bg-blue-700')) {
+            hiddenPrompt = 'Please search for relevant links related to this and put them in last of the response.';
+        } else if (boostButton.classList.contains('bg-blue-700')) {
+            hiddenPrompt = 'Optimize the response and give the best output.';
+        } else if (deepThinkingButton.classList.contains('bg-blue-700')) {
+            hiddenPrompt = 'Break down the response into 5 steps that make reach this and steps must start with similar of i will, i must,...';
+        }
+
         try {
             const response = await fetch('http://localhost:3000/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: userMessage, userId }),
+                body: JSON.stringify({ message: userMessage + " " + hiddenPrompt, userId }),
             });
 
             if (!response.ok) {
@@ -103,7 +116,6 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                 codeBlock.style.padding = '10px';
                 codeBlock.style.borderRadius = '5px';
 
-                // Add copy button
                 const copyButton = document.createElement('button');
                 copyButton.textContent = 'Copy';
                 copyButton.style.marginTop = '5px';
@@ -133,4 +145,3 @@ document.getElementById('chat-form').addEventListener('submit', async function (
         }
     }
 });
-

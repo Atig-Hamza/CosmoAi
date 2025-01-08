@@ -101,7 +101,10 @@ const next = () => {
 
 next()
 
+//------------------------------------------------
 //activate features
+//------------------------------------------------
+
 const toggleOnlyOne = (element) => {
     const activeElements = document.querySelectorAll('.bg-blue-700');
     activeElements.forEach(el => {
