@@ -100,3 +100,24 @@ const next = () => {
 }
 
 next()
+
+//activate features
+const deepThinkingButton = document.getElementById('deepthinking');
+const BoostButton = document.getElementById('boost');
+const WebSearchButton = document.getElementById('websearch');
+const UploadButton = document.getElementById('upload');
+
+deepThinkingButton.addEventListener('click', () => {
+    deepThinkingButton.classList.toggle('bg-blue-700')
+    deepThinkingButton.classList.toggle('text-white')
+});
+
+BoostButton.addEventListener('click', () => {
+    BoostButton.classList.toggle('bg-blue-700');
+    BoostButton.classList.toggle('text-white');
+});
+
+WebSearchButton.addEventListener('click', () => {
+    WebSearchButton.classList.toggle('bg-blue-700');
+    WebSearchButton.classList.toggle('text-white');
+});
