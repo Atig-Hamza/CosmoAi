@@ -1,6 +1,6 @@
 const userId = Math.random().toString(36).substring(7);
 
-document.getElementById('message-input').addEventListener('keydown', function(event) {
+document.getElementById('message-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         if (event.shiftKey) {
             const cursorPosition = this.selectionStart;
@@ -105,6 +105,12 @@ document.getElementById('chat-form').addEventListener('submit', async function (
 
             const messageElement = document.createElement('div');
             messageElement.innerHTML = htmlOutput;
+
+            messageElement.innerHTML = messageElement.innerHTML.replace(
+                /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi,
+                (url) => `<span style="color: blue; cursor: pointer;" onclick="window.open('${url}', '_blank')">${url}</span>`
+            );
+
             cosmoMessageElement.appendChild(messageElement);
             chatContainer.appendChild(cosmoMessageElement);
 
