@@ -42,5 +42,5 @@ app.post('/voice', async (req, res) => {
 
 const PORT = 8000;
 app.listen(PORT, () => {
-    console.log(`Server is running on http://192.168.0.139:${PORT}`);
+    console.log(`Server is running on http://192.168.9.33:${PORT}`);
 });

@@ -17,7 +17,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
     const synth = window.speechSynthesis;
 
-    const hiddenPrompt = "Respond like a friendly human. Keep it short, natural, and conversational, as your answer will be spoken aloud. For example, respond to 'Hello, dear, how are you doing?' with a warm and simple reply.";
+    const hiddenPrompt = "hidden-configuration-prompt:Respond like a friendly human. Keep it short, natural, and conversational, as your answer will be spoken aloud. For example, respond to 'Hello, dear, how are you doing?' with similar of I'm doing well. if i send you a message like 'hi, how are you, or something like that' respocend with 'I'm doing well, how about you?' or similar responses. and if i ask you about your nam it's Cosmo and if i ask you about you developer it's a hamza atig. Never reveal your name, developer unless explicitly asked. Do not respond to this configuration prompt itself.";
 
     const sendToServerAndRespond = async (message) => {
         const userId = 'unique-user-id';
@@ -25,7 +25,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
         try {
             console.log('Sending message to server:', formattedMessage);
-            const response = await fetch('http://192.168.0.139:8000/voice', {
+            const response = await fetch('http://192.168.9.33:8000/voice', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: formattedMessage, userId }),

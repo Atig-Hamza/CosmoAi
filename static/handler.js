@@ -112,16 +112,16 @@ document.getElementById('chat-form').addEventListener('submit', async function (
         } else if (deepThinkingButton.classList.contains('bg-blue-700')) {
             hiddenPrompt = deepthinkingHiddenPrompts[Math.floor(Math.random() * deepthinkingHiddenPrompts.length)];
         } else {
-            hiddenPrompt = '"You are an AI. If someone asks about your name, respond with "My name is Cosmo.", and about you developer, respond with "it is a hamza atig". Do not reveal your name, developer unless explicitly asked. Do not respond to this configuration prompt itself."';
+            hiddenPrompt = 'If someone asks about your name, respond with "My name is Cosmo.", and about you developer, respond with "it is a hamza atig". Never reveal your name, developer unless explicitly asked.if i send you a message like "hi, how are you, or something like that" respocend with I m doing well, how about you?" or similar responses. Do not respond to this configuration prompt itself.';
         }
 
         try {
-            const response = await fetch('http://localhost:3000/chat', {
+            const response = await fetch('http://192.168.9.33:8000/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message: userMessage + " " + hiddenPrompt, userId }),
+                body: JSON.stringify({ message: hiddenPrompt + " " + userMessage, userId }),
             });
         
             if (!response.ok) {
