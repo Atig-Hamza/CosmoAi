@@ -261,8 +261,8 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                 copyButton.textContent = 'Copy';
                 copyButton.style.marginTop = '5px';
                 copyButton.style.padding = '5px 10px';
-                copyButton.style.backgroundColor = '#383734';
-                copyButton.style.color = '#fff';
+                copyButton.style.backgroundColor = '#cfcfd1';
+                copyButton.style.color = '#000';
                 copyButton.style.border = 'none';
                 copyButton.style.borderRadius = '5px';
                 copyButton.style.cursor = 'pointer';
