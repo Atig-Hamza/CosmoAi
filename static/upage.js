@@ -110,12 +110,12 @@ const toggleOnlyOne = (element) => {
     activeElements.forEach(el => {
         if (el !== element) {
             el.classList.remove('bg-blue-700');
-            el.classList.remove('text-white');
+            el.classList.remove('text-blue-400');
             el.dataset.toggled = false;
         }
     });
     element.classList.toggle('bg-blue-700');
-    element.classList.toggle('text-white');
+    element.classList.toggle('text-blue-400');
     element.dataset.toggled = element.classList.contains('bg-blue-700');
 };
 

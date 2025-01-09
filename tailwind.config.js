@@ -8,6 +8,7 @@ module.exports = {
     'grid',
     'grid-cols-12',
     'grid-rows-12',
+    'bg-blue-700',
   ],
   theme: {
     extend: {
