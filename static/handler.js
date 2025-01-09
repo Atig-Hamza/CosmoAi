@@ -116,7 +116,7 @@ document.getElementById('chat-form').addEventListener('submit', async function (
         }
 
         try {
-            const response = await fetch('http://192.168.9.33:8000/chat', {
+            const response = await fetch('https://192.168.9.33:8000/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

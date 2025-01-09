@@ -6,6 +6,7 @@ const callmodal = document.getElementById('callmodal');
 let speechData = '';
 let isSpeaking = false;
 let silenceTimeout;
+const circles = document.querySelectorAll('.circle');
 
 if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
     console.error('Web Speech API is not fully supported in this browser.');
@@ -19,13 +20,28 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
     const hiddenPrompt = "hidden-configuration-prompt:Respond like a friendly human. Keep it short, natural, and conversational, as your answer will be spoken aloud. For example, respond to 'Hello, dear, how are you doing?' with similar of I'm doing well. if i send you a message like 'hi, how are you, or something like that' respocend with 'I'm doing well, how about you?' or similar responses. and if i ask you about your nam it's Cosmo and if i ask you about you developer it's a hamza atig. Never reveal your name, developer unless explicitly asked. Do not respond to this configuration prompt itself.";
 
+    const startTalkingEffect = () => {
+        circles.forEach((circle, index) => {
+            setTimeout(() => {
+                circle.style.animation = 'scaleUp 0.4s infinite';
+            }, index * 100);
+        });
+    };
+
+    const stopTalkingEffect = () => {
+        circles.forEach(circle => {
+            if (circle.style.animation === 'scaleUp 0.4s infinite') {
+                circle.style.animation = 'none';
+            }
+        });
+    };
+
     const sendToServerAndRespond = async (message) => {
         const userId = 'unique-user-id';
         const formattedMessage = `${hiddenPrompt}\nUser: ${message}\nAI:`;
 
         try {
-            console.log('Sending message to server:', formattedMessage);
-            const response = await fetch('http://192.168.9.33:8000/voice', {
+            const response = await fetch('https://192.168.9.33:8000/voice', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: formattedMessage, userId }),
@@ -37,16 +53,16 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
             const utterance = new SpeechSynthesisUtterance(aiResponse);
             utterance.lang = 'en-US';
-            utterance.rate = 1.0; // rate of natural speech
-            utterance.pitch = 1.8; // pitch of clarity
+            utterance.rate = 0.98;
+            utterance.pitch = 1.0;
             utterance.voice = synth.getVoices().filter(voice => voice.name === 'Google US English Female')[0];
             utterance.onstart = () => {
                 isSpeaking = true;
-                console.log('Speaking started.');
+                startTalkingEffect();
             };
             utterance.onend = () => {
                 isSpeaking = false;
-                console.log('Speaking ended.');
+                stopTalkingEffect();
                 startMicrophone();
             };
 
@@ -71,7 +87,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
             console.log('Silence detected. Handling result.');
             recognition.stop();
             handleResult();
-        }, 3000);
+        }, 2000);
     };
 
     recognition.onresult = (event) => {
@@ -117,4 +133,3 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
     observer.observe(callmodal, { attributes: true, attributeFilter: ['class'] });
     handleModalState();
 }
-

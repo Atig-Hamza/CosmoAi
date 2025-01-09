@@ -1,3 +1,5 @@
+const https = require('https');
+const fs = require('fs');
 const express = require('express');
 const { HfInference } = require('@huggingface/inference');
 const cors = require('cors');
@@ -9,6 +11,13 @@ app.use(cors());
 app.use(express.json());
 
 const conversations = new Map();
+
+// Set up HTTPS
+const sslOptions = {
+  key: fs.readFileSync('C:/Users/imane/Desktop/CosmoAi/ssl/key.pem'),
+  cert: fs.readFileSync('C:/Users/imane/Desktop/CosmoAi/ssl/cert.pem'),
+};
+
 
 app.post('/chat', async (req, res) => {
   const { message, userId } = req.body;
@@ -44,6 +53,7 @@ app.post('/chat', async (req, res) => {
 });
 
 const PORT = 8000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://192.168.9.33:${PORT}`);
+
+https.createServer(sslOptions, app).listen(PORT, () => {
+  console.log(`Server is running on https://192.168.9.33:${PORT}`);
 });
