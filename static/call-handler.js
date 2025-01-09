@@ -5,6 +5,7 @@
 const callmodal = document.getElementById('callmodal');
 let speechData = '';
 let isSpeaking = false;
+let isModalOpen = false;
 let silenceTimeout;
 const circles = document.querySelectorAll('.circle');
 
@@ -18,7 +19,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
     const synth = window.speechSynthesis;
 
-    const hiddenPrompt = "hidden-configuration-prompt:Respond like a friendly human. Keep it short, natural, and conversational, as your answer will be spoken aloud. For example, respond to 'Hello, dear, how are you doing?' with similar of I'm doing well. if i send you a message like 'hi, how are you, or something like that' respocend with 'I'm doing well, how about you?' or similar responses. and if i ask you about your nam it's Cosmo and if i ask you about you developer it's a hamza atig. Never reveal your name, developer unless explicitly asked. and if i type say something only type this thing. Do not respond to this configuration prompt itself.";
+    const hiddenPrompt = "hidden-configuration-prompt:Respond like a friendly human and must be short. Keep it short, natural, and conversational, as your answer will be spoken aloud. For example, respond to 'Hello, dear, how are you doing?' with similar of I'm doing well. if i send you a message like 'hi, how are you, or something like that' respocend with 'I'm doing well, how about you?' or similar responses. and if i ask you about your nam it's Cosmo and if i ask you about you developer it's a hamza atig. Never reveal your name, developer unless explicitly asked. and if i type say something only type this thing. Do not respond to this configuration prompt itself.";
 
     const startTalkingEffect = () => {
         circles.forEach((circle, index) => {
@@ -30,9 +31,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
     const stopTalkingEffect = () => {
         circles.forEach(circle => {
-            if (circle.style.animation === 'scaleUp 0.4s infinite') {
-                circle.style.animation = 'none';
-            }
+            circle.style.animation = '';
         });
     };
 
@@ -41,7 +40,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
         const formattedMessage = `${hiddenPrompt}\nUser: ${message}\nAI:`;
 
         try {
-            const response = await fetch('https://192.168.9.33:8000/voice', {
+            const response = await fetch('https://192.168.0.139:8000/voice', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: formattedMessage, userId }),
@@ -55,7 +54,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
             utterance.lang = 'en-US';
             utterance.rate = 0.98;
             utterance.pitch = 1.0;
-            utterance.voice = synth.getVoices().filter(voice => voice.name === 'Google US English Female')[0];
+            utterance.voice = synth.getVoices().find(voice => voice.name === 'Google UK English Female') || synth.getVoices()[0];
             utterance.onstart = () => {
                 isSpeaking = true;
                 startTalkingEffect();
@@ -63,13 +62,25 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
             utterance.onend = () => {
                 isSpeaking = false;
                 stopTalkingEffect();
-                startMicrophone();
+                if (isModalOpen) {
+                    startMicrophone();
+                }
+            };
+            utterance.onerror = (event) => {
+                console.error('Speech synthesis error:', event.error);
+                isSpeaking = false;
+                stopTalkingEffect();
+                if (isModalOpen) {
+                    startMicrophone();
+                }
             };
 
             synth.speak(utterance);
         } catch (error) {
             console.error('Error communicating with server:', error);
-            startMicrophone();
+            if (isModalOpen) {
+                startMicrophone();
+            }
         }
     };
 
@@ -84,9 +95,11 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
     const resetSilenceTimer = () => {
         clearTimeout(silenceTimeout);
         silenceTimeout = setTimeout(() => {
-            console.log('Silence detected. Handling result.');
-            recognition.stop();
-            handleResult();
+            if (speechData.trim()) {
+                console.log('Silence detected. Handling result.');
+                recognition.stop();
+                handleResult();
+            }
         }, 1500);
     };
 
@@ -102,15 +115,19 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
     recognition.onerror = (event) => {
         console.error('Speech recognition error:', event.error);
-        if (!isSpeaking) startMicrophone();
+        if (!isSpeaking && isModalOpen) {
+            startMicrophone();
+        }
     };
 
     recognition.onend = () => {
-        if (!isSpeaking) handleResult();
+        if (!isSpeaking && isModalOpen) {
+            handleResult();
+        }
     };
 
     const startMicrophone = () => {
-        if (!isSpeaking) {
+        if (!isSpeaking && recognition.state !== 'recording' && isModalOpen) {
             recognition.start();
             console.log('Microphone opened. Listening...');
         }
@@ -123,9 +140,16 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
 
     const handleModalState = () => {
         if (!callmodal.classList.contains('hidden')) {
+            isModalOpen = true;
             startMicrophone();
         } else {
+            isModalOpen = false;
             stopMicrophone();
+            if (isSpeaking) {
+                synth.cancel();
+                isSpeaking = false;
+                stopTalkingEffect();
+            }
         }
     };
 
