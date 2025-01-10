@@ -2,6 +2,8 @@
 // Open Mic with Speech Recognition
 //------------------------------------------------
 
+const sensitiveWords = ['kill'];
+
 const callmodal = document.getElementById('callmodal');
 let speechData = '';
 let isSpeaking = false;
@@ -40,7 +42,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
         const formattedMessage = `${hiddenPrompt}\nUser: ${message}\nAI:`;
 
         try {
-            const response = await fetch('https://192.168.0.139:8000/voice', {
+            const response = await fetch('https://192.168.8.152:8000/voice', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: formattedMessage, userId }),
@@ -87,6 +89,23 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
     const handleResult = () => {
         if (speechData.trim() && !isSpeaking) {
             console.log('Stopped listening. Sending data to server:', speechData.trim());
+
+            const containsSensitiveWord = sensitiveWords.some(word => 
+                speechData.toLowerCase().includes(word.toLowerCase())
+            );
+
+            if (containsSensitiveWord) {
+                circles.forEach(circle => {
+                    circle.style.background = '#b71c1c';
+                    circle.style.backgroundImage = 'linear-gradient(90deg, #b71c1c, #c62828, #d32f2f, #e53935, #f44336, #ef5350, #e57373, #ef9a9a, #e57373, #ef5350, #f44336)';
+                });
+            } else {
+                circles.forEach(circle => {
+                    circle.style.background = '#4567b7';
+                    circle.style.backgroundImage = 'linear-gradient(90deg, #0d47a1, #1976d2, #2196f3, #42a5f5, #64b5f6, #90caf9, #bbdefb, #e3f2fd, #bbdefb, #90caf9, #64b5f6)';
+                });
+            }
+
             sendToServerAndRespond(speechData.trim());
             speechData = '';
         }
@@ -150,6 +169,12 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
                 isSpeaking = false;
                 stopTalkingEffect();
             }
+
+            // Reset circle color to default when modal closes
+            circles.forEach(circle => {
+                circle.style.background = '#4567b7';
+                circle.style.backgroundImage = 'linear-gradient(90deg, #0d47a1, #1976d2, #2196f3, #42a5f5, #64b5f6, #90caf9, #bbdefb, #e3f2fd, #bbdefb, #90caf9, #64b5f6)';
+            });
         }
     };
 
