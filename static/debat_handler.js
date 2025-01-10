@@ -57,7 +57,7 @@ document.getElementById('topic-form').addEventListener('submit', async function 
         chatContainer.appendChild(loadingElement);
 
         try {
-            const response = await fetch('http://localhost:8000/chat', {
+            const response = await fetch('https://192.168.8.152:8000/debat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
