@@ -1,183 +1,205 @@
-const videoElement = document.getElementById('videoElement');
-const videomodal = document.getElementById('videomodal');
-const gotovideo = document.getElementById('gotovideo');
-const closemodal = document.getElementById('closemodal');
-const gocall = document.getElementById('gocall');
-const closemodal2 = document.getElementById('closemodal2');
-const callmodal = document.getElementById('callmodal'); // Add reference to callmodal
-let stream;
-let recognition;
-let isRecognitionRunning = false;
-let isManualStop = false;
-let captureInterval;
+const govid = document.getElementById("gotovideo");
+const modalvid = document.getElementById("videomodal");
+const close = document.getElementById("closevid");
 
-gotovideo.addEventListener('click', () => {
-  console.log('Open Video Modal button clicked.');
-  callmodal.classList.add('hidden'); // Hide callmodal
-  videomodal.classList.remove('hidden');
-  startCamera();
+govid.addEventListener("click", () => {
+    modalvid.classList.remove("hidden");
+    if (!modalvid.classList.contains("hidden")) {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(stream => {
+                videoElement.srcObject = stream;
+                videoElement.play();
+                audioElement.srcObject = stream;
+                audioElement.play();
+            })
+            .catch(error => {
+                console.error("Error loading video and audio:", error);
+            });
+    }
 });
 
-closemodal.addEventListener('click', () => {
-  console.log('Close Modal button clicked.');
-  videomodal.classList.add('hidden');
-  stopCamera();
-});
-
-closemodal2.addEventListener('click', () => {
-  console.log('Close Modal 2 button clicked.');
-  videomodal.classList.add('hidden');
-  stopCamera();
-});
-
-gocall.addEventListener('click', () => {
-  console.log('Go Call button clicked.');
-  videomodal.classList.add('hidden');
-  stopCamera();
-  callmodal.classList.remove('hidden'); // Show callmodal
-});
-
-async function startCamera() {
-  console.log('Starting camera...');
-  try {
-    stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    console.log('Camera access granted.');
-    videoElement.srcObject = stream;
-    startSpeechRecognition();
-    captureInterval = setInterval(captureImage, 10000); // Capture image every 10 seconds
-    console.log('Camera started and image capture interval set.');
-  } catch (error) {
-    console.error('Error accessing camera:', error);
-  }
-}
-
-function stopCamera() {
-  console.log('Stopping camera...');
-  if (stream) {
-    stream.getTracks().forEach(track => track.stop());
+close.addEventListener("click", () => {
+    modalvid.classList.add("hidden");
+    videoElement.pause();
     videoElement.srcObject = null;
-    console.log('Camera stream stopped.');
-  }
-  if (recognition) {
-    isManualStop = true;
-    recognition.stop();
-    recognition = null;
-    console.log('Speech recognition stopped.');
-  }
-  clearInterval(captureInterval);
-  console.log('Image capture interval cleared.');
-}
+    audioElement.pause();
+    audioElement.srcObject = null;
+    stopMicrophone();
+});
 
-function startSpeechRecognition() {
-  console.log('Starting speech recognition...');
-  if (isRecognitionRunning) {
-    console.log('Speech recognition is already running.');
-    return;
-  }
+let speechVr = '';
+let isSpeahingVr = false;
+let isModalOpenVr = false;
+let silenceTimeoutVr;
+const circlesVr = document.querySelectorAll('.circleb');
 
-  recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.continuous = true;
-  recognition.interimResults = false;
+if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
+    console.error('Web Speech API is not fully supported in this browser.');
+} else {
+    const recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
 
-  recognition.onresult = async (event) => {
-    console.log('Speech recognition result received.');
-    const transcript = event.results[event.results.length - 1][0].transcript;
-    console.log('User said:', transcript);
+    const synth = window.speechSynthesis;
 
-    console.log('Capturing image from video stream...');
-    const imageBlob = await captureImage();
-    console.log('Image captured.');
+    const hiddenPrompt = "hidden-configuration-prompt:Respond like a friendly human and must be short. Keep it short, natural, and conversational, as your answer will be spoken aloud. For example, respond to 'Hello, dear, how are you doing?' with similar of I'm doing well. if i send you a message like 'hi, how are you, or something like that' respocend with 'I'm doing well, how about you?' or similar responses. and if i ask you about your nam it's Cosmo and if i ask you about you developer it's a hamza atig. Never reveal your name, developer unless explicitly asked. and if i type say something only type this thing. Do not respond to this configuration prompt itself.";
 
-    console.log('Sending data to backend...');
-    const formData = new FormData();
-    formData.append('image', imageBlob, 'image.jpg');
-    formData.append('message', transcript);
+    const startTalkingEffect = () => {
+        circlesVr.forEach((circle, index) => {
+            setTimeout(() => {
+                circle.style.animation = 'scaleUp 0.4s infinite';
+            }, index * 100);
+        });
+    };
 
-    try {
-      const response = await fetch('https://192.168.8.152:8000/analyze', {
-        method: 'POST',
-        body: formData,
-      });
-      const data = await response.json();
-      console.log('Response from backend:', data);
-      speak(data.response); 
-    } catch (error) {
-      console.error('Error sending data to backend:', error);
-    }
-  };
+    const stopTalkingEffect = () => {
+        circlesVr.forEach(circle => {
+            circle.style.animation = '';
+        });
+    };
 
-  recognition.onerror = (event) => {
-    console.error('Speech recognition error:', event.error);
-    if (event.error === 'aborted') {
-      if (!isManualStop) {
-        setTimeout(() => {
-          if (recognition) {
-            recognition.start();
-          }
-        }, 1000);
-      }
-    }
-  };
+    const sendToServerAndRespond = async (message) => {
+        const userId = 'unique-user-id';
+        const formattedMessage = `${hiddenPrompt}\nUser: ${message}\nAI:`;
 
-  recognition.onend = () => {
-    console.log('Speech recognition ended.');
-    isRecognitionRunning = false;
+        try {
+            const response = await fetch('https://192.168.8.152:8000/vid', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: formattedMessage, userId }),
+            });
 
-    if (!isManualStop) {
-      setTimeout(() => {
-        if (recognition) {
-          recognition.start();
+            const result = await response.json();
+            const aiResponse = result.response.trim();
+            console.log('Response from server:', aiResponse);
+
+            const utterance = new SpeechSynthesisUtterance(aiResponse);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.98;
+            utterance.pitch = 1.0;
+            utterance.voice = synth.getVoices().find(voice => voice.name === 'Google UK English Female') || synth.getVoices()[0];
+            utterance.onstart = () => {
+                isSpeahingVr = true;
+                startTalkingEffect();
+            };
+            utterance.onend = () => {
+                isSpeahingVr = false;
+                stopTalkingEffect();
+                if (isModalOpenVr) {
+                    startMicrophone();
+                }
+            };
+            utterance.onerror = (event) => {
+                console.error('Speech synthesis error:', event.error);
+                isSpeahingVr = false;
+                stopTalkingEffect();
+                if (isModalOpenVr) {
+                    startMicrophone();
+                }
+            };
+
+            synth.speak(utterance);
+        } catch (error) {
+            console.error('Error communicating with server:', error);
+            if (isModalOpenVr) {
+                startMicrophone();
+            }
         }
-      }, 1000);
-    }
-  };
+    };
 
-  recognition.start();
-  isRecognitionRunning = true;
-  isManualStop = false;
-  console.log('Speech recognition started.');
-}
+    const handleResult = () => {
+        if (speechVr.trim() && !isSpeahingVr) {
+            console.log('Stopped listening. Sending data to server:', speechVr.trim());
 
-async function captureImage() {
-  console.log('Capturing image...');
-  const canvas = document.createElement('canvas');
-  canvas.width = videoElement.videoWidth;
-  canvas.height = videoElement.videoHeight;
-  const context = canvas.getContext('2d');
-  context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            const containsSensitiveWord = sensitiveWords.some(word =>
+                speechVr.toLowerCase().includes(word.toLowerCase())
+            );
 
-  return new Promise((resolve) => {
-    canvas.toBlob((blob) => {
-      console.log('Image captured and converted to blob.');
-      resolve(blob);
-    }, 'image/jpeg');
-  });
-}
+            if (containsSensitiveWord) {
+                circlesVr.forEach(circle => {
+                    circle.style.background = '#b71c1c';
+                    circle.style.backgroundImage = 'linear-gradient(90deg, #b71c1c, #c62828, #d32f2f, #e53935, #f44336, #ef5350, #e57373, #ef9a9a, #e57373, #ef5350, #f44336)';
+                });
+            } else {
+                circlesVr.forEach(circle => {
+                    circle.style.background = '#4567b7';
+                    circle.style.backgroundImage = 'linear-gradient(90deg, #0d47a1, #1976d2, #2196f3, #42a5f5, #64b5f6, #90caf9, #bbdefb, #e3f2fd, #bbdefb, #90caf9, #64b5f6)';
+                });
+            }
 
-function speak(text) {
-  console.log('Speaking AI response:', text);
-  const synth = window.speechSynthesis;
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.onstart = () => {
-    console.log('Speech synthesis started.');
-    if (recognition) {
-      isManualStop = true;
-      recognition.stop();
-    }
-  };
-  utterance.onend = () => {
-    console.log('Speech synthesis ended.');
-    if (recognition) {
-      isManualStop = false;
-      recognition.start();
-    }
-  };
-  utterance.onerror = (event) => {
-    console.error('Speech synthesis error:', event.error);
-    if (recognition) {
-      isManualStop = false;
-      recognition.start();
-    }
-  };
-  synth.speak(utterance);
+            sendToServerAndRespond(speechVr.trim());
+            speechVr = '';
+        }
+    };
+
+    const resetSilenceTimer = () => {
+        clearTimeout(silenceTimeoutVr);
+        silenceTimeoutVr = setTimeout(() => {
+            if (speechVr.trim()) {
+                console.log('Silence detected. Handling result.');
+                recognition.stop();
+                handleResult();
+            }
+        }, 1500);
+    };
+
+    recognition.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            transcript += event.results[i][0].transcript;
+        }
+        speechVr = transcript.trim();
+        console.log('Captured speech:', speechVr);
+        resetSilenceTimer();
+    };
+
+    recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        if (!isSpeahingVr && isModalOpenVr) {
+            startMicrophone();
+        }
+    };
+
+    recognition.onend = () => {
+        if (!isSpeahingVr && isModalOpenVr) {
+            handleResult();
+        }
+    };
+
+    const startMicrophone = () => {
+        if (!isSpeahingVr && recognition.state !== 'recording' && isModalOpenVr) {
+            recognition.start();
+            console.log('Microphone opened. Listening...');
+        }
+    };
+
+    const stopMicrophone = () => {
+        recognition.stop();
+        console.log('Microphone stopped.');
+    };
+
+    const handleModalState = () => {
+        if (!modalvid.classList.contains('hidden')) {
+            isModalOpenVr = true;
+            startMicrophone();
+        } else {
+            isModalOpenVr = false;
+            stopMicrophone();
+            if (isSpeahingVr) {
+                synth.cancel();
+                isSpeahingVr = false;
+                stopTalkingEffect();
+            }
+
+            circlesVr.forEach(circle => {
+                circle.style.background = '#4567b7';
+                circle.style.backgroundImage = 'linear-gradient(90deg, #0d47a1, #1976d2, #2196f3, #42a5f5, #64b5f6, #90caf9, #bbdefb, #e3f2fd, #bbdefb, #90caf9, #64b5f6)';
+            });
+        }
+    };
+
+    const observer = new MutationObserver(handleModalState);
+    observer.observe(modalvid, { attributes: true, attributeFilter: ['class'] });
+    handleModalState();
 }

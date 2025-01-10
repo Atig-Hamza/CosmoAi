@@ -170,7 +170,6 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
                 stopTalkingEffect();
             }
 
-            // Reset circle color to default when modal closes
             circles.forEach(circle => {
                 circle.style.background = '#4567b7';
                 circle.style.backgroundImage = 'linear-gradient(90deg, #0d47a1, #1976d2, #2196f3, #42a5f5, #64b5f6, #90caf9, #bbdefb, #e3f2fd, #bbdefb, #90caf9, #64b5f6)';
