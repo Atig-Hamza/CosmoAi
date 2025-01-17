@@ -172,5 +172,5 @@ app.post('/debat', async (req, res) => {
 const PORT = 8000;
 
 https.createServer(sslOptions, app).listen(PORT, () => {
-  console.log(`Server is running on https://192.168.8.152:${PORT}`);
+  console.log(`Server is running on https://localhost:${PORT}`);
 });

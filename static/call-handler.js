@@ -42,7 +42,7 @@ if (!('webkitSpeechRecognition' in window) || !('speechSynthesis' in window)) {
         const formattedMessage = `${hiddenPrompt}\nUser: ${message}\nAI:`;
 
         try {
-            const response = await fetch('https://192.168.8.152:8000/voice', {
+            const response = await fetch('https://localhost:8000/voice', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: formattedMessage, userId }),
