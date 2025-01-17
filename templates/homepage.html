@@ -18,6 +18,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ccc;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(0, 0, 0);
+            border-radius: 24px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            transform: scale(1.1);
+        }
+
         .scroll-header {
             transition: all 0.3s ease;
         }
@@ -44,13 +62,12 @@
                     </a>
                 </div>
                 <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
-                    <a aria-current="page"
-                        class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                        href="#">How it works</a>
+                    <a class="inline-flex items-center rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                        href="#"><i class="fas fa-star mr-2"></i> Reviews</a>
                     <div class="relative group">
                         <button
                             class="inline-flex items-center rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">
-                            <i class="fas fa-cogs mr-2"></i> Features
+                            <i class="fas fa-cogs mr-2"></i> Features <i class="fas fa-caret-down ml-2"></i>
                         </button>
                         <div
                             class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-lg py-2 w-64 transition-all duration-300 delay-100">
@@ -107,7 +124,13 @@
                         </div>
                     </div>
                     <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                        href="#">Pricing</a>
+                        href="#"><i class="fas fa-tag mr-1"></i>Pricing</a>
+                    <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                        href="#"><i class="fas fa-headset mr-1"></i>Support</a>
+                    <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                        href="#"><i class="fas fa-info-circle mr-1"></i>About-Us</a>
+                    <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                        href="#"><i class="fas fa-phone mr-1"></i>Contact-Us</a>
                 </div>
                 <div class="flex items-center justify-end gap-3">
                     <a class="inline-flex items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 hover:shadow-md"
@@ -119,10 +142,10 @@
         </div>
     </header>
     <main class="mt-[5.6%]">
-        <section class="h-screen w-full bg-black">
+        <section class="h-screen w-full">
 
         </section>
-        <section class="h-screen w-full bg-black">
+        <section class="h-screen w-full">
 
         </section>
     </main>
