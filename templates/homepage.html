@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmo-Home</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <meta name="description"
+        content="Cosmo-Home is the official website of the Cosmo-Login project, a simple web interface to manage login credentials for your astronomical observatory.">
+    <link rel="shortcut icon" href="../images/favicon/favicon-32x32.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .scroll-header {
+            transition: all 0.3s ease;
+        }
+
+        .scroll-header.scrolled {
+            max-width: 100% !important;
+            border-radius: 0 !important;
+            top: 0 !important;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+
+</head>
+
+<body>
+    <header
+        class="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg scroll-header">
+        <div class="px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex shrink-0">
+                    <a aria-current="page" class="flex items-center" href="/">
+                        <img class="h-7 w-auto" src="../images/logos/banner logo.png" alt="">
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
+                    <a aria-current="page"
+                        class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                        href="#">How it works</a>
+                    <div class="relative group">
+                        <button
+                            class="inline-flex items-center rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">
+                            <i class="fas fa-cogs mr-2"></i> Features
+                        </button>
+                        <div
+                            class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-lg py-2 w-64 transition-all duration-300 delay-100">
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-paint-brush mr-3 text-blue-500"></i>
+                                <div>
+                                    <p class="font-medium">Image Generation</p>
+                                    <p class="text-xs text-gray-500">Create stunning visuals with AI-powered tools.</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-keyboard mr-3 text-green-500"></i>
+                                <div>
+                                    <p class="font-medium">Text Generation</p>
+                                    <p class="text-xs text-gray-500">Generate high-quality text content effortlessly.
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-microphone-alt mr-3 text-purple-500"></i>
+                                <div>
+                                    <p class="font-medium">Voice Call</p>
+                                    <p class="text-xs text-gray-500">Seamless AI-powered voice communication.</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-video mr-3 text-red-500"></i>
+                                <div>
+                                    <p class="font-medium">Video Call</p>
+                                    <p class="text-xs text-gray-500">High-quality video calls with AI enhancements.</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-comments mr-3 text-yellow-500"></i>
+                                <div>
+                                    <p class="font-medium">AI Debate</p>
+                                    <p class="text-xs text-gray-500">Watch AIs discuss and debate on any topic.</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-image mr-3 text-indigo-500"></i>
+                                <div>
+                                    <p class="font-medium">Image-to-Text</p>
+                                    <p class="text-xs text-gray-500">Extract text from images with precision.</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-ellipsis-h mr-3 text-gray-500"></i>
+                                <div>
+                                    <p class="font-medium">View More</p>
+                                    <p class="text-xs text-gray-500">Explore all features and capabilities.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                        href="#">Pricing</a>
+                </div>
+                <div class="flex items-center justify-end gap-3">
+                    <a class="inline-flex items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 hover:shadow-md"
+                        href="/signup">Sign Up</a>
+                    <a class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                        href="/login">Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="mt-[5.6%]">
+        <section class="h-screen w-full bg-black">
+
+        </section>
+        <section class="h-screen w-full bg-black">
+
+        </section>
+    </main>
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.scroll-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
