@@ -11,6 +11,10 @@
     <link rel="shortcut icon" href="../images/favicon/favicon-32x32.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
@@ -37,8 +41,13 @@
 
         /* Typing Effect */
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
 
         .typing-effect {
@@ -91,7 +100,7 @@
     </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-white" style="font-family: 'Raleway', serif;">
     <div class="flex min-h-screen">
         <div class="left-side">
             <div class="flex items-center justify-start space-x-3">
@@ -100,7 +109,7 @@
             </div>
             <div class="space-y-5 text-container">
                 <h1 class="lg:text-3xl xl:text-5xl xl:leading-snug font-extrabold">
-                    <span class="fixed-text">Welcome to Cosmo AI:</span>
+                    <span class="fixed-text">Welcome to Cosmo AI:</span></br>
                     <span id="welcome-text" class="typing-effect"></span>
                 </h1>
                 <button
@@ -178,17 +187,18 @@
                     i++;
                 } else {
                     clearInterval(typingInterval);
+                    element.textContent += '|';
                     setTimeout(() => deleteText(element, speed), 2000);
                 }
             }, speed);
         };
 
         const deleteText = (element, speed = 50) => {
-            let text = element.textContent;
+            let text = element.textContent.replace('|', '');
             const deletingInterval = setInterval(() => {
                 if (text.length > 0) {
                     text = text.slice(0, -1);
-                    element.textContent = text;
+                    element.textContent = text + '|';
                 } else {
                     clearInterval(deletingInterval);
                     currentIndex = (currentIndex + 1) % sentences.length;
