@@ -264,14 +264,14 @@
             leftBubbles.forEach(bubble => {
                 const initialRotation = bubble.dataset.initialRotation;
                 const rotation = `${parseInt(initialRotation) + scrollY / 10}deg`;
-                bubble.style.transform = `translateX(${-scrollY}px) rotate(${rotation})`;
+                bubble.style.transform = `translateX(${-scrollY*3.5}px) rotate(${rotation})`;
                 bubble.style.filter = `blur(${scrollY / 20}px)`;
             });
 
             rightBubbles.forEach(bubble => {
                 const initialRotation = bubble.dataset.initialRotation;
                 const rotation = `${parseInt(initialRotation) - scrollY / 10}deg`;
-                bubble.style.transform = `translateX(${scrollY}px) rotate(${rotation})`;
+                bubble.style.transform = `translateX(${scrollY*3.5}px) rotate(${rotation})`;
                 bubble.style.filter = `blur(${scrollY / 20}px)`;
             });
         });
