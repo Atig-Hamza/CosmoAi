@@ -6,7 +6,7 @@ const cors = require('cors');
 const multer = require('multer');
 
 const app = express();
-const client = new HfInference('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');
+const client = new HfInference('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');
 
 app.use(cors());
 app.use(express.json());
