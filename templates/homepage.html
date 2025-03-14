@@ -377,7 +377,7 @@
         </div>
     </header>
     <main class="mt-[5.6%]">
-        <section class="bg-[#0e100f] min-h-screen font-mono relative overflow-hidden flex items-center -mt-7">
+        <section class="bg-[#0e100f] min-h-screen font-mono relative overflow-hidden flex items-center -mt-7 px-8">
             <div class="absolute inset-0 opacity-5">
                 <div class="terminal-matrix" aria-hidden="true">
                     <div class="matrix-code"></div>
@@ -1112,13 +1112,13 @@
                         collaboration.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-[#b8fd33] hover:text-[#a0e529] transition-colors">
-                            <span class="text-xl">🌐</span>
+                            <i class="fab fa-facebook text-xl"></i>
                         </a>
                         <a href="#" class="text-[#b8fd33] hover:text-[#a0e529] transition-colors">
-                            <span class="text-xl">💬</span>
+                            <i class="fab fa-instagram text-xl"></i>
                         </a>
                         <a href="#" class="text-[#b8fd33] hover:text-[#a0e529] transition-colors">
-                            <span class="text-xl">📱</span>
+                            <i class="fab fa-twitter text-xl"></i>
                         </a>
                     </div>
                 </div>
@@ -1253,57 +1253,6 @@
                 header.classList.remove('scrolled');
             }
         });
-
-        const buttons = document.querySelectorAll('.bubble-button');
-        const bubble = document.querySelector('.bubble');
-        let isFirstHover = true;
-
-        buttons.forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                const buttonRect = button.getBoundingClientRect();
-                const containerRect = button.parentElement.getBoundingClientRect();
-
-                bubble.style.width = `${buttonRect.width}px`;
-                bubble.style.height = `${buttonRect.height}px`;
-                bubble.style.left = `${buttonRect.left - containerRect.left}px`;
-                bubble.style.top = `${buttonRect.top - containerRect.top}px`;
-
-                if (isFirstHover) {
-                    bubble.style.transition = 'opacity 0.3s ease, width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease';
-                    bubble.style.opacity = '1';
-                    isFirstHover = false;
-                } else {
-                    bubble.style.opacity = '1';
-                }
-            });
-
-            button.addEventListener('mouseleave', () => {
-                bubble.style.opacity = '1';
-            });
-        });
-
-        let index = 0,
-            interval = 1000;
-
-        const rand = (min, max) =>
-            Math.floor(Math.random() * (max - min + 1)) + min;
-
-        const animate = star => {
-            star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
-            star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
-
-            star.style.animation = "none";
-            star.offsetHeight;
-            star.style.animation = "";
-        }
-
-        for (const star of document.getElementsByClassName("magic-star")) {
-            setTimeout(() => {
-                animate(star);
-
-                setInterval(() => animate(star), 1000);
-            }, index++ * (interval / 3))
-        }
     </script>
 </body>
 
