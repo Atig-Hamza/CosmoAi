@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSMO AI - Image Generation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-dark': '#0e100f',
+                        'title-green': '#b8fd33',
+                        'text-cream': '#fffce1',
+                        'ai-blue': '#7c83fd'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-bg-dark text-text-cream font-['JetBrains_Mono']">
+    <div class="flex h-screen overflow-hidden">
+        <div class="w-72 border-r border-title-green/20 flex flex-col bg-bg-dark/95">
+            <div class="p-4 border-b border-title-green/20">
+                <div class="flex items-center">
+                    <span class="text-title-green text-2xl font-bold">
+                        <i class="fas fa-image mr-2"></i>COSMO Image Gen
+                    </span>
+                </div>
+            </div>
+
+            <div class="p-4">
+                <h3 class="text-title-green text-xs uppercase tracking-wider mb-3">Image Styles</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 text-center hover:bg-title-green/20 transition-colors">
+                        <i class="fas fa-palette text-title-green mb-1 block"></i>
+                        <span class="text-xs">Artistic</span>
+                    </button>
+                    <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 text-center hover:bg-title-green/20 transition-colors">
+                        <i class="fas fa-camera text-ai-blue mb-1 block"></i>
+                        <span class="text-xs">Photorealistic</span>
+                    </button>
+                    <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 text-center hover:bg-title-green/20 transition-colors">
+                        <i class="fas fa-draw-polygon text-title-green mb-1 block"></i>
+                        <span class="text-xs">3D Render</span>
+                    </button>
+                    <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 text-center hover:bg-title-green/20 transition-colors">
+                        <i class="fas fa-film text-ai-blue mb-1 block"></i>
+                        <span class="text-xs">Cinematic</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-4 mt-auto border-t border-title-green/20">
+                <div class="bg-title-green/10 rounded-md p-3 cursor-pointer hover:bg-title-green/20 transition-colors">
+                    <div class="flex items-center">
+                        <i class="fas fa-rocket text-title-green mr-2"></i>
+                        <span class="font-bold text-title-green">Upgrade Generations</span>
+                    </div>
+                    <p class="text-xs mt-1 text-text-cream/80">Unlock more detailed images</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Image Generation Area -->
+        <div class="flex-1 flex flex-col bg-bg-dark relative overflow-hidden">
+            <!-- Generation Header -->
+            <div class="flex items-center justify-between bg-bg-dark border-b border-title-green/30 p-4">
+                <h2 class="text-xl font-bold text-title-green">Image Generation</h2>
+                <div class="flex items-center space-x-3">
+                    <div class="text-sm text-text-cream/70">
+                        Credits: <span class="text-title-green">24/100</span>
+                    </div>
+                    <button class="bg-title-green/10 text-title-green px-3 py-1 rounded-md hover:bg-title-green/20 transition-colors">
+                        Buy Credits
+                    </button>
+                </div>
+            </div>
+
+            <!-- Prompt and Generation Area -->
+            <div class="flex-1 grid grid-cols-2 gap-4 p-4 overflow-hidden">
+                <!-- Prompt Section -->
+                <div class="bg-title-green/5 border border-title-green/20 rounded-md p-4 overflow-y-auto">
+                    <div class="mb-4">
+                        <label class="block text-sm mb-2 text-title-green">Image Prompt</label>
+                        <textarea 
+                            class="w-full bg-bg-dark border border-title-green/30 rounded-md p-3 text-text-cream resize-none focus:outline-none focus:ring-2 focus:ring-title-green/50 h-32"
+                            placeholder="Describe the image you want to generate..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Advanced Options -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm mb-2 text-title-green">Creativity Level</label>
+                            <input 
+                                type="range" 
+                                min="0" 
+                                max="100" 
+                                value="50" 
+                                class="w-full accent-title-green"
+                            >
+                            <div class="flex justify-between text-xs text-text-cream/70 mt-1">
+                                <span>Conservative</span>
+                                <span>Experimental</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm mb-2 text-title-green">Image Resolution</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 text-center hover:bg-title-green/20 transition-colors">
+                                    512x512
+                                </button>
+                                <button class="bg-title-green/20 border border-title-green/50 rounded-md p-2 text-center">
+                                    1024x1024
+                                </button>
+                                <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 text-center hover:bg-title-green/20 transition-colors">
+                                    2048x2048
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm mb-2 text-title-green">Additional Styles</label>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-title-green/10 px-2 py-1 rounded-full text-xs flex items-center">
+                                    4K Texture
+                                    <button class="ml-2 text-red-400 hover:text-red-500">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </span>
+                                <button class="bg-title-green/10 border border-title-green/30 rounded-full px-2 py-1 text-xs hover:bg-title-green/20 transition-colors">
+                                    + Add Style
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button class="w-full mt-4 bg-title-green text-bg-dark py-3 rounded-md font-bold hover:bg-title-green/90 transition-colors flex items-center justify-center">
+                        <i class="fas fa-magic mr-2"></i> Generate Image
+                    </button>
+                </div>
+
+                <!-- Image Preview/Result Area -->
+                <div class="bg-title-green/5 border border-title-green/20 rounded-md p-4 flex flex-col">
+                    <div class="flex-1 bg-bg-dark/50 border border-dashed border-title-green/30 rounded-md flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-image text-6xl text-title-green/30 mb-4"></i>
+                            <p class="text-text-cream/50">Generated images will appear here</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 grid grid-cols-4 gap-2">
+                        <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 opacity-50">
+                            <i class="fas fa-download text-title-green"></i>
+                        </button>
+                        <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 opacity-50">
+                            <i class="fas fa-edit text-ai-blue"></i>
+                        </button>
+                        <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 opacity-50">
+                            <i class="fas fa-share-alt text-text-cream"></i>
+                        </button>
+                        <button class="bg-title-green/10 border border-title-green/30 rounded-md p-2 opacity-50">
+                            <i class="fas fa-trash text-red-400"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generation History -->
+            <div class="border-t border-title-green/20 p-4">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-title-green font-bold">Generation History</h3>
+                    <button class="text-xs text-text-cream/70 hover:text-title-green">
+                        Clear History
+                    </button>
+                </div>
+                <div class="grid grid-cols-6 gap-2">
+                    <div class="bg-title-green/10 rounded-md p-2 text-center">
+                        <img src="https://via.placeholder.com/100" class="rounded-md mb-2" alt="History Image"/>
+                        <p class="text-xs">Cyberpunk</p>
+                    </div>
+                    <div class="bg-title-green/10 rounded-md p-2 text-center">
+                        <img src="https://via.placeholder.com/100" class="rounded-md mb-2" alt="History Image"/>
+                        <p class="text-xs">Space Scene</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

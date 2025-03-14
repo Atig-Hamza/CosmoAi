@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSMO AI - Chat Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-dark': '#0e100f',
+                        'title-green': '#b8fd33',
+                        'text-cream': '#fffce1',
+                        'ai-blue': '#7c83fd'
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'typing': 'typing 1.5s infinite'
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0 }
+                        },
+                        typing: {
+                            '0%, 20%': { content: '"."' },
+                            '40%': { content: '".."' },
+                            '60%, 100%': { content: '"..."' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-bg-dark text-text-cream font-['JetBrains_Mono']">
+    <div class="flex h-screen overflow-hidden">
+        <div class="w-72 border-r border-title-green/20 flex flex-col bg-bg-dark/95">
+            <div class="p-4 border-b border-title-green/20">
+                <div class="flex items-center">
+                    <span class="text-title-green text-2xl font-bold flex flex-row items-center gap-4">
+                        <img src="../images/logos/rounded logo.png" class="w-10 h-10" alt="">
+                        <p>COSMO</p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-bg-dark scrollbar-thumb-title-green/30">
+                <div class="p-4">
+                    <h3 class="text-title-green text-xs uppercase tracking-wider mb-3">Chat</h3>
+                    <div
+                        class="relative pl-3 py-3 bg-title-green/10 rounded-md mb-2 cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-title-green">
+                        <span class="font-medium">New Chat</span>
+                    </div>
+                    <div class="pl-3 py-3 hover:bg-title-green/10 rounded-md mb-2 cursor-pointer transition-colors">
+                        <span class="font-medium">Recent Chat 1</span>
+                    </div>
+                    <div class="pl-3 py-3 hover:bg-title-green/10 rounded-md mb-2 cursor-pointer transition-colors">
+                        <span class="font-medium">Recent Chat 2</span>
+                    </div>
+                    <div class="pl-3 py-3 hover:bg-title-green/10 rounded-md mb-2 cursor-pointer transition-colors">
+                        <span class="font-medium">Recent Chat 3</span>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <h3 class="text-title-green text-xs uppercase tracking-wider mb-3">Features</h3>
+                    <div
+                        class="pl-3 py-3 hover:bg-title-green/10 rounded-md mb-2 cursor-pointer flex items-center transition-colors">
+                        <i class="fas fa-image mr-3 text-title-green/80"></i>
+                        <span>Generate Image</span>
+                    </div>
+                    <div
+                        class="pl-3 py-3 hover:bg-title-green/10 rounded-md mb-2 cursor-pointer flex items-center transition-colors">
+                        <i class="fas fa-comments mr-3 text-title-green/80"></i>
+                        <span>AI Debate Corner</span>
+                    </div>
+                    <div
+                        class="pl-3 py-3 hover:bg-title-green/10 rounded-md mb-2 cursor-pointer flex items-center transition-colors">
+                        <i class="fas fa-history mr-3 text-title-green/80"></i>
+                        <span>Explore History</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-title-green/20">
+                <div class="bg-title-green/10 rounded-md p-3 cursor-pointer hover:bg-title-green/20 transition-colors">
+                    <div class="flex items-center">
+                        <i class="fas fa-arrow-up text-title-green mr-2"></i>
+                        <span class="font-bold text-title-green">Upgrade Plan</span>
+                    </div>
+                    <p class="text-xs mt-1 text-text-cream/80">Get access to advanced features</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col bg-bg-dark relative overflow-hidden">
+            <div class="flex items-center bg-bg-dark border-b border-title-green/30 p-3">
+                <div class="flex space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div class="flex-1 text-center text-sm opacity-80">session_id:1a2b3c4d5e // cosmo_ai@terminal:~/chat
+                </div>
+                <div class="flex space-x-4">
+                    <button class="text-text-cream/70 hover:text-title-green transition-colors">
+                        <i class="fas fa-video"></i>
+                    </button>
+                    <button class="text-text-cream/70 hover:text-title-green transition-colors">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="text-text-cream/70 hover:text-title-green transition-colors">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="chat-container" class="flex-1 overflow-y-auto p-4 space-y-6">
+                <div class="border-l-2 border-ai-blue pl-4 py-2 bg-title-green/5 rounded-r-md">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-ai-blue/20 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-robot text-ai-blue"></i>
+                        </div>
+                        <span class="font-bold text-ai-blue">COSMO AI</span>
+                        <span class="text-xs text-text-cream/50 ml-2">12:01</span>
+                    </div>
+                    <div class="text-text-cream">
+                        <p>Hello! I'm COSMO, your advanced AI assistant. How can I help you today?</p>
+                        <p class="text-xs text-text-cream/70 mt-2">System: Connection established. All functions ready.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-title-green pl-4 py-2">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-title-green/20 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-user text-title-green"></i>
+                        </div>
+                        <span class="font-bold text-title-green">You</span>
+                        <span class="text-xs text-text-cream/50 ml-2">12:03</span>
+                    </div>
+                    <div class="text-text-cream">
+                        <p>Can you help me understand quantum computing in simple terms?</p>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-ai-blue pl-4 py-2 bg-title-green/5 rounded-r-md">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 bg-ai-blue/20 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-robot text-ai-blue"></i>
+                        </div>
+                        <span class="font-bold text-ai-blue">COSMO AI</span>
+                        <span class="text-xs text-text-cream/50 ml-2">12:04</span>
+                    </div>
+                    <div class="text-text-cream">
+                        <p>Quantum computing in simple terms:</p>
+                        <ul class="list-disc pl-5 my-2 space-y-1">
+                            <li>Regular computers use bits (0s and 1s)</li>
+                            <li>Quantum computers use quantum bits or "qubits"</li>
+                            <li>Qubits can be 0, 1, or both simultaneously (superposition)</li>
+                            <li>This allows quantum computers to process vast amounts of possibilities at once</li>
+                            <li>They excel at specific problems like encryption, modeling molecules, and optimization
+                            </li>
+                        </ul>
+                        <p>Think of it like this: If solving a maze, a regular computer checks one path at a time, while
+                            a quantum computer explores all paths simultaneously.</p>
+                        <div class="text-xs text-ai-blue mt-3 italic">Websearch: Retrieved latest quantum computing
+                            advances from IBM Research and MIT Technology Review</div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="chat-form" class="border-t border-title-green/20 p-4">
+                <div class="flex flex-wrap gap-2 mb-3">
+                    <button id="deepthinking"
+                        class="botonat px-3 py-1 text-xs rounded-full border border-title-green/30 text-text-cream/80 hover:text-title-green hover:bg-title-green/10 transition-colors flex items-center">
+                        <i class="fas fa-brain mr-1"></i> Deep Thinking
+                    </button>
+                    <button id="websearch"
+                        class="botonat px-3 py-1 text-xs rounded-full border border-title-green/30 text-text-cream/80 hover:text-title-green hover:bg-title-green/10 transition-colors flex items-center">
+                        <i class="fas fa-search mr-1"></i> Web Search
+                    </button>
+                    <button id="boost"
+                        class="botonat px-3 py-1 text-xs rounded-full border border-title-green/30 text-text-cream/80 hover:text-title-green hover:bg-title-green/10 transition-colors flex items-center">
+                        <i class="fas fa-magic mr-1"></i> Optimize Response
+                    </button>
+                </div>
+
+                <div class="flex items-end gap-2">
+                    <div class="flex-1 relative">
+                        <textarea id="message-input"
+                            class="w-full bg-title-green/5 border border-title-green/30 rounded-md p-3 text-text-cream resize-none focus:border-title-green focus:outline-none focus:ring-1 focus:ring-title-green/50 placeholder-text-cream/30"
+                            placeholder="Message COSMO AI..." rows="2"></textarea>
+                        <button type="button"
+                            class="absolute bottom-3 right-3 text-text-cream/50 hover:text-title-green">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                    </div>
+                    <button type="submit"
+                        class="h-10 w-10 mb-2 rounded-md bg-title-green text-bg-dark flex items-center justify-center hover:bg-title-green/90 transition-colors">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+
+                <div class="flex justify-between mt-2 text-xs text-text-cream/50">
+                    <div>Type / for commands</div>
+                    <div>COSMO AI Version 3.2.1</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setInterval(() => {
+                const cursor = document.querySelector('.cursor-blink');
+                if (cursor) {
+                    cursor.style.visibility = cursor.style.visibility === 'hidden' ? 'visible' : 'hidden';
+                }
+            }, 500);
+
+            const textarea = document.querySelector('textarea');
+            if (textarea) {
+                textarea.addEventListener('input', function () {
+                    this.style.height = 'auto';
+                    this.style.height = (Math.min(this.scrollHeight, 150)) + 'px';
+                });
+            }
+        });
+    </script>
+</body>
+
+<script src="../static/upage.js"></script>
+<script src="../static/handler.js"></script>
+<script src="../static/server.js"></script>
+<script src="../static/call-handler.js"></script>
+<script src="../static/call-handler-server.js"></script>
+<script src="../static/vid-handler.js"></script>
+<script src="../static/vid-handler-server.js"></script>
+
+</html>
