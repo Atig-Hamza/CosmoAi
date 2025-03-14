@@ -386,6 +386,8 @@ document.getElementById('chat-form').addEventListener('submit', async function (
             headerElement.appendChild(cosmoNameElement);
             headerElement.appendChild(timestampElement);
 
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
             const messageContainer = document.createElement('div');
             messageContainer.className = 'text-text-cream';
 
