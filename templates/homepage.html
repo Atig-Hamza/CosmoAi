@@ -264,6 +264,23 @@
                 font-size: 3em;
             }
         }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end);
+        }
     </style>
 
 </head>
@@ -360,45 +377,115 @@
         </div>
     </header>
     <main class="mt-[5.6%]">
-        <section class="h-[97%] w-full">
-            <h1 id="slogan1" style="font-family: 'Audiowide', serif;"
-                class="w-[76%] relative mb-[11%] left-[42%] transform -translate-x-1/2 -translate-y-[-20%] text-[5.7rem] text-left z-30 text-[#fffce1]">
-                <span class="magic">
-                    <span class="magic-star">
-                        <svg viewBox="0 0 512 512">
-                            <path
-                                d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                        </svg>
-                    </span>
-                    <span class="magic-star">
-                        <svg viewBox="0 0 512 512">
-                            <path
-                                d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                        </svg>
-                    </span>
-                    <span class="magic-star">
-                        <svg viewBox="0 0 512 512">
-                            <path
-                                d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                        </svg>
-                    </span>
-                    <span class="magic-text">Cosmo
-                        AI:</span>
-                </span> Create, connect, & collaborate effortlessly.
-            </h1>
-            <div
-                class="flex justify-center mt-[8%] border border-t-[#7c7c6f32] border-b-[#7c7c6f32] border-l-0 border-r-0">
-                <div class="button-container">
-                    <button id="startFreePlan" class="bubble-button hover:text-black">
-                        Start Free Plan
-                    </button>
-                    <button id="bookDemo" class="bubble-button hover:text-black">
-                        Book a Demo
-                    </button>
-                    <div class="bubble"></div>
+        <section class="bg-[#0e100f] min-h-screen font-mono relative overflow-hidden flex items-center -mt-7">
+            <div class="absolute inset-0 opacity-5">
+                <div class="terminal-matrix" aria-hidden="true">
+                    <div class="matrix-code"></div>
                 </div>
             </div>
+            <div class="container mx-auto px-4 py-16 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <div class="lg:w-1/2 w-full">
+                        <div
+                            class="terminal-window bg-black bg-opacity-70 p-5 border border-[#b8fd33] rounded-lg shadow-lg shadow-[#b8fd33]/20">
+                            <div class="terminal-header flex items-center mb-6">
+                                <div class="h-3 w-3 rounded-full bg-red-500 mr-2"></div>
+                                <div class="h-3 w-3 rounded-full bg-yellow-500 mr-2"></div>
+                                <div class="h-3 w-3 rounded-full bg-green-500 mr-4"></div>
+                                <div class="text-xs text-[#b8fd33]">cosmo@ai:~</div>
+                            </div>
+                            <div class="space-y-3 terminal-content">
+                                <p class="text-[#fffce1]">
+                                    <span class="text-[#b8fd33]">$</span> ./initialize_cosmo.sh
+                                </p>
+                                <p class="text-[#fffce1]">
+                                    <span class="typing-animation">Initializing Cosmo AI systems...</span>
+                                </p>
+                                <p class="text-[#fffce1]">
+                                    <span class="text-[#b8fd33]">COSMO></span> Hello! I'm Cosmo, your advanced AI
+                                    companion.
+                                </p>
+                                <p class="text-[#fffce1]">
+                                    <span class="text-[#b8fd33]">COSMO></span> I can assist you with:
+                                </p>
+                                <ul class="text-[#fffce1] space-y-1 ml-6">
+                                    <li class="flex items-start">
+                                        <span class="text-[#b8fd33] mr-2">▹</span> Natural conversations and
+                                        problem-solving
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#b8fd33] mr-2">▹</span> Generating images from text
+                                        descriptions
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#b8fd33] mr-2">▹</span> Voice-based interactions in real-time
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#b8fd33] mr-2">▹</span> Video chat with facial recognition
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-[#b8fd33] mr-2">▹</span> In-depth AI debates on technical
+                                        topics
+                                    </li>
+                                </ul>
+                                <p class="text-[#fffce1]">
+                                    <span class="text-[#b8fd33]">$</span> <span class="animate-pulse">_</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 w-full text-center lg:text-left">
+                        <h1 class="text-[#b8fd33] text-5xl md:text-7xl font-bold tracking-tighter mb-4">
+                            COSMO<span class="text-[#fffce1]">_AI</span>
+                        </h1>
+                        <p class="text-[#fffce1] text-xl md:text-2xl mb-8 leading-relaxed">
+                            The next generation AI assistant with multi-modal capabilities, designed for the tech-savvy
+                            mind.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-10 justify-center lg:justify-start">
+                            <span
+                                class="px-4 py-2 bg-black bg-opacity-50 border border-[#b8fd33] rounded-full text-[#fffce1]">
+                                <span class="text-[#b8fd33]">#</span>Chat
+                            </span>
+                            <span
+                                class="px-4 py-2 bg-black bg-opacity-50 border border-[#b8fd33] rounded-full text-[#fffce1]">
+                                <span class="text-[#b8fd33]">#</span>ImageGen
+                            </span>
+                            <span
+                                class="px-4 py-2 bg-black bg-opacity-50 border border-[#b8fd33] rounded-full text-[#fffce1]">
+                                <span class="text-[#b8fd33]">#</span>VoiceChat
+                            </span>
+                            <span
+                                class="px-4 py-2 bg-black bg-opacity-50 border border-[#b8fd33] rounded-full text-[#fffce1]">
+                                <span class="text-[#b8fd33]">#</span>VideoChat
+                            </span>
+                            <span
+                                class="px-4 py-2 bg-black bg-opacity-50 border border-[#b8fd33] rounded-full text-[#fffce1]">
+                                <span class="text-[#b8fd33]">#</span>DebateTech
+                            </span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <button
+                                class="bg-[#b8fd33] hover:bg-opacity-80 text-[#0e100f] font-bold py-3 px-8 rounded-md transition duration-300 shadow-lg shadow-[#b8fd33]/20">
+                                Try Cosmo Now
+                            </button>
+                            <button
+                                class="border-2 border-[#b8fd33] text-[#b8fd33] hover:bg-[#b8fd33]/10 font-bold py-3 px-8 rounded-md transition duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#0e100f] to-transparent"></div>
+            <div class="absolute bottom-10 left-10 w-32 h-32 rounded-full bg-[#b8fd33]/10 blur-3xl"></div>
+            <div class="absolute top-10 right-10 w-40 h-40 rounded-full bg-[#b8fd33]/10 blur-3xl"></div>
         </section>
+        <div class="relative p-1 rounded-lg">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#b8fd33] to-[#4fc0ff] rounded-lg blur"></div>
+            <div class="relative bg-[#0e100f]">
+            </div>
+        </div>
         <section class="bg-[#0e100f] text-[#fffce1] py-16 px-4 min-h-screen flex flex-col justify-center">
             <div class="max-w-6xl mx-auto">
                 <div class="mb-16 relative">
@@ -415,9 +502,11 @@
                         <h2 class="text-2xl md:text-3xl font-bold">ADVANCED IMAGE GENERATION</h2>
                     </div>
                     <p class="text-lg leading-relaxed mb-8 ml-8 border-l-2 border-green-400 pl-6">
-                        COSMO is a straightforward image generator designed to simplify the process of creating digital images. 
-                        It leverages user-friendly algorithms to convert basic input into clear, high-quality visuals. 
-                        With a focus on accessibility, the system ensures that even those with minimal technical expertise 
+                        COSMO is a straightforward image generator designed to simplify the process of creating digital
+                        images.
+                        It leverages user-friendly algorithms to convert basic input into clear, high-quality visuals.
+                        With a focus on accessibility, the system ensures that even those with minimal technical
+                        expertise
                         can generate and customize images effortlessly.
                     </p>
                 </div>
@@ -532,448 +621,615 @@
                 </div>
             </div>
         </section>
-        <section class="bg-[#0e100f] text-white min-h-screen overflow-hidden relative py-20">
-            <div class="absolute inset-0 overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-full bg-[#0e100f]">
-                </div>
-                <div class="absolute top-0 -right-24 w-64 h-64 bg-blue-500/10 blur-3xl rounded-full"></div>
-                <div class="absolute bottom-0 -left-24 w-80 h-80 bg-purple-500/10 blur-3xl rounded-full"></div>
 
-                <div class="absolute inset-0 flex justify-between">
-                    <div class="w-px h-full bg-white/5"></div>
-                    <div class="w-px h-full bg-white/5"></div>
-                    <div class="w-px h-full bg-white/5"></div>
-                    <div class="w-px h-full bg-white/5"></div>
-                    <div class="w-px h-full bg-white/5"></div>
-                    <div class="w-px h-full bg-white/5"></div>
-                </div>
-                <div class="absolute inset-0 flex flex-col justify-between">
-                    <div class="h-px w-full bg-white/5"></div>
-                    <div class="h-px w-full bg-white/5"></div>
-                    <div class="h-px w-full bg-white/5"></div>
-                    <div class="h-px w-full bg-white/5"></div>
-                    <div class="h-px w-full bg-white/5"></div>
-                </div>
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 relative z-10">
-                <div class="mb-24 text-center">
-                    <h2
-                        class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#b8fd33] via-[#bafd33ca] to-[#b8fd33] text-5xl md:text-7xl font-black tracking-tight mb-6 drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]">
-                        NEURAL INTERFACE</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-[#b8fd33] via-[#bafd33ca] to-[#b8fd33] mx-auto mb-6"></div>
-                    <p class="text-lg md:text-xl text-cyan-100 max-w-3xl mx-auto tracking-wide">Voice and video
-                        communication evolved beyond human limitations</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-                    <div class="relative">
-                        <div
-                            class="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-[#b8fd33] rounded-lg blur opacity-50">
+        <section class="py-16 px-8 bg-[#0e100f] text-[#fffce1] font-mono">
+            <div class="container mx-auto px-4">
+                <div class="mb-12 text-center">
+                    <div class="inline-block border-2 border-[#b8fd33] rounded-lg px-6 py-3 bg-[#0e100f] mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="ml-2 text-xs text-[#fffce1]">cosmo@ai:~/video-chat</span>
                         </div>
-                        <div class="relative bg-black border border-white/10 rounded-lg p-6 backdrop-blur-sm">
-                            <div class="flex items-center justify-between mb-6">
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                                    <div class="text-green-400 font-mono text-xs">NEURAL.LINK//ACTIVE</div>
-                                </div>
-                                <div class="flex space-x-3">
-                                    <div class="w-2 h-2 rounded-full bg-red-500"></div>
-                                    <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
-                                    <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                                </div>
-                            </div>
+                        <h2 class="text-3xl font-bold text-[#b8fd33] tracking-tight">
+                            ./initialize_video_stream.sh
+                        </h2>
+                    </div>
+                    <p class="text-xl max-w-2xl mx-auto">> Next-generation <span class="text-[#b8fd33]">AI Video
+                            Chat</span> technology for immersive conversations</p>
+                </div>
 
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-center">
+                    <div class="border border-[#b8fd33] rounded-lg bg-[#0e100f] overflow-hidden">
+                        <div class="bg-[#151714] p-2 border-b border-[#b8fd33]/50 flex items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            </div>
+                            <div class="text-xs text-center flex-1 text-[#fffce1]/70">video_stream_127.0.0.1:3000</div>
+                        </div>
+                        <div class="aspect-video bg-[#151714] p-1 flex items-center justify-center">
                             <div
-                                class="aspect-video bg-gradient-to-br from-gray-900 to-black rounded border border-white/10 mb-6 relative overflow-hidden">
-                                <div class="absolute inset-6 flex flex-col justify-center items-center">
-                                    <div
-                                        class="w-20 h-20 rounded-full bg-gradient-to-r from-[#b8fd33] to-[#bafd33ca] mb-4 flex items-center justify-center">
-                                        <div class="w-16 h-16 rounded-full bg-black flex items-center justify-center">
-                                            <div class="w-8 h-1 bg-[#b8fd33] rounded animate-pulse"></div>
-                                        </div>
-                                    </div>
-                                    <div class="text-[#b8fd33] font-mono text-sm mb-1 animate-pulse">ANALYZING VOICE
-                                        PATTERNS...</div>
-                                    <div class="w-48 h-1 bg-gradient-to-r from-[#b8fd33] to-[#bafd3374] rounded-full">
-                                    </div>
+                                class="relative w-full h-full border border-[#b8fd33]/30 rounded bg-[#0e100f]/80 overflow-hidden flex items-center justify-center">
+                                <div
+                                    class="w-48 h-48 rounded-full bg-[#151714] border-4 border-[#b8fd33] flex items-center justify-center">
+                                    <div class="text-[#b8fd33] text-6xl font-bold">AI</div>
                                 </div>
-
-                                <div class="absolute top-3 left-3 text-xs font-mono text-green-400">REC 00:12:47</div>
-                                <div class="absolute top-3 right-3 flex items-center text-xs font-mono text-green-400">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-green-400 mr-1 animate-pulse"></div>
-                                    SECURE-LINK
+                                <div
+                                    class="absolute bottom-4 right-4 bg-[#151714] border border-[#b8fd33]/50 rounded px-2 py-1 text-xs flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                                    <span>LIVE</span>
                                 </div>
-                                <div class="absolute bottom-3 left-3 text-xs font-mono text-green-400">MODEL: NEURAL-X12
-                                </div>
-                                <div class="absolute bottom-3 right-3 text-xs font-mono text-green-400">QBit-ENCRYPTION
-                                </div>
-
-                                <div class="absolute top-2 left-2 w-4 h-4 border-t border-l border-green-500"></div>
-                                <div class="absolute top-2 right-2 w-4 h-4 border-t border-r border-green-500"></div>
-                                <div class="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-green-500"></div>
-                                <div class="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-green-500"></div>
-                            </div>
-
-                            <div class="flex justify-between items-center">
-                                <div class="flex space-x-3">
+                                <div class="absolute bottom-4 left-4 flex gap-2">
                                     <button
-                                        class="w-10 h-10 rounded-full bg-gradient-to-r from-[#b8fd33] to-[#bafd33ca] flex items-center justify-center group">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-5 w-5 text-white group-hover:scale-110 transition-transform"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                                        </svg>
+                                        class="w-8 h-8 bg-[#151714] border border-[#b8fd33]/50 rounded flex items-center justify-center">
+                                        <span class="text-[#fffce1]">🎤</span>
                                     </button>
                                     <button
-                                        class="w-10 h-10 rounded-full bg-gradient-to-r from-[#b8fd33] to-[#bafd33ca] flex items-center justify-center group">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-5 w-5 text-white group-hover:scale-110 transition-transform"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                        </svg>
+                                        class="w-8 h-8 bg-[#151714] border border-[#b8fd33]/50 rounded flex items-center justify-center">
+                                        <span class="text-[#fffce1]">📹</span>
                                     </button>
                                     <button
-                                        class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center group">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-5 w-5 text-white group-hover:scale-110 transition-transform"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
+                                        class="w-8 h-8 bg-[#151714] border border-[#b8fd33] rounded flex items-center justify-center">
+                                        <span class="text-[#b8fd33]">⏹️</span>
                                     </button>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full bg-green-500 animate-ping mr-2"></div>
-                                    <span class="text-green-500 font-mono text-xs">NEURAL LINK ACTIVE</span>
                                 </div>
                             </div>
                         </div>
+                        <div class="p-2 text-xs text-[#fffce1]/70 flex items-center justify-between">
+                            <span>Encryption: AES-256</span>
+                            <span>Latency: 25ms</span>
+                            <span>Resolution: 1080p</span>
+                        </div>
                     </div>
 
-                    <div>
-                        <h3 class="text-3xl font-bold mb-8 text-[#b8fd33]">QUANTUM COMMUNICATION <span
-                                class="text-white opacity-50">v4.2</span></h3>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-[#b8fd33] mb-6">$ cat video_features.txt</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">Lifelike AI Avatars</span>
+                                    <p class="text-[#fffce1]/80 mt-1">Engage with realistic AI personas that maintain
+                                        eye contact and natural expressions.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">End-to-End Encryption</span>
+                                    <p class="text-[#fffce1]/80 mt-1">All video conversations are secured with
+                                        military-grade encryption for complete privacy.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">Ultra-Low Latency</span>
+                                    <p class="text-[#fffce1]/80 mt-1">Experience conversations with less than 30ms
+                                        response time for natural interaction.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">Multi-Context Memory</span>
+                                    <p class="text-[#fffce1]/80 mt-1">The AI remembers previous conversations for
+                                        continuous, meaningful interactions.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                        <div class="space-y-6">
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-6 top-0 w-px h-full bg-gradient-to-b from-[#b8fd33] to-transparent">
-                                </div>
-                                <div class="absolute -left-7 top-0 w-3 h-3 rounded-full bg-[#b8fd33]"></div>
-                                <div class="ml-4">
-                                    <h4 class="text-xl font-bold text-white mb-2 flex items-center">
-                                        <span class="text-[#b8fd33] mr-2">[01]</span> Quantum Voice Synthesis
-                                    </h4>
-                                    <p class="text-gray-300 leading-relaxed">
-                                        Ultra-realistic voice replication with zero latency and 99.97% emotional
-                                        accuracy. Capable of translating 127 languages in real-time with native accent
-                                        preservation.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-6 top-0 w-px h-full bg-gradient-to-b from-[#b8fd33] to-transparent">
-                                </div>
-                                <div class="absolute -left-7 top-0 w-3 h-3 rounded-full bg-[#b8fd33]"></div>
-                                <div class="ml-4">
-                                    <h4 class="text-xl font-bold text-white mb-2 flex items-center">
-                                        <span class="text-[#b8fd33] mr-2">[02]</span> Neural Optical Rendering
-                                    </h4>
-                                    <p class="text-gray-300 leading-relaxed">
-                                        8K holographic projection with predictive movement algorithms. Renders facial
-                                        expressions with micro-expression detection at 240fps for seamless visual
-                                        communication.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-6 top-0 w-px h-full bg-gradient-to-b from-[#b8fd33] to-transparent">
-                                </div>
-                                <div class="absolute -left-7 top-0 w-3 h-3 rounded-full bg-[#b8fd33]"></div>
-                                <div class="ml-4">
-                                    <h4 class="text-xl font-bold text-white mb-2 flex items-center">
-                                        <span class="text-[#b8fd33] mr-2">[03]</span> Cognitive Response System
-                                    </h4>
-                                    <p class="text-gray-300 leading-relaxed">
-                                        Adaptive AI that learns communication patterns and preferences. Features
-                                        emotional intelligence processing with 94% higher engagement than traditional
-                                        systems.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-6 top-0 w-px h-full bg-gradient-to-b from-[#b8fd33] to-transparent">
-                                </div>
-                                <div class="absolute -left-7 top-0 w-3 h-3 rounded-full bg-[#b8fd33]"></div>
-                                <div class="ml-4">
-                                    <h4 class="text-xl font-bold text-white mb-2 flex items-center">
-                                        <span class="text-[#b8fd33] mr-2">[04]</span> Quantum-Secured Transmission
-                                    </h4>
-                                    <p class="text-gray-300 leading-relaxed">
-                                        Military-grade encryption with quantum key distribution. Unbreakable privacy
-                                        protection with zero-knowledge protocols and self-destructing data packets.
-                                    </p>
-                                </div>
-                            </div>
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-[#b8fd33] mb-6 text-center">$ ls -la ./applications/video_chat/
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="border border-[#b8fd33]/30 rounded-lg p-5 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300">
+                            <div class="text-[#b8fd33] text-lg font-bold mb-2">Virtual Companionship</div>
+                            <p class="text-[#fffce1]/80">Connect with AI companions for conversation, entertainment, or
+                                just to brighten your day.</p>
+                        </div>
+                        <div
+                            class="border border-[#b8fd33]/30 rounded-lg p-5 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300">
+                            <div class="text-[#b8fd33] text-lg font-bold mb-2">Language Learning</div>
+                            <p class="text-[#fffce1]/80">Practice conversations with native-speaking AI tutors in any
+                                language, any time.</p>
+                        </div>
+                        <div
+                            class="border border-[#b8fd33]/30 rounded-lg p-5 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300">
+                            <div class="text-[#b8fd33] text-lg font-bold mb-2">Cognitive Therapy</div>
+                            <p class="text-[#fffce1]/80">Access supportive AI-powered cognitive behavioral therapy
+                                sessions on your schedule.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <div class="inline-block relative p-0.5 rounded-lg bg-gradient-to-r from-[#b8fd33] to-[#82b718]">
-                        <div class="px-10 py-5 bg-black rounded-lg relative z-10">
-                            <h3 class="text-2xl font-bold mb-4">INITIALIZE NEURAL CONNECTION</h3>
-                            <div class="flex items-center justify-center space-x-4">
-                                <button
-                                    class="bg-gradient-to-r from-[#b8fd33] to-[#55721a] text-white px-6 py-3 rounded font-mono transition-transform hover:scale-105 flex items-center group">
-                                    <span class="mr-2">ACCESS NOW</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                                <div class="text-[#b8fd33] text-sm font-mono cursor-pointer hover:underline">VIEW SPECS
-                                </div>
-                            </div>
-                        </div>
+                <div class="text-center max-w-2xl mx-auto border border-[#b8fd33]/30 rounded-lg p-6 bg-[#151714]">
+                    <p class="text-[#b8fd33] font-bold mb-2">$ ./start_video_chat.sh --ai-persona="custom"</p>
+                    <p class="text-[#fffce1] mb-4">Experience the future of AI interaction with our cutting-edge video
+                        chat technology.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                            class="px-4 py-2 bg-[#b8fd33] text-[#0e100f] rounded hover:bg-[#a0e529] transition-colors duration-300 text-sm font-medium">
+                            $ ./try_video_demo.sh
+                        </button>
+                        <button
+                            class="px-4 py-2 border border-[#b8fd33] text-[#b8fd33] rounded hover:bg-[#b8fd33]/10 transition-colors duration-300 text-sm font-medium">
+                            $ man cosmo-video
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="bg-[#0e100f] text-white py-20 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute top-0 left-0 w-full h-full">
-                    <div class="absolute top-20 left-20 w-40 h-40 border border-white rounded-full"></div>
-                    <div class="absolute top-40 right-40 w-60 h-60 border border-white rounded-full"></div>
-                    <div class="absolute bottom-20 left-1/3 w-80 h-80 border border-white rounded-full"></div>
+        <section class="py-16 px-8 bg-[#0e100f] text-[#fffce1] font-mono">
+            <div class="container mx-auto px-4">
+                <div class="mb-12 text-center">
+                    <div class="inline-block border-2 border-[#b8fd33] rounded-lg px-6 py-3 bg-[#0e100f] mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="ml-2 text-xs text-[#fffce1]">cosmo@ai:~/debate</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-[#b8fd33] tracking-tight">
+                            ./initialize_debate.sh
+                        </h2>
+                    </div>
+                    <p class="text-xl max-w-2xl mx-auto">> Experience the power of <span class="text-[#b8fd33]">AI
+                            Debate Tech</span> - where multiple AI perspectives challenge each other</p>
                 </div>
-                <div class="absolute inset-0 flex flex-wrap gap-4 text-xs font-mono opacity-20 overflow-hidden">
-                    <div>function analyzeArgument(text) { return sentiment.analyze(text) }</div>
-                    <div>const contextualUnderstanding = new NeuralNetwork()</div>
-                    <div>export class ArgumentEngine extends BaseAI {</div>
-                    <div>debate.initialize(topic, perspectives, constraints)</div>
-                    <div>const counterpoints = await ai.generateCounterpoints(argument)</div>
-                    <div>while (debate.inProgress) { processTurn(currentSpeaker) }</div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div class="border border-[#b8fd33] rounded-lg bg-[#0e100f] overflow-hidden">
+                        <div class="bg-[#151714] p-2 border-b border-[#b8fd33]/50 flex items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            </div>
+                            <div class="text-xs text-center flex-1 text-[#fffce1]/70">debate_session_01.log</div>
+                        </div>
+                        <div class="p-4 font-mono text-sm h-[90%] overflow-y-auto">
+                            <p class="mb-2"><span class="text-[#b8fd33]">cosmo@debate:~$</span> ./start_debate.sh
+                                --topic="Artificial Intelligence Ethics" --participants=3</p>
+                            <p class="text-[#fffce1]/70 mb-2">Initializing debate framework...</p>
+                            <p class="text-[#fffce1]/70 mb-2">Loading participants...</p>
+                            <p class="text-[#fffce1]/70 mb-2">Debate session started.</p>
+                            <p class="mb-2"><span class="text-blue-400">AI-1:</span> The development of artificial
+                                general intelligence should be regulated at the international level to ensure safety...
+                            </p>
+                            <p class="mb-2"><span class="text-green-400">AI-2:</span> Respectfully disagree. Regulation
+                                could stifle innovation. A better approach would be industry self-governance...</p>
+                            <p class="mb-2"><span class="text-purple-400">AI-3:</span> Both views have merit, but we
+                                need to consider the perspectives of developing nations. Access to AI technology...</p>
+                            <p class="mb-2"><span class="text-blue-400">AI-1:</span> Your point about access is
+                                important, but it doesn't address the fundamental safety concerns...</p>
+                            <p class="mb-2"><span class="text-green-400">AI-2:</span> Safety isn't solely achieved
+                                through regulation. Open-source development can lead to more robust systems...</p>
+                            <p class="mb-2"><span class="text-purple-400">AI-3:</span> We might find common ground in
+                                establishing international advisory boards without binding regulatory authority...</p>
+                            <p class="mb-2"><span class="text-[#b8fd33]">cosmo@debate:~$</span> ./summarize_positions.sh
+                            </p>
+                            <p class="text-[#fffce1]/70 mb-2">Summarizing debate positions...</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-[#b8fd33] mb-6">$ cat features.txt</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">Multi-perspective Analysis</span>
+                                    <p class="text-[#fffce1]/80 mt-1">Deploy multiple AI agents to analyze complex
+                                        topics from different viewpoints, uncovering insights you might miss.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">Real-time Counterarguments</span>
+                                    <p class="text-[#fffce1]/80 mt-1">Watch as AI agents challenge each other's
+                                        reasoning, strengthening your understanding of any subject.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">Customizable Debate Parameters</span>
+                                    <p class="text-[#fffce1]/80 mt-1">Set the number of participants, debate style, and
+                                        topic focus to tailor the experience to your needs.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#b8fd33] mr-3 mt-1">></span>
+                                <div>
+                                    <span class="font-bold text-[#fffce1]">Summary & Insights Extraction</span>
+                                    <p class="text-[#fffce1]/80 mt-1">Get concise summaries of key points and extracted
+                                        insights from any debate session.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-[#b8fd33] mb-6 text-center">$ grep -r "use_cases" ./applications/
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="border border-[#b8fd33]/30 rounded-lg p-5 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300">
+                            <div class="text-[#b8fd33] text-lg font-bold mb-2">Research & Analysis</div>
+                            <p class="text-[#fffce1]/80">Explore complex topics with multiple AI perspectives examining
+                                different angles and evidence bases.</p>
+                        </div>
+                        <div
+                            class="border border-[#b8fd33]/30 rounded-lg p-5 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300">
+                            <div class="text-[#b8fd33] text-lg font-bold mb-2">Decision Support</div>
+                            <p class="text-[#fffce1]/80">Evaluate business decisions by having AI agents debate pros,
+                                cons, and potential outcomes.</p>
+                        </div>
+                        <div
+                            class="border border-[#b8fd33]/30 rounded-lg p-5 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300">
+                            <div class="text-[#b8fd33] text-lg font-bold mb-2">Educational Tool</div>
+                            <p class="text-[#fffce1]/80">Enhance learning by witnessing structured debates on academic
+                                subjects from multiple viewpoints.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center max-w-2xl mx-auto border border-[#b8fd33]/30 rounded-lg p-6 bg-[#151714]">
+                    <p class="text-[#b8fd33] font-bold mb-2">$ ./start_your_debate.sh --topic="your_choice"</p>
+                    <p class="text-[#fffce1] mb-4">Experience the power of AI debate technology and gain deeper insights
+                        into any topic.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                            class="px-4 py-2 bg-[#b8fd33] text-[#0e100f] rounded hover:bg-[#a0e529] transition-colors duration-300 text-sm font-medium">
+                            $ ./try_debate_demo.sh
+                        </button>
+                        <button
+                            class="px-4 py-2 border border-[#b8fd33] text-[#b8fd33] rounded hover:bg-[#b8fd33]/10 transition-colors duration-300 text-sm font-medium">
+                            $ man cosmo-debate
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            <div class="max-w-6xl mx-auto px-4 relative">
-                <div class="mb-16 text-center">
-                    <h2 class="text-5xl md:text-6xl font-bold mb-6 inline-block">
-                        <span
-                            class="bg-clip-text text-transparent bg-gradient-to-r from-[#b8fd33] to-[#55721a]">MULTI</span><span
-                            class="text-white">·</span><span
-                            class="bg-clip-text text-transparent bg-gradient-to-r from-[#b8fd33] to-[#55721a]">PERSPECTIVE</span>
-                    </h2>
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Advanced AI debate system featuring multiple
-                        artificial intelligences discussing any topic with nuanced perspectives</p>
+        </section>
+        <section class="py-16 px-8 bg-[#0e100f] text-[#fffce1] font-mono">
+            <div class="container mx-auto px-4">
+                <div class="mb-12 text-center relative">
+                    <div class="inline-block border-2 border-[#b8fd33] rounded-lg px-6 py-3 bg-[#0e100f] mb-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="ml-2 text-xs text-[#fffce1]">cosmo@ai:~/pricing</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-[#b8fd33] tracking-tight">
+                            <span class="typing-terminal">./select_your_plan.sh</span>
+                        </h2>
+                    </div>
+                    <p class="text-xl max-w-2xl mx-auto">> Choose your plan to unlock the full potential of <span
+                            class="text-[#b8fd33]">Cosmo AI</span></p>
                 </div>
 
-                <div class="mb-16">
-                    <div class="relative bg-gray-900 rounded-xl border border-gray-800 overflow-hidden shadow-xl">
-                        <div class="bg-gray-800 px-6 py-4 flex justify-between items-center border-b border-gray-700">
-                            <div class="flex items-center">
-                                <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                                <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
-                                <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                                <span class="ml-2 text-gray-400 text-sm font-mono">debate_engine.ai</span>
-                            </div>
-                            <div class="text-sm font-mono text-gray-400">Topic: Climate Policy</div>
-                        </div>
-
-                        <div class="p-6">
-                            <div class="flex flex-col lg:flex-row gap-6">
-                                <div class="flex-1">
-                                    <div class="flex items-center mb-4">
-                                        <div
-                                            class="w-10 h-10 rounded-full bg-gradient-to-br from-[#b8fd33] to-[#55721a] flex items-center justify-center">
-                                            <span class="text-white font-bold">A</span>
-                                        </div>
-                                        <div class="ml-3">
-                                            <div class="font-bold text-[#b8fd33]">Analyst-1</div>
-                                            <div class="text-xs text-gray-400">Economic Perspective</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-gray-800 rounded-lg p-4 mb-4 relative">
-                                        <div class="absolute top-0 left-0 w-1 h-full bg-[#b8fd33] rounded-l-lg"></div>
-                                        <p class="text-gray-300">The economic impacts of carbon taxes must be considered
-                                            carefully. While they can reduce emissions, they may disproportionately
-                                            affect lower-income households.</p>
-                                    </div>
-
-                                    <div class="bg-gray-800 rounded-lg p-4 relative">
-                                        <div class="absolute top-0 left-0 w-1 h-full bg-[#b8fd33] rounded-l-lg"></div>
-                                        <p class="text-gray-300">Market-based incentives for renewable energy
-                                            development show promising returns on investment while creating new economic
-                                            sectors.</p>
-                                    </div>
-
-                                    <div class="flex justify-end mt-4">
-                                        <div
-                                            class="bg-gray-800 rounded-full px-4 py-1 text-xs text-gray-400 flex items-center">
-                                            <span class="w-2 h-2 bg-[#b8fd33] rounded-full mr-2"></span>
-                                            Processing next point...
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="hidden lg:flex flex-col items-center justify-center">
-                                    <div class="h-full w-px bg-gray-700"></div>
-                                    <div class="my-4 px-3 py-1 rounded-full border border-gray-700 text-sm">VS</div>
-                                    <div class="h-full w-px bg-gray-700"></div>
-                                </div>
-
-                                <div class="flex-1">
-                                    <div class="flex items-center mb-4">
-                                        <div
-                                            class="w-10 h-10 rounded-full bg-gradient-to-br from-[#b8fd33] to-[#55721a] flex items-center justify-center">
-                                            <span class="text-white font-bold">B</span>
-                                        </div>
-                                        <div class="ml-3">
-                                            <div class="font-bold text-[#b8fd33]">Analyst-2</div>
-                                            <div class="text-xs text-gray-400">Environmental Perspective</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-gray-800 rounded-lg p-4 mb-4 relative">
-                                        <div class="absolute top-0 right-0 w-1 h-full bg-[#b8fd33] rounded-r-lg"></div>
-                                        <p class="text-gray-300">The environmental cost of inaction far exceeds the
-                                            economic adjustments required. Climate tipping points may cause irreversible
-                                            damage.</p>
-                                    </div>
-
-                                    <div class="bg-gray-800 rounded-lg p-4 relative">
-                                        <div class="absolute top-0 right-0 w-1 h-full bg-[#b8fd33] rounded-r-lg"></div>
-                                        <p class="text-gray-300">Carbon pricing mechanisms have been shown effective in
-                                            similar economies, reducing emissions while maintaining growth when properly
-                                            implemented.</p>
-                                    </div>
-
-                                    <div class="flex justify-start mt-4">
-                                        <div
-                                            class="bg-gray-800 rounded-full px-4 py-1 text-xs text-gray-400 flex items-center">
-                                            <span class="w-2 h-2 bg-[#b8fd33] rounded-full mr-2 animate-pulse"></span>
-                                            Analyzing counterpoint...
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mt-8 pt-6 border-t border-gray-800 flex flex-wrap justify-between items-center">
-                                <div class="flex items-center space-x-4">
-                                    <button
-                                        class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md text-sm flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                        </svg>
-                                        Reset Debate
-                                    </button>
-                                    <button
-                                        class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md text-sm flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                        </svg>
-                                        Add Perspective
-                                    </button>
-                                </div>
-                                <div class="mt-4 sm:mt-0">
-                                    <div class="flex items-center text-sm text-gray-400">
-                                        <span>Debate depth:</span>
-                                        <div class="ml-3 flex space-x-1">
-                                            <div class="w-8 h-1 bg-[#b8fd33] rounded-full"></div>
-                                            <div class="w-8 h-1 bg-[#b8fd33] rounded-full"></div>
-                                            <div class="w-8 h-1 bg-[#b8fd33] rounded-full"></div>
-                                            <div class="w-8 h-1 bg-gray-700 rounded-full"></div>
-                                            <div class="w-8 h-1 bg-gray-700 rounded-full"></div>
-                                        </div>
-                                        <span class="ml-2">60%</span>
-                                    </div>
-                                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div
+                        class="border border-[#b8fd33]/30 rounded-lg p-6 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300 flex flex-col">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-[#b8fd33]">> BASIC</h3>
+                            <div class="flex items-baseline mt-2">
+                                <span class="text-4xl font-bold">$9</span>
+                                <span class="ml-1 text-sm text-[#fffce1]/70">/month</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8 mb-16">
-                    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg border border-gray-800">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-gradient-to-br from-[#b8fd33] to-[#55721a] flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
+                        <div class="border-t border-[#b8fd33]/20 pt-4 mb-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Chat with Cosmo AI</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>5 AI Image Generations</span>
+                                </li>
+                                <li class="flex items-start opacity-50">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Voice Live Chat</span>
+                                </li>
+                                <li class="flex items-start opacity-50">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Video Live Chat</span>
+                                </li>
+                                <li class="flex items-start opacity-50">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>AI Debate Tech</span>
+                                </li>
+                            </ul>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Multi-Model Debate</h3>
-                        <p class="text-gray-400">Utilizes specialized AI models trained to represent different
-                            viewpoints, expertise areas, and reasoning styles to provide comprehensive analysis.</p>
-                    </div>
-
-                    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg border border-gray-800">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-gradient-to-br from-[#b8fd33] to-[#55721a] flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Argument Mapping</h3>
-                        <p class="text-gray-400">Automatically structures and visualizes complex discussions, tracking
-                            claims, evidence, and logical connections between different positions.</p>
+                        <button
+                            class="mt-auto px-4 py-2 border border-[#b8fd33] text-[#b8fd33] rounded hover:bg-[#b8fd33]/10 transition-colors duration-300 text-sm font-medium">
+                            $ sudo apt-get install cosmo-basic
+                        </button>
                     </div>
 
-                    <div class="bg-gray-900 bg-opacity-50 p-6 rounded-lg border border-gray-800">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-gradient-to-br from-[#b8fd33] to-[#55721a] flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
+                    <div
+                        class="border border-[#b8fd33]/30 rounded-lg p-6 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300 flex flex-col">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-[#b8fd33]">> PRO</h3>
+                            <div class="flex items-baseline mt-2">
+                                <span class="text-4xl font-bold">$19</span>
+                                <span class="ml-1 text-sm text-[#fffce1]/70">/month</span>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Fact Verification</h3>
-                        <p class="text-gray-400">Real-time fact checking against reliable knowledge bases ensures
-                            debates remain grounded in accuracy while identifying potential misinformation.</p>
+                        <div class="border-t border-[#b8fd33]/20 pt-4 mb-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Unlimited Chat with Cosmo AI</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>25 AI Image Generations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Voice Live Chat</span>
+                                </li>
+                                <li class="flex items-start opacity-50">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Video Live Chat</span>
+                                </li>
+                                <li class="flex items-start opacity-50">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>AI Debate Tech</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button
+                            class="mt-auto px-4 py-2 border border-[#b8fd33] text-[#b8fd33] rounded hover:bg-[#b8fd33]/10 transition-colors duration-300 text-sm font-medium">
+                            $ sudo apt-get install cosmo-pro
+                        </button>
+                    </div>
+
+                    <div
+                        class="border border-[#b8fd33] rounded-lg p-6 bg-[#151714] hover:bg-[#1a1c19] transition-all duration-300 flex flex-col relative">
+                        <div
+                            class="absolute -top-3 right-3 bg-[#b8fd33] text-[#0e100f] px-3 py-1 text-xs font-bold rounded">
+                            POPULAR
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-[#b8fd33]">> BUSINESS</h3>
+                            <div class="flex items-baseline mt-2">
+                                <span class="text-4xl font-bold">$49</span>
+                                <span class="ml-1 text-sm text-[#fffce1]/70">/month</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-[#b8fd33]/20 pt-4 mb-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Unlimited Chat with Cosmo AI</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>100 AI Image Generations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Unlimited Voice Live Chat</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Video Live Chat</span>
+                                </li>
+                                <li class="flex items-start opacity-50">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>AI Debate Tech</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button
+                            class="mt-auto px-4 py-2 bg-[#b8fd33] text-[#0e100f] rounded hover:bg-[#a0e529] transition-colors duration-300 text-sm font-medium">
+                            $ sudo apt-get install cosmo-bus
+                        </button>
+                    </div>
+
+                    <div
+                        class="border border-[#b8fd33]/30 rounded-lg p-6 bg-[#0e100f] hover:bg-[#151714] hover:border-[#b8fd33] transition-all duration-300 flex flex-col">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold text-[#b8fd33]">> ENTERPRISE</h3>
+                            <div class="flex items-baseline mt-2">
+                                <span class="text-4xl font-bold">$99</span>
+                                <span class="ml-1 text-sm text-[#fffce1]/70">/month</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-[#b8fd33]/20 pt-4 mb-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Unlimited Chat with Cosmo AI</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Unlimited AI Image Generations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Unlimited Voice Live Chat</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>Unlimited Video Live Chat</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-[#b8fd33] mr-2">$</span>
+                                    <span>AI Debate Tech</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button
+                            class="mt-auto px-4 py-2 border border-[#b8fd33] text-[#b8fd33] rounded hover:bg-[#b8fd33]/10 transition-colors duration-300 text-sm font-medium">
+                            $ sudo apt-get install cosmo-enter
+                        </button>
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <div class="inline-block bg-gradient-to-r from-[#b8fd33] to-[#55721a] p-px rounded-lg">
-                        <div class="bg-gray-900 rounded-lg px-8 py-6">
-                            <h3 class="text-2xl font-bold mb-4">Start Your AI Debate Now</h3>
-                            <div class="relative max-w-md mx-auto">
-                                <input type="text" placeholder="Enter a debate topic..."
-                                    class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 pr-20 focus:outline-none focus:ring-2 focus:ring-[#b8fd33] text-white">
-                                <button
-                                    class="absolute right-1 top-1 bottom-1 bg-gradient-to-r from-[#b8fd33] to-[#55721a] rounded-md px-4 text-white font-medium">
-                                    Generate
-                                </button>
-                            </div>
-                            <p class="mt-3 text-sm text-gray-400">Try topics like "Space Exploration," "AI Ethics," or
-                                "Economic Policy"</p>
-                        </div>
-                    </div>
+                <div class="text-center max-w-2xl mx-auto border border-[#b8fd33]/30 rounded-lg p-6 bg-[#0e100f]">
+                    <p class="text-[#b8fd33] mb-2">$ cosmo --get-custom-plan</p>
+                    <p class="text-[#fffce1]">Need a custom solution? Contact our team for a tailored plan that meets
+                        your specific requirements.</p>
+                    <button
+                        class="mt-4 px-4 py-2 border border-[#b8fd33] text-[#b8fd33] rounded hover:bg-[#b8fd33]/10 transition-colors duration-300 text-sm font-medium">
+                        $ ./contact_sales.sh
+                    </button>
                 </div>
             </div>
         </section>
     </main>
+    <footer class="bg-[#0e100f] text-[#fffce1] font-mono border-t border-[#b8fd33]/30 py-12">
+        <div class="container mx-auto px-4">
+            <div class="mb-8 text-center">
+                <div class="inline-block px-4 py-1 bg-[#0e100f] border border-[#b8fd33] rounded-lg -mt-6 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                        <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                        <span class="ml-2 text-[#b8fd33] text-sm">cosmo@ai:~/system</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-1">
+                    <div class="text-[#b8fd33] text-2xl font-bold mb-4">COSMO.AI</div>
+                    <p class="text-[#fffce1]/70 mb-4">Next-generation AI technology for communication, creation, and
+                        collaboration.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-[#b8fd33] hover:text-[#a0e529] transition-colors">
+                            <span class="text-xl">🌐</span>
+                        </a>
+                        <a href="#" class="text-[#b8fd33] hover:text-[#a0e529] transition-colors">
+                            <span class="text-xl">💬</span>
+                        </a>
+                        <a href="#" class="text-[#b8fd33] hover:text-[#a0e529] transition-colors">
+                            <span class="text-xl">📱</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <h3 class="text-[#b8fd33] font-bold mb-4">$ ls -la ./products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Chat AI
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Image Generator
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Voice Chat
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Video Chat
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Debate Tech
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-1">
+                    <h3 class="text-[#b8fd33] font-bold mb-4">$ ls -la ./resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Documentation
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>API Reference
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Community Forum
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Tutorials
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Changelog
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-1">
+                    <h3 class="text-[#b8fd33] font-bold mb-4">$ ./subscribe_newsletter.sh</h3>
+                    <p class="text-[#fffce1]/70 mb-4">Stay updated with the latest AI developments and Cosmo features.
+                    </p>
+                    <div class="flex mb-6">
+                        <input type="email" placeholder="your@email.com"
+                            class="bg-[#151714] border border-[#b8fd33]/50 text-[#fffce1] p-2 rounded-l w-full focus:outline-none focus:border-[#b8fd33]">
+                        <button type="submit"
+                            class="bg-[#b8fd33] text-[#0e100f] px-4 py-2 rounded-r font-bold hover:bg-[#a0e529] transition-colors">
+                            Enter
+                        </button>
+                    </div>
+
+                    <h3 class="text-[#b8fd33] font-bold mb-2">$ ls -la ./company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>About Us
+                            </a></li>
+                        <li><a href="#"
+                                class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors flex items-center">
+                                <span class="text-[#b8fd33] mr-2">></span>Contact
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-[#b8fd33]/30 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-[#fffce1]/70 mb-4 md:mb-0 flex items-center">
+                        <span class="text-[#b8fd33] mr-2">$</span> echo "© $(date +%Y) Cosmo.AI. All rights reserved."
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors text-sm">Privacy
+                            Policy</a>
+                        <a href="#" class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors text-sm">Terms of
+                            Service</a>
+                        <a href="#" class="text-[#fffce1]/70 hover:text-[#b8fd33] transition-colors text-sm">Cookie
+                            Settings</a>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-6 bg-[#151714] border border-[#b8fd33]/30 rounded p-2 text-xs flex justify-between items-center text-[#fffce1]/70">
+                    <div>
+                        <span class="text-[#b8fd33]">$</span> uptime: 99.99% | servers: online | version: 3.2.1
+                    </div>
+                    <div>
+                        <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1 animate-pulse"></span>
+                        all systems operational
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script>
         const leftBubbles = document.querySelectorAll('.absolute.left-10 > div');
         const rightBubbles = document.querySelectorAll('.absolute.right-10 > div');
