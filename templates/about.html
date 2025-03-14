@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Cosmo AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cosmo-bg': '#0e100f',
+                        'cosmo-title': '#b8fd33',
+                        'cosmo-text': '#fffce1'
+                    },
+                    fontFamily: {
+                        'terminal': ['Consolas', 'Monaco', 'Courier New', 'monospace']
+                    },
+                    animation: {
+                        'cursor-blink': 'blink 1s step-end infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        .typing-animation {
+            animation: typing 3.5s steps(40, end);
+        }
+        
+        .team-member:hover .member-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-cosmo-bg font-terminal text-cosmo-text min-h-screen flex flex-col">
+    <nav class="bg-black/70 border-b border-cosmo-title/20 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="homepage.html" class="flex items-center group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 text-cosmo-text group-hover:text-cosmo-title transition-colors duration-300" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-cosmo-text group-hover:text-cosmo-title transition-colors duration-300">HOME</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 flex-grow flex flex-col">
+        <div class="w-full max-w-6xl mx-auto bg-black/50 border border-cosmo-title/30 rounded-md shadow-lg shadow-cosmo-title/10 overflow-hidden flex-grow">
+            <div class="bg-black/70 px-4 py-2 flex items-center justify-between border-b border-cosmo-title/20">
+                <div class="flex items-center gap-2">
+                    <div class="h-3 w-3 bg-red-500 rounded-full"></div>
+                    <div class="h-3 w-3 bg-yellow-500 rounded-full"></div>
+                    <div class="h-3 w-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-cosmo-text/70 text-sm">COSMO AI INFORMATION TERMINAL</div>
+                <div class="text-cosmo-text/70 text-xs">v1.0.3</div>
+            </div>
+            
+            <div class="p-6 flex flex-col h-full">
+                <div class="mb-8">
+                    <h1 class="text-cosmo-title text-2xl mb-3">
+                        <span class="block overflow-hidden whitespace-nowrap typing-animation">
+                            COSMO AI: REDEFINING INTELLIGENT SYSTEMS
+                        </span>
+                        <span class="inline-block h-5 w-2 bg-cosmo-title animate-cursor-blink"></span>
+                    </h1>
+                    <p class="text-cosmo-text/80 mb-2">> Initializing company overview...</p>
+                    <p class="text-cosmo-text/80 mb-2">> Compiling mission statements</p>
+                    <p class="text-cosmo-text/80 mb-4">> Preparing system insights</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-black/30 border border-cosmo-text/10 p-5 rounded-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-cosmo-title/20 flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-cosmo-title" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-xl text-cosmo-title">Our Mission</h2>
+                        </div>
+                        <p class="text-cosmo-text/80">
+                            To push the boundaries of artificial intelligence, creating systems that enhance human potential and solve complex global challenges.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-black/30 border border-cosmo-text/10 p-5 rounded-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-cosmo-title/20 flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-cosmo-title" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-xl text-cosmo-title">Our Vision</h2>
+                        </div>
+                        <p class="text-cosmo-text/80">
+                            To be the leading innovator in ethical AI, creating intelligent systems that are transparent, unbiased, and fundamentally beneficial to humanity.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-black/30 border border-cosmo-text/10 p-5 rounded-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-cosmo-title/20 flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-cosmo-title" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-xl text-cosmo-title">Our Core Values</h2>
+                        </div>
+                        <ul class="text-cosmo-text/80 space-y-2">
+                            <li>• Ethical AI Development</li>
+                            <li>• Continuous Innovation</li>
+                            <li>• Transparency and Trust</li>
+                            <li>• Human-Centric Design</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-cosmo-title text-xl mb-6 border-b border-cosmo-text/20 pb-2">
+                        > Technical Specifications
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-cosmo-title mb-3">System Capabilities</h4>
+                            <ul class="text-cosmo-text/80 space-y-2">
+                                <li>• Natural Language Processing</li>
+                                <li>• Advanced Machine Learning</li>
+                                <li>• Predictive Analytics</li>
+                                <li>• Neural Network Architecture</li>
+                                <li>• Real-time Data Processing</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-cosmo-title mb-3">Technological Stack</h4>
+                            <ul class="text-cosmo-text/80 space-y-2">
+                                <li>• Python-based Core Systems</li>
+                                <li>• TensorFlow & PyTorch</li>
+                                <li>• Quantum Computing Integration</li>
+                                <li>• Cloud-Native Infrastructure</li>
+                                <li>• Microservices Architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-cosmo-text/50 text-sm flex justify-between">
+                    <span>System Information: Compiled</span>
+                    <span>Security Level: Top Secret</span>
+                    <span id="datetime">2025-03-14 00:00:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4 text-center text-cosmo-text/30 text-xs">
+            Protected by Cosmo AI Security • Neural Network v4.2.8
+        </div>
+    </div>
+    
+    <script>
+        // Update the date and time
+        function updateDateTime() {
+            const now = new Date();
+            const formatted = now.toISOString().replace('T', ' ').substring(0, 19);
+            document.getElementById('datetime').textContent = formatted;
+        }
+        
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>
