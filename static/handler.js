@@ -69,9 +69,7 @@ document.getElementById('chat-form').addEventListener('submit', async function (
 
         messageInput.value = '';
 
-        // Create a terminal-style thinking animation
         function createThinkingAnimation() {
-            // Create the main container with terminal styling
             const loadingElement = document.createElement('div');
             loadingElement.className = 'cosmo-thinking-container';
             loadingElement.style.cssText = `
@@ -544,8 +542,14 @@ document.getElementById('chat-form').addEventListener('submit', async function (
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
         } catch (error) {
+            clearInterval(thinkingAnimation.interval);
+            thinkingAnimation.element.remove();
             console.error('Error:', error);
-            loadingElement.textContent = `Cosmo: Sorry, something went wrong. Please try again.`;
+            const errorMessageElement = document.createElement('div');
+            errorMessageElement.textContent = `Cosmo: Sorry, something went wrong. Please try again.`;
+            errorMessageElement.style.color = 'red';
+            errorMessageElement.style.fontSize = '12px';
+            messageElement.appendChild(errorMessageElement);
         }
     }
 });
