@@ -1,12 +1,11 @@
-const https = require('https');
-const fs = require('fs');
-const express = require('express');
-const { HfInference } = require('@huggingface/inference');
-const cors = require('cors');
-const multer = require('multer');
+import https from 'https';
+import fs from 'fs';
+import express from 'express';
+import cors from 'cors';
+import fetch from 'node-fetch';
 
 const app = express();
-const client = new HfInference('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');
+const HYPERBOLIC_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJoYW16YWF0aWc1OEBnbWFpbC5jb20iLCJpYXQiOjE3NDIyOTQyNDV9.AKK1DBxR29fSSkLhA9sB_eR1jEgz0tIq1pZJP50QLjM';
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +18,35 @@ const sslOptions = {
   cert: fs.readFileSync('C:/Users/imane/Desktop/CosmoAi/ssl/cert.pem'),
 };
 
+async function callHyperbolicAPI(messages, model = 'deepseek-ai/DeepSeek-V3', temp = 0.6) {
+  try {
+    const response = await fetch('https://api.hyperbolic.xyz/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${HYPERBOLIC_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: model,
+        messages: messages,
+        temperature: temp,
+        max_tokens: 2000,
+        top_p: 0.9,
+        stream: false
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.choices[0].message.content;
+  } catch (error) {
+    console.error('API Error:', error);
+    throw error;
+  }
+}
 
 app.post('/chat', async (req, res) => {
   const { message, userId } = req.body;
@@ -29,21 +57,10 @@ app.post('/chat', async (req, res) => {
 
   try {
     let conversationHistory = conversations.get(userId) || [];
-
     conversationHistory.push({ role: 'user', content: message });
 
-    const response = await client.chatCompletion({
-      model: 'Qwen/Qwen2.5-Coder-32B-Instruct',
-      messages: conversationHistory,
-      temperature: 0.6,
-      max_tokens: 2000,
-      top_p: 0.9,
-    });
-
-    const modelResponse = response.choices[0].message.content;
-
+    const modelResponse = await callHyperbolicAPI(conversationHistory);
     conversationHistory.push({ role: 'assistant', content: modelResponse });
-
     conversations.set(userId, conversationHistory);
 
     res.json({ response: modelResponse });
@@ -64,17 +81,8 @@ app.post('/voice', async (req, res) => {
     let conversationHistory = conversations.get(userId) || [];
     conversationHistory.push({ role: 'user', content: message });
 
-    const response = await client.chatCompletion({
-      model: 'Qwen/Qwen2.5-Coder-32B-Instruct',
-      messages: conversationHistory,
-      temperature: 0.6,
-      max_tokens: 2000,
-      top_p: 0.9,
-    });
-
-    const modelResponse = response.choices[0].message.content;
+    const modelResponse = await callHyperbolicAPI(conversationHistory);
     conversationHistory.push({ role: 'assistant', content: modelResponse });
-
     conversations.set(userId, conversationHistory);
 
     res.json({ response: modelResponse });
@@ -97,7 +105,6 @@ app.post('/debat', async (req, res) => {
 
   try {
     let conversationHistory = conversations.get(userId) || [];
-
     conversationHistory.push({ role: 'user', content: message });
 
     if (conversationHistory.length === 1) {
@@ -117,14 +124,11 @@ app.post('/debat', async (req, res) => {
       const lastEntry = conversationHistory[conversationHistory.length - 1];
 
       if (lastEntry.role === 'model1') {
-        const model2Response = await client.chatCompletion({
-          model: 'NousResearch/Hermes-3-Llama-3.1-8B',
-          messages: conversationHistory,
-          temperature: 0.6,
-          max_tokens: 150,
-          top_p: 0.9,
-        });
-        const model2Message = model2Response.choices[0].message.content;
+        const model2Message = await callHyperbolicAPI(
+          conversationHistory,
+          'deepseek-ai/DeepSeek-V3',
+          0.6
+        );
 
         const model2Prompt = "Let's keep it casual and human-like. Feel free to engage in a simple, open discussion with me: ";
         const fullModel2Message = model2Prompt + model2Message;
@@ -136,14 +140,11 @@ app.post('/debat', async (req, res) => {
           break;
         }
       } else if (lastEntry.role === 'model2') {
-        const model1Response = await client.chatCompletion({
-          model: 'Qwen/Qwen2.5-Coder-32B-Instruct',
-          messages: conversationHistory,
-          temperature: 0.6,
-          max_tokens: 150,
-          top_p: 0.9,
-        });
-        const model1Message = model1Response.choices[0].message.content;
+        const model1Message = await callHyperbolicAPI(
+          conversationHistory,
+          'deepseek-ai/DeepSeek-V3',
+          0.6
+        );
 
         if (!isRepeatedContent(conversationHistory, model1Message)) {
           conversationHistory.push({ role: 'model1', content: model1Message });
@@ -161,7 +162,6 @@ app.post('/debat', async (req, res) => {
     }
 
     conversations.set(userId, conversationHistory);
-
     res.end();
   } catch (error) {
     console.error('Error:', error);
