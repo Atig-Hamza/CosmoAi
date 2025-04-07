@@ -184,58 +184,42 @@
         <!-- Trends -->
         <div class="mt-12">
             <h3 class="text-xl font-medium mb-3">Today's Trends</h3>
-            <div class="trends-container flex gap-3 overflow-x-auto pb-2">
-                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
-                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
-                        <img src="../images/gen/geng1.gif" alt="AI Innovation" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-2 flex flex-col justify-center">
-                        <h4 class="font-medium text-sm leading-tight">AI Innovation</h4>
-                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">New breakthroughs in ML</p>
-                    </div>
-                </div>
-
-                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
-                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
-                        <img src="../images/gen/geng2.gif" alt="Crypto Update" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-2 flex flex-col justify-center">
-                        <h4 class="font-medium text-sm leading-tight">Crypto Update</h4>
-                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">Latest in cryptocurrency</p>
-                    </div>
-                </div>
-
-                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
-                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
-                        <img src="../images/gen/geng3.gif" alt="Space Exploration" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-2 flex flex-col justify-center">
-                        <h4 class="font-medium text-sm leading-tight">Space Exploration</h4>
-                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">Webb telescope findings</p>
-                    </div>
-                </div>
-
-                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
-                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
-                        <img src="../images/gen/geng6.gif" alt="Health Tech" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-2 flex flex-col justify-center">
-                        <h4 class="font-medium text-sm leading-tight">Health Tech</h4>
-                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">Wearable tech advances</p>
-                    </div>
-                </div>
-
-                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
-                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
-                        <img src="../images/gen/geng7.gif" alt="Climate Action" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-2 flex flex-col justify-center">
-                        <h4 class="font-medium text-sm leading-tight">Climate Action</h4>
-                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">New climate policies</p>
-                    </div>
-                </div>
+            <div class="trends-container flex gap-3 overflow-x-auto pb-2" id="trendsContainer">
+                <!-- Trends will be added here dynamically -->
             </div>
         </div>
+
+        <script>
+            fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=48b89a739f84441f898c9f874e9097f8')
+                .then(res => res.json())
+                .then(data => {
+                    const container = document.getElementById('trendsContainer');
+                    container.innerHTML = '';
+
+                    data.articles.forEach(article => {
+                        // Check if image exists and looks valid
+                        if (!article.urlToImage || !article.urlToImage.startsWith('http')) return;
+
+                        const title = article.title.length > 40 ? article.title.slice(0, 37) + '...' : article.title;
+
+                        const trendHTML = `
+                    <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                      <div class="h-16 w-16 overflow-hidden flex-shrink-0">
+                        <img src="${article.urlToImage}" alt="${title}" class="w-full h-full object-cover" />
+                      </div>
+                      <div class="p-2 flex flex-col justify-center">
+                        <h4 class="font-medium text-sm leading-tight">${title}</h4>
+                      </div>
+                    </div>
+                  `;
+
+                        container.innerHTML += trendHTML;
+                    });
+                })
+                .catch(err => {
+                    console.error('Failed to fetch trends:', err);
+                });
+        </script>
 
         <!-- Suggestions -->
         <div class="mask-alpha mask-r-from-black mask-r-from-50% mask-r-to-transparent mt-4">
