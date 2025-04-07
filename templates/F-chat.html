@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        :root {
+            /* Dark mode colors */
+            --text-color: #e3e3e3;
+            --subheading-color: #828282;
+            --placeholder-color: #a6a6a6;
+            --primary-color: #242424;
+            --secondary-color: #383838;
+            --secondary-hover-color: #444;
+        }
+
+        .light-mode {
+            /* Light mode colors */
+            --text-color: #222;
+            --subheading-color: #a0a0a0;
+            --placeholder-color: #6c6c6c;
+            --primary-color: #fff;
+            --secondary-color: #e9eef6;
+            --secondary-hover-color: #dbe1ea;
+        }
+
+        body {
+            background: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .title {
+            background: linear-gradient(to right, #4285f4, #d96570);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .suggestion-list,
+        .trends-container {
+            scrollbar-width: none;
+        }
+
+        .suggestion-list::-webkit-scrollbar,
+        .trends-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .loading .avatar {
+            animation: rotate 3s linear infinite;
+        }
+
+        .trend-item {
+            transition: all 0.2s ease;
+        }
+
+        .trend-item:hover {
+            background-color: var(--secondary-hover-color);
+        }
+
+        .sug-item {
+            transition: all 0.2s ease;
+        }
+
+        .sug-item:hover {
+            background-color: var(--secondary-hover-color);
+        }
+    </style>
+</head>
+
+<body class="bg-[#242424]">
+    <aside id="sidebar"
+        class="fixed left-0 top-0 h-full bg-[#1e1e1e] flex flex-col py-6 z-10 transition-all duration-300 w-16">
+        <div class="flex items-center justify-between px-3 mb-4">
+            <button id="menu-toggle"
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+            <button id="collapse-btn"
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors opacity-0 scale-0 transition-all duration-300 absolute right-3">
+                <span class="material-symbols-rounded">chevron_left</span>
+            </button>
+        </div>
+
+        <button class="sidebar-item w-full h-10 mb-12 flex items-center px-3">
+            <span
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded">home</span>
+            </span>
+            <span
+                class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Home</span>
+        </button>
+
+        <div class="flex flex-col items-center gap-4 mt-auto mb-auto w-full">
+            <button class="sidebar-item w-full h-10 flex items-center px-3">
+                <span
+                    class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                    <span class="material-symbols-rounded">chat</span>
+                </span>
+                <span
+                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Chat</span>
+            </button>
+
+            <button class="sidebar-item w-full h-10 flex items-center px-3">
+                <span
+                    class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                    <span class="material-symbols-rounded">bookmark</span>
+                </span>
+                <span
+                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Bookmarks</span>
+            </button>
+
+            <button class="sidebar-item w-full h-10 flex items-center px-3">
+                <span
+                    class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                    <span class="material-symbols-rounded">history</span>
+                </span>
+                <span
+                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">History</span>
+            </button>
+        </div>
+        <button class="sidebar-item w-full h-10 mt-auto flex items-center px-3">
+            <span
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded">settings</span>
+            </span>
+            <span
+                class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Settings</span>
+        </button>
+    </aside>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.getElementById('menu-toggle');
+            const collapseBtn = document.getElementById('collapse-btn');
+            const textElements = document.querySelectorAll('.sidebar-item span:nth-child(2)');
+
+            let isExpanded = false;
+
+            function toggleSidebar() {
+                isExpanded = !isExpanded;
+
+                if (isExpanded) {
+                    sidebar.style.width = '200px';
+                    collapseBtn.style.opacity = '1';
+                    collapseBtn.style.scale = '1';
+
+                    textElements.forEach(element => {
+                        element.style.opacity = '1';
+                    });
+                } else {
+                    sidebar.style.width = '64px';
+                    collapseBtn.style.opacity = '0';
+                    collapseBtn.style.scale = '0';
+
+                    textElements.forEach(element => {
+                        element.style.opacity = '0';
+                    });
+                }
+            }
+
+            menuToggle.addEventListener('click', toggleSidebar);
+            collapseBtn.addEventListener('click', toggleSidebar);
+        });
+    </script>
+    <header class="header max-w-4xl mx-auto mt-16 px-4">
+        <h1 class="title text-5xl font-medium leading-16">Hello, there</h1>
+        <p class="subtitle text-4xl font-medium leading-16 text-subheading">How can I help you today?</p>
+
+        <!-- Trends -->
+        <div class="mt-12">
+            <h3 class="text-xl font-medium mb-3">Today's Trends</h3>
+            <div class="trends-container flex gap-3 overflow-x-auto pb-2">
+                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
+                        <img src="../images/gen/geng1.gif" alt="AI Innovation" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-2 flex flex-col justify-center">
+                        <h4 class="font-medium text-sm leading-tight">AI Innovation</h4>
+                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">New breakthroughs in ML</p>
+                    </div>
+                </div>
+
+                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
+                        <img src="../images/gen/geng2.gif" alt="Crypto Update" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-2 flex flex-col justify-center">
+                        <h4 class="font-medium text-sm leading-tight">Crypto Update</h4>
+                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">Latest in cryptocurrency</p>
+                    </div>
+                </div>
+
+                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
+                        <img src="../images/gen/geng3.gif" alt="Space Exploration" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-2 flex flex-col justify-center">
+                        <h4 class="font-medium text-sm leading-tight">Space Exploration</h4>
+                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">Webb telescope findings</p>
+                    </div>
+                </div>
+
+                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
+                        <img src="../images/gen/geng6.gif" alt="Health Tech" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-2 flex flex-col justify-center">
+                        <h4 class="font-medium text-sm leading-tight">Health Tech</h4>
+                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">Wearable tech advances</p>
+                    </div>
+                </div>
+
+                <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                    <div class="h-16 w-16 overflow-hidden flex-shrink-0">
+                        <img src="../images/gen/geng7.gif" alt="Climate Action" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-2 flex flex-col justify-center">
+                        <h4 class="font-medium text-sm leading-tight">Climate Action</h4>
+                        <p class="text-xs text-subheading mt-0.5 line-clamp-1">New climate policies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="mask-alpha mask-r-from-black mask-r-from-50% mask-r-to-transparent mt-4">
+            <h3 class="text-xl font-medium mb-3">Suggestions</h3>
+            <ul class="suggestion-list flex gap-5 overflow-x-auto overflow-y-hidden scroll-snap-type-x mandatory">
+                <li
+                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                    <h4 class="text text-text-color font-normal">Help me plan a game night with my 5 best friends for
+                        under
+                        $100.</h4>
+                    <span
+                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">draw</span>
+                </li>
+                <li
+                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                    <h4 class="text text-text-color font-normal">What are the best tips to improve my public speaking
+                        skills?</h4>
+                    <span
+                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">lightbulb</span>
+                </li>
+                <li
+                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                    <h4 class="text text-text-color font-normal">Can you help me find the latest news on web
+                        development?
+                    </h4>
+                    <span
+                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">explore</span>
+                </li>
+                <li
+                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                    <h4 class="text text-text-color font-normal">Write JavaScript code to sum all elements in an array.
+                    </h4>
+                    <span
+                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">code</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Chat List / Container -->
+    <div class="chat-list max-w-4xl mx-auto p-8 pb-12 max-h-screen overflow-y-auto"></div>
+
+    <!-- Typing Area -->
+    <div class="typing-area fixed w-full left-0 bottom-0 p-4 bg-primary">
+        <form action="#" class="typing-form max-w-4xl mx-auto flex gap-3">
+            <div class="input-wrapper w-full h-14 flex relative">
+                <input type="text" placeholder="Enter a prompt here"
+                    class="typing-input h-full w-full border-none outline-none resize-none text-base text-text-color px-6 py-4 rounded-full bg-[#383838]"
+                    required />
+                <button id="send-message-button"
+                    class="icon material-symbols-rounded absolute right-0 outline-none border-none bg-transparent scale-0 transition-transform duration-200 w-14 h-14 flex-shrink-0 flex items-center justify-center rounded-full text-text-color text-2xl">send</button>
+            </div>
+            <div class="action-buttons flex gap-3">
+                <span id="theme-toggle-button"
+                    class="icon material-symbols-rounded w-14 h-14 flex-shrink-0 cursor-pointer rounded-full flex items-center justify-center text-2xl text-text-color bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">light_mode</span>
+                <span id="delete-chat-button"
+                    class="icon material-symbols-rounded w-14 h-14 flex-shrink-0 cursor-pointer rounded-full flex items-center justify-center text-2xl text-text-color bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">delete</span>
+            </div>
+        </form>
+        <p class="disclaimer-text text-center text-xs mt-4 text-placeholder-color">
+            Cosmo AI values your privacy and security. All communication between you and Cosmo AI is encrypted and
+            secure. We do not store any user data, and all messages are deleted after 30 days.
+        </p>
+    </div>
+</body>
+
+</html>
