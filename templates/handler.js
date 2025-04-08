@@ -291,6 +291,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .hljs {
           margin-left: 19px;
         }
+
+        .html5-video-player {
+          width: 100vw;
+          height: 100vh;
+        }
       `;
       document.head.appendChild(style);
     }
@@ -401,6 +406,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return `<div class="image-embed"><img src="${imageUrl}" alt="Embedded image" loading="lazy" title="Click to enlarge"></div>`;
       });
     }
+
+    textarea.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey && !e.ctrlKey) {
+            e.preventDefault();
+            document.querySelector('.typing-form').dispatchEvent(new Event('submit'));
+        }
+    });
   
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -442,6 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   
       aiResponseDiv.appendChild(loadingIndicator);
+      chatList.scrollTop = chatList.scrollHeight;
       chatList.appendChild(aiResponseDiv);
   
       try {
@@ -459,7 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
         const data = await response.json();
   
-        // Remove loading animation
         if (loadingIndicator.parentNode === aiResponseDiv) {
           aiResponseDiv.removeChild(loadingIndicator);
         }
@@ -471,9 +483,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (loadingIndicator.parentNode === aiResponseDiv) {
           aiResponseDiv.removeChild(loadingIndicator);
+          chatList.scrollTop = chatList.scrollHeight;
         }
         
         aiResponseDiv.textContent = 'Error: Could not get response from AI';
+        chatList.scrollTop = chatList.scrollHeight;
       } finally {
         sendButton.disabled = false;
       }
