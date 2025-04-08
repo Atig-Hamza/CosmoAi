@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .copy-button {
           background-color: transparent;
           border: none;
-          color: #8eaeff;
+          color: #f1f1f1;
           cursor: pointer;
           padding: 4px 8px;
           border-radius: 4px;
