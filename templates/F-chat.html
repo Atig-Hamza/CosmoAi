@@ -224,37 +224,71 @@
         <!-- Suggestions -->
         <div class="mask-alpha mask-r-from-black mask-r-from-50% mask-r-to-transparent mt-4">
             <h3 class="text-xl font-medium mb-3">Suggestions</h3>
-            <ul class="suggestion-list flex gap-5 overflow-x-auto overflow-y-hidden scroll-snap-type-x mandatory">
-                <li
-                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
-                    <h4 class="text text-text-color font-normal">Can you help me plan a budget-friendly game night for 6
-                        people?</h4>
-                    <span
-                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">draw</span>
-                </li>
-                <li
-                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
-                    <h4 class="text text-text-color font-normal">Want to conquer stage fright and become a confident
-                        public speaker? I've got you covered!</h4>
-                    <span
-                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">lightbulb</span>
-                </li>
-                <li
-                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
-                    <h4 class="text text-text-color font-normal">Keep me up-to-date on the latest web development
-                        trends and news.
-                    </h4>
-                    <span
-                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">explore</span>
-                </li>
-                <li
-                    class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
-                    <h4 class="text text-text-color font-normal">Write a Python function to calculate the factorial of a number.
-                    </h4>
-                    <span
-                        class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">code</span>
-                </li>
-            </ul>
+
+            <div class="relative">
+                <ul
+                    class="suggestion-list flex gap-5 overflow-x-auto overflow-y-hidden scroll-snap-type-x mandatory relative z-10">
+                    <li
+                        class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                        <h4 class="text text-text-color font-normal">
+                            Can you help me plan a budget-friendly game night for 6 people?
+                        </h4>
+                        <span
+                            class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">draw</span>
+                    </li>
+
+                    <li
+                        class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                        <h4 class="text text-text-color font-normal">
+                            Want to conquer stage fright and become a confident public speaker? I've got you covered!
+                        </h4>
+                        <span
+                            class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">lightbulb</span>
+                    </li>
+
+                    <li
+                        class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                        <h4 class="text text-text-color font-normal">
+                            Keep me up-to-date on the latest web development trends and news.
+                        </h4>
+                        <span
+                            class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">explore</span>
+                    </li>
+
+                    <li
+                        class="sug-item cursor-pointer p-5 w-56 flex-shrink-0 flex flex-col items-end justify-between rounded-xl bg-[#383838] transition-colors duration-200 hover:bg-[#444]-hover">
+                        <h4 class="text text-text-color font-normal">
+                            Write a Python function to calculate the factorial of a number.
+                        </h4>
+                        <span
+                            class="icon material-symbols-rounded w-10 h-10 flex text-xl items-center justify-center rounded-full bg-primary mt-10 text-text-color">code</span>
+                    </li>
+                </ul>
+
+                <div
+                    class="left-fade-effect pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#242424] to-transparent z-20 transition-opacity duration-300 opacity-100">
+                </div>
+                <div
+                    class="right-fade-effect pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#242424] to-transparent z-20 transition-opacity duration-300 opacity-100">
+                </div>
+            </div>
+
+            <script>
+                const suggestionsList = document.querySelector('.suggestion-list');
+                const fadeEffectLeft = document.querySelector('.left-fade-effect');
+                const fadeEffectRight = document.querySelector('.right-fade-effect');
+
+                const updateFade = () => {
+                    const scrollLeft = suggestionsList.scrollLeft;
+                    const maxScroll = suggestionsList.scrollWidth - suggestionsList.clientWidth;
+
+                    fadeEffectLeft.style.opacity = scrollLeft > 0 ? '1' : '0';
+                    fadeEffectRight.style.opacity = scrollLeft < maxScroll - 1 ? '1' : '0';
+                };
+
+                suggestionsList.addEventListener('scroll', updateFade);
+                window.addEventListener('load', updateFade);
+            </script>
         </div>
     </header>
 
