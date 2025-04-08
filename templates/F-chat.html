@@ -184,8 +184,18 @@
         <!-- Trends -->
         <div class="mt-12">
             <h3 class="text-xl font-medium mb-3">Today's Trends</h3>
-            <div class="trends-container flex gap-3 overflow-x-auto pb-2" id="trendsContainer">
-                <!-- Trends will be added here dynamically -->
+
+            <div class="relative">
+                <div class="trends-container flex gap-3 overflow-x-auto pb-2 z-10 relative" id="trendsContainer">
+                    <!-- Trends will be added here dynamically -->
+                </div>
+
+                <div
+                    class="left-fade-effect-trends pointer-events-none absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#242424] to-transparent z-20 transition-opacity duration-300 opacity-100">
+                </div>
+                <div
+                    class="right-fade-effect-trends pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#242424] to-transparent z-20 transition-opacity duration-300 opacity-100">
+                </div>
             </div>
         </div>
 
@@ -197,28 +207,44 @@
                     container.innerHTML = '';
 
                     data.articles.forEach(article => {
-                        // Check if image exists and looks valid
                         if (!article.urlToImage || !article.urlToImage.startsWith('http')) return;
 
                         const title = article.title.length > 40 ? article.title.slice(0, 37) + '...' : article.title;
 
                         const trendHTML = `
-                    <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
-                      <div class="h-16 w-16 overflow-hidden flex-shrink-0">
-                        <img src="${article.urlToImage}" alt="${title}" class="w-full h-full object-cover" />
-                      </div>
-                      <div class="p-2 flex flex-col justify-center">
-                        <h4 class="font-medium text-sm leading-tight">${title}</h4>
-                      </div>
-                    </div>
-                  `;
+                        <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                            <div class="h-16 w-16 overflow-hidden flex-shrink-0">
+                                <img src="${article.urlToImage}" alt="${title}" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="p-2 flex flex-col justify-center">
+                                <h4 class="font-medium text-sm leading-tight">${title}</h4>
+                            </div>
+                        </div>
+                        `;
 
                         container.innerHTML += trendHTML;
                     });
+
+                    updateTrendFades();
                 })
                 .catch(err => {
                     console.error('Failed to fetch trends:', err);
                 });
+
+            const trendContainer = document.getElementById('trendsContainer');
+            const fadeLeft = document.querySelector('.left-fade-effect-trends');
+            const fadeRight = document.querySelector('.right-fade-effect-trends');
+
+            const updateTrendFades = () => {
+                const scrollLeft = trendContainer.scrollLeft;
+                const maxScroll = trendContainer.scrollWidth - trendContainer.clientWidth;
+
+                fadeLeft.style.opacity = scrollLeft > 0 ? '1' : '0';
+                fadeRight.style.opacity = scrollLeft < maxScroll - 1 ? '1' : '0';
+            };
+
+            trendContainer.addEventListener('scroll', updateTrendFades);
+            window.addEventListener('load', updateTrendFades);
         </script>
 
         <!-- Suggestions -->
