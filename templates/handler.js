@@ -276,21 +276,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         iframe {
           height: 57vh;
-          width: 64vw;
+          width: 74vw;
+          margin: 0 auto;
         }
         
         /* Code language badge */
         .code-language {
           display: inline-block;
           padding: 2px 6px;
-          background-color: var(--dark-blue-accent);
-          border-radius: 4px;
           font-size: 0.8rem;
           color: var(--text-light);
         }
 
         .hljs {
-          margin-left: 18px;
+          margin-left: 19px;
         }
       `;
       document.head.appendChild(style);
@@ -366,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
               const lineNumbers = document.createElement('div');
               lineNumbers.className = 'line-numbers';
               
-              for (let i = 1; i <= lines.length; i++) {
+              for (let i = 1; i + 1 <= lines.length; i++) {
                 const lineNum = document.createElement('div');
                 lineNum.textContent = i;
                 lineNumbers.appendChild(lineNum);
