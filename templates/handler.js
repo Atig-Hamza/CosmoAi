@@ -443,11 +443,12 @@ document.addEventListener('DOMContentLoaded', () => {
           .typing-cursor {
             display: inline-block;
             margin-left: 2px;
-            width: 6px;
+            width: 2px;
             height: 16px;
-            background-color: #6bb5ff;
+            background-color: #ffffff;
             animation: blink 1s infinite;
             vertical-align: middle;
+            border-radius: 5px;
           }
         `;
         document.head.appendChild(style);
