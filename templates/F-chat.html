@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/commonmark@0.29.0/dist/commonmark.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -320,7 +324,7 @@
     </header>
 
     <!-- Chat List / Container -->
-    <div class="chat-list max-w-4xl mx-auto p-8 pb-12 max-h-screen overflow-y-auto"></div>
+    <div class="chat-list max-w-4xl mx-auto p-8 pb-12 h-[80%] mb-[90px] overflow-y-auto"></div>
 
     <!-- Typing Area -->
     <div class="typing-area fixed w-full left-0 bottom-0 p-4 bg-primary z-30">
@@ -328,11 +332,11 @@
             <div class="input-wrapper w-full min-h-14 flex relative">
                 <div class="feature-buttons absolute left-3 top-2 flex gap-2">
                     <button
-                        class="feature-button flex items-center justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
+                        class="websearch feature-button flex items-center justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
                         <i class="fas fa-search text-sm"></i>
                     </button>
                     <button
-                        class="feature-button flex items-center justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
+                        class="DeepThink feature-button flex items-center justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
                         <i class="fas fa-brain text-sm"></i>
                     </button>
                 </div>
@@ -376,5 +380,6 @@
         });
     </script>  
 </body>
-
+<script src="handler.js"></script>
+<script src="../static/server.js"></script>
 </html>
