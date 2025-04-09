@@ -219,11 +219,13 @@
 </head>
 
 <body class="bg-white">
+    <div class="pl-4 mt-4 hidden max-lg:block">
+        <a href="/" class="text-blue-600 hover:text-blue-800 font-medium">Return to home page</a>
+    </div>
     <div class="flex flex-container min-h-screen">
         <div class="left-side max-lg:hidden">
             <div class="flex items-center justify-start space-x-3">
-                <a href="/"
-                    class="font-medium text-xl text-white hover:text-blue-200 transition-colors">Cosmo AI</a>
+                <a href="/" class="font-medium text-xl text-white hover:text-blue-200 transition-colors">Cosmo AI</a>
             </div>
             <div class="space-y-6 text-container">
                 <h1 class="text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold leading-tight">
@@ -278,7 +280,7 @@
                     </button>
                     <div class="text-center mt-4">
                         <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Forgot password?</a>
-                        <p class="text-gray-600 mt-4">Don't have an account? <a href="#"
+                        <p class="text-gray-600 mt-4 hidden max-lg:block">Don't have an account? <a href="#"
                                 class="text-blue-600 hover:text-blue-800 font-medium">Sign up</a></p>
                     </div>
                 </div>
