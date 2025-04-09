@@ -220,7 +220,7 @@
 
 <body class="bg-white">
     <div class="flex flex-container min-h-screen">
-        <div class="left-side">
+        <div class="left-side max-lg:hidden">
             <div class="flex items-center justify-start space-x-3">
                 <a href="/"
                     class="font-medium text-xl text-white hover:text-blue-200 transition-colors">Cosmo AI</a>
@@ -241,7 +241,7 @@
             <p class="font-medium text-gray-400">© 2025 Cosmo AI</p>
         </div>
 
-        <div class="right-side">
+        <div class="right-side max-lg:w-full max-lg:h-full max-lg:m-auto">
             <div class="flex flex-col justify-center space-y-6 w-full max-w-md px-4">
                 <div class="flex flex-col space-y-3 text-center">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Login to Cosmo AI</h2>
