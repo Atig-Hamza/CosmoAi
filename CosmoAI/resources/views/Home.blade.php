@@ -86,7 +86,8 @@
 
     <header class="py-4 sticky top-0 z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800/70">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="text-xl font-semibold text-white flex flex-row items-center"><img class="h-[35px]" src="{{ asset('images/white.png') }}" alt="">Cosmo</a>
+            <a href="#" class="text-xl font-semibold text-white flex flex-row items-center"><img class="h-[35px]"
+                    src="{{ asset('images/white.png') }}" alt="">Cosmo</a>
             <nav class="hidden md:flex space-x-8 items-center text-sm font-medium">
                 <a href="#capabilities"
                     class="text-gray-400 hover:text-white transition-colors duration-200">Capabilities</a>
@@ -222,31 +223,134 @@
                 capabilities of Cosmo AI, designed for intuitive interaction and powerful creation.</p>
 
             <div id="image-gen">
-                <h3 class="text-2xl font-medium text-white mb-10 text-center">Visual Synthesis & Image Generation</h3>
-                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
-                    <div class="text-gray-400 text-base leading-relaxed pr-4">
-                        Bring your ideas to life. Describe any scene, concept, or style, and Cosmo can generate
-                        high-quality, unique images in seconds. Perfect for artists, designers, marketers, and anyone
-                        needing visual content.
-                        <ul class="mt-4 space-y-1 text-xs list-disc list-inside text-gray-500">
-                            <li>Multiple aspect ratios and resolutions</li>
-                            <li>Style adaptation and consistency</li>
-                            <li>Iterative refinement based on feedback</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-5">
-                        <div>
-                            <p class="text-xs uppercase tracking-wider text-gray-500 mb-2">Example Prompt</p>
-                            <div class="code-block">A photorealistic image of an astronaut playing chess with a friendly
-                                alien on the surface of Mars, dramatic lighting, 16:9 aspect ratio.</div>
-                        </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-wider text-blue-400/80 mb-2">Generated Image Output</p>
-                            <div
-                                class="aspect-video-container bg-gray-800/50 border border-blue-500/40 highlight-area flex items-center justify-center text-gray-600">
-                                <img src="" alt="Generated Image">
+                <div class="text-center mb-16">
+                    <h3 class="text-3xl font-medium text-white mb-4">Visualize Your Concepts Step-by-Step</h3>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                        Watch how Cosmo transforms your text prompts into detailed visuals through an iterative
+                        refinement process.
+                    </p>
+                </div>
+
+                <div
+                    class="max-w-5xl mx-auto bg-gradient-to-b from-gray-900/30 to-black/10 p-8 md:p-12 rounded-2xl border border-gray-800/60 shadow-xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 md:gap-12">
+
+                        <div class="lg:col-span-2 flex flex-col">
+                            <div>
+                                <p class="text-sm font-medium text-gray-300 mb-3">1. Describe Your Vision:</p>
+                                <div class="code-block !bg-gray-900/70 !border-gray-700/70 text-sm mb-8">
+                                    A highly detailed matte painting of a futuristic city skyline at dusk, neon lights
+                                    reflecting on wet streets, flying vehicles in the distance, cinematic atmosphere.
+                                </div>
+                            </div>
+
+                            <div class="mt-auto">
+                                <p class="text-sm font-medium text-gray-300 mb-4">Key Capabilities Used:</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center text-sm text-gray-400">
+                                        <i class="fa-solid fa-text-width w-4 h-4 mr-3 text-indigo-400/70"></i>
+                                        Natural Language Understanding
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-400">
+                                        <i class="fa-solid fa-palette w-4 h-4 mr-3 text-purple-400/70"></i>
+                                        Style & Concept Synthesis
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-400">
+                                        <i class="fa-solid fa-arrows-spin w-4 h-4 mr-3 text-green-400/70"></i>
+                                        Iterative Refinement Engine
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-400">
+                                        <i class="fa-solid fa-maximize w-4 h-4 mr-3 text-blue-400/70"></i>
+                                        High-Resolution Output
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+
+                        <div class="lg:col-span-3 flex flex-col items-center">
+                            <p class="text-sm font-medium text-blue-400/90 mb-6 text-center w-full">How Cosmo Creates:
+                            </p>
+
+                            <div class="flex flex-col items-center space-y-4 w-full max-w-md">
+
+                                <div class="flex items-center w-full">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center mr-4">
+                                        <i class="fa-solid fa-brain text-lg text-blue-300"></i>
+                                    </div>
+                                    <div class="flex-grow p-3 bg-gray-800/40 rounded-md border border-gray-700/50">
+                                        <p class="text-xs font-semibold text-white">Interpretation</p>
+                                        <p class="text-xs text-gray-400 mt-1">Analyzing prompt keywords & concepts.</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="h-8 w-px bg-gradient-to-b from-gray-700 via-blue-500/50 to-gray-700 relative flex justify-center">
+                                    <i
+                                        class="fa-solid fa-chevron-down text-blue-400/60 text-xs absolute top-1/2 -translate-y-1/2 bg-black px-1"></i>
+                                </div>
+
+                                <div class="flex items-center w-full">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center mr-4">
+                                        <i class="fa-solid fa-seedling text-lg text-green-300"></i>
+                                    </div>
+                                    <div class="flex-grow p-3 bg-gray-800/40 rounded-md border border-gray-700/50">
+                                        <p class="text-xs font-semibold text-white">Initial Draft</p>
+                                        <p class="text-xs text-gray-400 mt-1">Generating a base composition and style.
+                                        </p>
+                                        <div
+                                            class="mt-2 h-4 w-full bg-gradient-to-r from-gray-600 via-gray-500 to-gray-700 opacity-30 rounded-sm">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="h-8 w-px bg-gradient-to-b from-gray-700 via-purple-500/50 to-gray-700 relative flex justify-center">
+                                    <i
+                                        class="fa-solid fa-chevron-down text-purple-400/60 text-xs absolute top-1/2 -translate-y-1/2 bg-black px-1"></i>
+                                </div>
+
+                                <div class="flex items-center w-full">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center mr-4">
+                                        <i class="fa-solid fa-wand-magic-sparkles text-lg text-purple-300"></i>
+                                    </div>
+                                    <div class="flex-grow p-3 bg-gray-800/40 rounded-md border border-gray-700/50">
+                                        <p class="text-xs font-semibold text-white">Refinement Cycles</p>
+                                        <p class="text-xs text-gray-400 mt-1">Adding details, enhancing realism,
+                                            ensuring consistency.</p>
+                                        <div
+                                            class="mt-2 h-4 w-full bg-gradient-to-r from-purple-600 via-blue-500 to-green-600 opacity-40 rounded-sm">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="h-8 w-px bg-gradient-to-b from-gray-700 via-amber-500/50 to-gray-700 relative flex justify-center">
+                                    <i
+                                        class="fa-solid fa-chevron-down text-amber-400/60 text-xs absolute top-1/2 -translate-y-1/2 bg-black px-1"></i>
+                                </div>
+
+                                <div class="flex items-center w-full">
+                                    <div
+                                        class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center mr-4">
+                                        <i class="fa-solid fa-check-double text-lg text-amber-300"></i>
+                                    </div>
+                                    <div class="flex-grow p-3 bg-gray-800/40 rounded-md border border-gray-700/50">
+                                        <p class="text-xs font-semibold text-white">High-Quality Output</p>
+                                        <p class="text-xs text-gray-400 mt-1">Delivering the final detailed image.</p>
+                                        <div
+                                            class="mt-2 h-4 w-full bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 opacity-50 rounded-sm">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <p class="text-xs text-gray-500 mt-6 text-center lg:text-right italic w-full max-w-md">
+                                Visual representation of the generation process.</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -524,8 +628,7 @@
                 </div>
                 <div
                     class="bg-gray-800/80 rounded-lg p-6 text-white flex flex-col justify-between min-h-[220px] border border-gray-700 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 ease-out">
-                    <img src="https://via.placeholder.com/150x40/FFFFFF/111827?text=FinSecure" alt="FinSecure Logo"
-                        class="h-8 w-auto mb-4 filter invert brightness-90">
+                    <h3 class="font-semibold text-lg">FinSecure</h3>
                     <p class="text-sm opacity-80 mt-2 flex-grow">Enhancing financial modeling and risk assessment
                         accuracy.</p> <a href="#"
                         class="text-xs font-medium opacity-70 hover:opacity-100 mt-4 inline-block group">Integration
@@ -578,7 +681,8 @@
                 <div class="space-y-8 text-base">
                     <div>
                         <h3 class="font-semibold text-white mb-2">Research</h3>
-                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed mb-2">Cosmo represents a significant milestone in
+                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed mb-2">Cosmo
+                            represents a significant milestone in
                             scaling deep learning models efficiently and responsibly. Read our technical paper for
                             details on architecture and training.</p> <a href="#"
                             class="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors group inline-block">View
@@ -587,20 +691,23 @@
                     </div>
                     <div>
                         <h3 class="font-semibold text-white mb-2">Infrastructure</h3>
-                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed">Trained on a cutting-edge AI supercomputing
+                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed">Trained on a
+                            cutting-edge AI supercomputing
                             infrastructure, optimized for large-scale model training and efficient inference, enabling
                             global availability.</p>
                     </div>
                     <div>
                         <h3 class="font-semibold text-white mb-2">Limitations</h3>
-                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed">While highly capable, Cosmo can still exhibit biases,
+                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed">While highly
+                            capable, Cosmo can still exhibit biases,
                             produce incorrect information (hallucinate), or follow harmful instructions under certain
                             prompts. We actively work on mitigating these issues through ongoing research and safety
                             measures.</p>
                     </div>
                     <div>
                         <h3 class="font-semibold text-white mb-2">Availability</h3>
-                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed mb-2">Cosmo AI is available via our API for developers
+                        <p class="pl-6 ml-3 border-l-2 border-gray-800 text-gray-400 leading-relaxed mb-2">Cosmo AI is
+                            available via our API for developers
                             and integrated into select partner applications. Access may be subject to waitlists and
                             usage policies.</p> <a href="#"
                             class="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors group inline-block">Explore
