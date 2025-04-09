@@ -89,7 +89,7 @@
 
 <body class="bg-[#242424]">
     <aside id="sidebar"
-        class="fixed left-0 top-0 h-full bg-[#1e1e1e] flex flex-col py-6 z-10 transition-all duration-300 w-16">
+        class="fixed max-[1080px]:hidden left-0 top-0 h-full bg-[#1e1e1e] flex flex-col py-6 z-10 transition-all duration-300 w-16">
         <div class="flex items-center justify-between px-3 mb-4">
             <button id="menu-toggle"
                 class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors">
@@ -184,12 +184,12 @@
         });
     </script>
     <header class="header max-w-4xl mx-auto mt-14 px-4">
-        <h1 class="title text-5xl font-medium leading-16">Hello, there</h1>
-        <p class="subtitle text-4xl font-medium leading-16 text-subheading">How can I help you today?</p>
+        <h1 class="title text-5xl font-medium leading-16 max-[1080px]:text-4xl max-[800px]:text-3xl">Hello, there</h1>
+        <p class="subtitle text-4xl font-medium leading-16 text-subheading max-[1080px]:text-3xl max-[800px]:text-2xl">How can I help you today?</p>
 
         <!-- Trends -->
         <div class="mt-6">
-            <h3 class="text-xl font-medium mb-3">Today's Trends</h3>
+            <h3 class="text-xl font-medium mb-3 max-[1080px]:text-lg max-[800px]:text-md">Today's Trends</h3>
 
             <div class="relative">
                 <div class="trends-container flex gap-3 overflow-x-auto pb-2 z-10 relative" id="trendsContainer">
@@ -330,31 +330,31 @@
     <!-- Typing Area -->
     <div class="typing-area fixed w-full left-0 bottom-0 p-4 bg-primary z-30">
         <form action="#" class="typing-form max-w-4xl mx-auto">
-            <div class="input-wrapper w-full min-h-14 flex relative">
+            <div class="input-wrapper w-full min-h-14 max-md:min-h-10 flex relative">
                 <div class="feature-buttons absolute left-3 top-2 flex gap-2">
                     <button
-                        class="websearch feature-button flex items-center justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
+                        class="websearch feature-button flex items-center max-md:h-8 max-md:w-8 justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
                         <i class="fas fa-search text-sm"></i>
                     </button>
                     <button
-                        class="DeepThink feature-button flex items-center justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
+                        class="DeepThink feature-button flex items-center max-md:h-8 max-md:w-8 justify-center rounded-full bg-[#383838] h-10 w-10 text-text-color hover:bg-[#444] transition-colors duration-200">
                         <i class="fas fa-brain text-sm"></i>
                     </button>
                 </div>
     
                 <textarea
                     placeholder="Enter a prompt here"
-                    class="typing-input w-full border-none outline-none resize-none text-base text-text-color pl-36 pr-14 py-4 rounded-3xl bg-[#383838] max-h-52 overflow-y-auto"
+                    class="typing-input w-full border-none outline-none resize-none text-base max-md:text-xs text-text-color pl-36 pr-14 py-4 rounded-3xl bg-[#383838] max-h-52 overflow-y-auto"
                     rows="1"
                     required></textarea>
     
                 <button id="send-message-button"
-                    class="absolute right-2 top-2 outline-none border-none bg-transparent w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full text-text-color text-xl hover:bg-[#444] transition-colors duration-200">
+                    class="absolute right-2 top-2 max-md:h-8 max-md:w-8 outline-none border-none bg-transparent w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full text-text-color text-xl hover:bg-[#444] transition-colors duration-200">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
     
-            <p class="disclaimer-text text-center text-xs mt-3 text-placeholder-color">
+            <p class="disclaimer-text text-center text-xs mt-3 max-[390px]:hidden text-placeholder-color max-[800px]:text-[8px]">
                 Cosmo AI values your privacy and security. All communication between you and Cosmo AI is encrypted and
                 secure. We do not store any user data, and all messages are deleted after 30 days.
             </p>
