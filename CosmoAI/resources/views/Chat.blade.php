@@ -364,7 +364,8 @@
     
     <script>
         const textarea = document.querySelector('.typing-input');
-        const trends = document.querySelector('.trends-container')
+        const trends = document.querySelector('.trends-container');
+        const sug = document.querySelector('.suggestion-list');
     
         textarea.addEventListener('input', () => {
             textarea.style.height = 'auto';
@@ -411,6 +412,20 @@
 
             chatList.appendChild(imageContainer);
         });
+
+        sug.addEventListener('click', (e)=>{
+            const clickedSug = e.target.closest('.sug-item');
+            if (!clickedSug) return;
+
+            const textarea = document.querySelector('.typing-input');
+            if (!textarea) return;
+
+            const sugText = clickedSug.querySelector('h4').textContent;
+            textarea.value = sugText;
+            textarea.dispatchEvent(new Event('input'));
+
+            document.getElementById('send-message-button').click();
+        })
         
     </script>
 </body>
