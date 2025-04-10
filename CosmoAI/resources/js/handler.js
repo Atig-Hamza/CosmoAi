@@ -54,7 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         .user-message {
-          background-color: #343434;
+          background-color: #242424;
+          border: 1px solid #333;
+          color: #fff;
         }
         
         .ai-message {
@@ -300,17 +302,28 @@ document.addEventListener('DOMContentLoaded', () => {
       document.head.appendChild(style);
     }
   
-    function addMessage(role, content) {
+    function addMessage(role, content, number = 'A') {
       const messageDiv = document.createElement('div');
-      messageDiv.className = `message ${role}-message p-4 mb-1 rounded-lg text-left`;
-  
+      messageDiv.className = `message ${role}-message pl-4 pr-4 pt-2 pb-2 mb-1 rounded-lg text-left flex items-center`;
+
+      const circleDiv = document.createElement('div');
+      circleDiv.className = 'w-8 h-8 rounded-full bg-[#b8fd33] mr-4 flex items-center justify-center';
+      const circleText = document.createElement('span');
+      circleText.className = 'text-md font-bold text-[#242424]';
+      circleText.textContent = number;
+      circleDiv.appendChild(circleText);
+
       if (role === 'user') {
-        messageDiv.textContent = content;
+        const messageText = document.createElement('span');
+        messageText.textContent = content;
+        messageDiv.appendChild(circleDiv);
+        messageDiv.appendChild(messageText);
       } else {
         messageDiv.classList.add('markdown-rendered');
         processAIContent(messageDiv, content);
+        messageDiv.insertBefore(circleDiv, messageDiv.firstChild);
       }
-  
+
       chatList.appendChild(messageDiv);
       chatList.scrollTop = chatList.scrollHeight;
     }
