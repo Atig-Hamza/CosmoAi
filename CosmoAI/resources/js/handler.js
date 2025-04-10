@@ -81,10 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         .markdown-rendered h3 {
-          font-size: 1.2rem;
+          font-size: 2.2rem;
           font-weight: bold;
           margin: 1rem 0 0.6rem;
-          color: #b0c9ff;
+          color: #fff;
         }
         
         .markdown-rendered p {
@@ -298,6 +298,17 @@ document.addEventListener('DOMContentLoaded', () => {
           width: 100vw;
           height: 100vh;
         }
+
+        .ai-message ul {
+          padding-left: 24px;
+          border-left: 2px solid #515151;
+        }
+
+        .ai-message > p:first-of-type {
+          font-style: italic;
+          color: rgb(253 253 253);
+          font-size: 0.92rem;
+        }
       `;
       document.head.appendChild(style);
     }
@@ -325,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       chatList.appendChild(messageDiv);
-      chatList.scrollTop = chatList.scrollHeight;
+      document.body.scrollTop = document.body.scrollHeight;
     }
   
     function processAIContent(container, content) {
@@ -468,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   
       aiResponseDiv.appendChild(loadingIndicator);
-      chatList.scrollTop = chatList.scrollHeight;
+      document.body.scrollTop = document.body.scrollHeight
       chatList.appendChild(aiResponseDiv);
   
       try {
@@ -497,11 +508,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (loadingIndicator.parentNode === aiResponseDiv) {
           aiResponseDiv.removeChild(loadingIndicator);
-          chatList.scrollTop = chatList.scrollHeight;
+          document.body.scrollTop = document.body.scrollHeight
         }
         
         aiResponseDiv.textContent = 'Error: Could not get response from AI';
-        chatList.scrollTop = chatList.scrollHeight;
+        document.body.scrollTop = document.body.scrollHeight
       } finally {
         sendButton.disabled = false;
       }
