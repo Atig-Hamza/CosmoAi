@@ -90,7 +90,7 @@
 
 <body class="bg-[#242424]">
     <aside id="sidebar"
-        class="fixed max-[1080px]:hidden left-0 top-0 h-full bg-[#1e1e1e] flex flex-col py-6 z-10 transition-all duration-300 w-16">
+        class="fixed max-[1080px]:hidden left-0 top-0 h-full z-50 bg-[#1e1e1e] flex flex-col py-6 transition-all duration-300 w-16">
         <div class="flex items-center justify-between px-3 mb-4">
             <button id="menu-toggle"
                 class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors">
