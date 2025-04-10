@@ -329,7 +329,7 @@
     <div class="chat-list max-w-4xl mx-auto p-8 pb-12 h-[80%] mb-[90px] overflow-y-auto"></div>
 
     <!-- Typing Area -->
-    <div class="typing-area fixed w-full left-0 bottom-0 p-4 bg-primary z-30">
+    <div class="bg-[#242424] typing-area fixed w-full left-0 bottom-0 p-4 bg-primary z-30">
         <form action="#" class="typing-form max-w-4xl mx-auto">
             <div class="input-wrapper w-full min-h-14 max-md:min-h-10 flex relative">
                 <div class="feature-buttons absolute left-3 top-2 flex gap-2">
@@ -364,6 +364,7 @@
     
     <script>
         const textarea = document.querySelector('.typing-input');
+        const trends = document.querySelector('.trends-container')
     
         textarea.addEventListener('input', () => {
             textarea.style.height = 'auto';
@@ -380,6 +381,37 @@
                 textarea.selectionStart = textarea.selectionEnd = cursorPos + 1;
             }
         });
-    </script>  
+
+        trends.addEventListener('click', (event) => {
+            const clickedTrend = event.target.closest('.trend-item');
+            if (!clickedTrend) return;
+
+            const imageElement = clickedTrend.querySelector('img');
+            const titleElement = clickedTrend.querySelector('h4');
+            if (!imageElement || !titleElement) return;
+
+            const imageUrl = imageElement.src;
+            const titleText = titleElement.textContent;
+
+            const chatList = document.querySelector('.chat-list');
+            const imageContainer = document.createElement('div');
+            imageContainer.classList.add('image-container', 'right-4', 'top-4');
+            const image = document.createElement('img');
+            image.classList.add('rounded-lg');
+            image.src = imageUrl;
+
+            const textarea = document.querySelector('.typing-input');
+            if (!textarea) return;
+
+            textarea.value = `Explain this trend: ${titleText}`;
+            textarea.dispatchEvent(new Event('input'));
+
+            document.getElementById('send-message-button').click();
+            imageContainer.appendChild(image);
+
+            chatList.appendChild(imageContainer);
+        });
+        
+    </script>
 </body>
 </html>
