@@ -219,7 +219,7 @@
                         const title = article.title.length > 40 ? article.title.slice(0, 37) + '...' : article.title;
 
                         const trendHTML = `
-                        <div class="trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
+                        <div class="cursor-pointer trend-item flex-shrink-0 w-64 h-16 rounded-lg overflow-hidden bg-[#383838] flex">
                             <div class="h-16 w-16 overflow-hidden flex-shrink-0">
                                 <img src="${article.urlToImage}" alt="${title}" class="w-full h-full object-cover" />
                             </div>
