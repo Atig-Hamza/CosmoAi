@@ -30,3 +30,5 @@ Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/que_complete', [QuestionnaireController::class, 'store'])->name('que_complete');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
