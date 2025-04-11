@@ -105,9 +105,18 @@
                             fetch('https://restcountries.com/v3.1/independent?status=true')
                                 .then(response => response.json())
                                 .then(data => {
-                                    const options = data.sort((a, b) => a.name.common.localeCompare(b.name.common))
-                                        .map(country => `<option value="${country.cca2}" class="text-gray-200 bg-[#212121]">${country.name.common}</option>`);
-                                    document.querySelector('#country').insertAdjacentHTML('beforeend', options.join(''));
+                                    const options = data
+                                        .map(country => {
+                                            const name = country.name.common === 'Israel' ? 'Palestine' : country.name.common;
+                                            return `<option value="${country.cca2}" class="text-gray-200 bg-[#212121]">${name}</option>`;
+                                        })
+                                        .sort((a, b) => {
+                                            const aName = a.match(/>(.*?)</)[1];
+                                            const bName = b.match(/>(.*?)</)[1];
+                                            return aName.localeCompare(bName);
+                                        })
+                                        .join('');
+                                    document.querySelector('#country').insertAdjacentHTML('beforeend', options);
 
                                     const selectElement = document.querySelector('#country');
                                     selectElement.addEventListener('mousedown', function () {
