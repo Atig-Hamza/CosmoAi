@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,19 +10,19 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('Login');
-})->name('login');
+})->name('login')->middleware('guest');
 
 Route::get('/signup', function () {
     return view('Signup');
-});
+})->middleware('guest');
 
 Route::get('/chat', function () {
     return view('Chat');
-})->middleware('auth');
+})->middleware('auth')->name('chat');
 
 Route::get('/questionnaire', function () {
     return view('Questionnaire');
-})->name('questionnaire');
+})->name('questionnaire')->middleware('auth');
 
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 
