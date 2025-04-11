@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use GuzzleHttp\Middleware;
+use App\Http\Middleware\VerifyQuestionnaireCompletion;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,7 +22,7 @@ Route::get('/chat', function () {
 
 Route::get('/questionnaire', function () {
     return view('Questionnaire');
-})->name('questionnaire')->middleware('auth');
+})->name('questionnaire')->middleware('auth')->middleware(VerifyQuestionnaireCompletion::class);
 
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 
