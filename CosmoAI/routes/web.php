@@ -24,3 +24,5 @@ Route::get('/questionnaire', function () {
 })->name('questionnaire');
 
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
