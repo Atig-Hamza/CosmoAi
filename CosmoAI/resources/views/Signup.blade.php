@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up for Cosmo AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="{{ asset('images/favicon-32x32.png') }}" type="image/x-icon">
     <script>
         tailwind.config = {
             theme: {
@@ -76,6 +77,7 @@
             </div>
 
             <form class="space-y-5" action="#" method="POST">
+                @csrf
                 <div>
                     <label for="full-name" class="block text-base font-medium text-gray-400 mb-1">
                         Full name
@@ -97,14 +99,30 @@
                         Country
                     </label>
                     <select id="country" name="country" required
-                        class="appearance-none rounded-md relative block w-full px-3 py-2 bg-cosmo-bg border border-gray-500 text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150">
+                        class="appearance-none rounded-md relative block w-full px-3 py-2 bg-[#212121] border border-gray-500 text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150">
                         <option value="" disabled selected class="text-gray-400">Select your country</option>
-                        <option value="US" class="text-gray-200">United States</option>
-                        <option value="CA" class="text-gray-200">Canada</option>
-                        <option value="GB" class="text-gray-200">United Kingdom</option>
-                        <option value="AU" class="text-gray-200">Australia</option>
-                        <option value="DE" class="text-gray-200">Germany</option>
-                        {/* Add more countries as needed */}
+                        <script>
+                            fetch('https://restcountries.com/v3.1/independent?status=true')
+                                .then(response => response.json())
+                                .then(data => {
+                                    const options = data.sort((a, b) => a.name.common.localeCompare(b.name.common))
+                                        .map(country => `<option value="${country.cca2}" class="text-gray-200 bg-[#212121]">${country.name.common}</option>`);
+                                    document.querySelector('#country').insertAdjacentHTML('beforeend', options.join(''));
+
+                                    const selectElement = document.querySelector('#country');
+                                    selectElement.addEventListener('mousedown', function () {
+                                        setTimeout(() => {
+                                            const listboxes = document.querySelectorAll('div[role="listbox"]');
+                                            if (listboxes.length > 0) {
+                                                listboxes.forEach(box => {
+                                                    box.style.maxHeight = '100px';
+                                                    box.style.overflow = 'auto';
+                                                });
+                                            }
+                                        }, 0);
+                                    });
+                                });
+                        </script>
                     </select>
                 </div>
 
