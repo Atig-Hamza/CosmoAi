@@ -17,3 +17,7 @@ Route::get('/signup', function () {
 Route::get('/chat', function () {
     return view('Chat');
 });
+
+Route::get('/questionnaire', function () {
+    return view('Questionnaire');
+});
