@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
+use Auth;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +14,9 @@ class VerifyQuestionnaireCompletion
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, User $user): Response
+    public function handle(Request $request, Closure $next): Response
     {
+        $user = Auth::user();
         if (
             is_null($user->primary_role) ||
             is_null($user->size_of_company) ||
@@ -27,9 +28,8 @@ class VerifyQuestionnaireCompletion
             is_null($user->satisfaction_with_other) ||
             is_null($user->anticipations)
         ) {
-            return redirect()->route('questionnaire');
+            return $next($request);
         }
-
-        return $next($request);
+        return redirect()->route('chat');
     }
 }
