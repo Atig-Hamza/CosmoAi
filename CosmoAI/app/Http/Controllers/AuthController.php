@@ -13,10 +13,15 @@ class AuthController extends Controller
         $request->validate([
             'full_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
+            'password_confirmation' => 'required|string|min:8',
             'country' => 'required|string|max:255',
             'currency' => 'required|string|max:255',
         ]);
+
+        if ($request->password !== $request->password_confirmation) {
+            return redirect()->back()->withErrors(['message' => 'Passwords do not match.']);
+        }
 
         if (User::where('email', $request->email)->exists()) {
             return redirect()->back()->withErrors(['message' => 'This email already exists.']);
@@ -29,5 +34,7 @@ class AuthController extends Controller
             'country' => $request->country,
             'currency' => $request->currency
         ]);
+
+        return redirect()->route('login');
     }
 }
