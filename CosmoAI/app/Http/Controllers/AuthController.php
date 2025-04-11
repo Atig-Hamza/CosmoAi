@@ -37,4 +37,16 @@ class AuthController extends Controller
 
         return redirect()->route('login');
     }
+
+
+    public function login(Request $request)
+    {
+
+        $credentials = $request->only('email', 'password');
+        if (auth()->attempt($credentials)) {
+            return redirect()->route('questionnaire');
+        } else {
+            return redirect()->back()->withErrors(['message' => 'Invalid email or password.']);
+        }
+    }
 }
