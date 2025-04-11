@@ -47,7 +47,14 @@
                 </h1>
             </div>
 
-            <form class="space-y-5" action="#" method="POST">
+            @error('message')
+                <div class=" text-red-500 relative" role="alert">
+                    <span class="block sm:inline">{{ $message }}</span>
+                </div>
+            @enderror
+
+            <form class="space-y-5" action="{{ route('login') }}" method="POST">
+                @csrf
                 <div>
                     <label for="email-address" class="block text-base font-medium text-gray-400 mb-1">
                         Email or phone
