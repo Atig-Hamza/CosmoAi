@@ -164,38 +164,38 @@
                 </p>
             </div>
 
-            <form class="space-y-8" action="#" method="POST">
-
+            <form class="space-y-8" action="{{ route('que_complete') }}" method="POST">
+                @csrf
                 <div class="space-y-3">
                     <label class="block text-base font-medium text-cosmo-text-secondary">1. What is your primary
                         role?</label>
                     <div class="space-y-2">
                         <div class="flex items-center space-x-2">
-                            <input id="role-dev" name="role" type="radio" value="developer" required
+                            <input id="role-dev" name="primary_role" type="radio" value="Developer / Engineer" required
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="role-dev" class="text-sm font-medium text-cosmo-text-primary">Developer /
                                 Engineer</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="role-designer" name="role" type="radio" value="designer"
+                            <input id="role-designer" name="primary_role" type="radio" value="Designer / Creative"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="role-designer" class="text-sm font-medium text-cosmo-text-primary">Designer /
                                 Creative</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="role-manager" name="role" type="radio" value="manager"
+                            <input id="role-manager" name="primary_role" type="radio" value="Manager / Team Lead"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="role-manager" class="text-sm font-medium text-cosmo-text-primary">Manager / Team
                                 Lead</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="role-writer" name="role" type="radio" value="writer"
+                            <input id="role-writer" name="primary_role" type="radio" value="Writer / Content Creator"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="role-writer" class="text-sm font-medium text-cosmo-text-primary">Writer /
                                 Content Creator</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="role-other" name="role" type="radio" value="other"
+                            <input id="role-other" name="primary_role" type="radio" value="other"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="role-other" class="text-sm font-medium text-cosmo-text-primary">Other</label>
                         </div>
@@ -207,24 +207,24 @@
                         company/team?</label>
                     <div class="space-y-2">
                         <div class="flex items-center space-x-2">
-                            <input id="size-1" name="company_size" type="radio" value="1" required
+                            <input id="size-1" name="size_of_company" type="radio" value="1" required
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="size-1" class="text-sm font-medium text-cosmo-text-primary">Just me</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="size-2-10" name="company_size" type="radio" value="2-10"
+                            <input id="size-2-10" name="size_of_company" type="radio" value="2-10"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="size-2-10" class="text-sm font-medium text-cosmo-text-primary">2-10
                                 people</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="size-11-50" name="company_size" type="radio" value="11-50"
+                            <input id="size-11-50" name="size_of_company" type="radio" value="11-50"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="size-11-50" class="text-sm font-medium text-cosmo-text-primary">11-50
                                 people</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="size-51plus" name="company_size" type="radio" value="51+"
+                            <input id="size-51plus" name="size_of_company" type="radio" value="51+"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="size-51plus" class="text-sm font-medium text-cosmo-text-primary">51+
                                 people</label>
@@ -236,7 +236,7 @@
                     <label for="use-case" class="block text-base font-medium text-cosmo-text-secondary mb-1">
                         3. What do you primarily hope to achieve using Cosmo AI?
                     </label>
-                    <input id="use-case" name="use_case" type="text" required
+                    <input id="use-case" name="primarily_hope" type="text" required
                         class="appearance-none rounded-md relative block w-full px-3 py-2 bg-cosmo-input-bg border border-cosmo-border text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150"
                         placeholder="e.g., Generate code snippets, write marketing copy, summarize documents">
                 </div>
@@ -245,7 +245,7 @@
                     <label for="important-feature" class="block text-base font-medium text-cosmo-text-secondary mb-1">
                         4. What is the MOST important feature for you in an AI tool?
                     </label>
-                    <input id="important-feature" name="important_feature" type="text" required
+                    <input id="important-feature" name="important_features" type="text" required
                         class="appearance-none rounded-md relative block w-full px-3 py-2 bg-cosmo-input-bg border border-cosmo-border text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150"
                         placeholder="e.g., Accuracy, speed, specific integrations, ease of use">
                 </div>
@@ -279,7 +279,7 @@
                     <label for="discovery" class="block text-base font-medium text-cosmo-text-secondary mb-1">
                         6. How did you hear about Cosmo AI?
                     </label>
-                    <input id="discovery" name="discovery" type="text"
+                    <input id="discovery" name="hear_about_us" type="text"
                         class="appearance-none rounded-md relative block w-full px-3 py-2 bg-cosmo-input-bg border border-cosmo-border text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150"
                         placeholder="e.g., Social media, friend, search engine, advertisement">
                 </div>
@@ -288,7 +288,7 @@
                     <label for="missing-feature" class="block text-base font-medium text-cosmo-text-secondary mb-1">
                         7. Is there any feature you wish Cosmo AI had?
                     </label>
-                    <textarea id="missing-feature" name="missing_feature" rows="3"
+                    <textarea id="missing-feature" name="feature_wish" rows="3"
                         class="appearance-none rounded-md relative block w-full px-3 py-2 bg-cosmo-input-bg border border-cosmo-border text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150"
                         placeholder="Describe any features you'd love to see..."></textarea>
                 </div>
@@ -298,26 +298,27 @@
                         other AI tools you've used (if any)?</label>
                     <div class="space-y-2">
                         <div class="flex items-center space-x-2">
-                            <input id="satisfaction-na" name="satisfaction_alt" type="radio" value="na" required
+                            <input id="satisfaction-na" name="satisfaction_with_other" type="radio" value="na" required
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="satisfaction-na" class="text-sm font-medium text-cosmo-text-primary">Haven't
                                 used others</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="satisfaction-unsatisfied" name="satisfaction_alt" type="radio"
+                            <input id="satisfaction-unsatisfied" name="satisfaction_with_other" type="radio"
                                 value="unsatisfied"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="satisfaction-unsatisfied"
                                 class="text-sm font-medium text-cosmo-text-primary">Unsatisfied</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="satisfaction-neutral" name="satisfaction_alt" type="radio" value="neutral"
+                            <input id="satisfaction-neutral" name="satisfaction_with_other" type="radio" value="neutral"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="satisfaction-neutral"
                                 class="text-sm font-medium text-cosmo-text-primary">Neutral</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="satisfaction-satisfied" name="satisfaction_alt" type="radio" value="satisfied"
+                            <input id="satisfaction-satisfied" name="satisfaction_with_other" type="radio"
+                                value="satisfied"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="satisfaction-satisfied"
                                 class="text-sm font-medium text-cosmo-text-primary">Satisfied</label>
@@ -330,25 +331,25 @@
                         using an AI tool like Cosmo AI?</label>
                     <div class="space-y-2">
                         <div class="flex items-center space-x-2">
-                            <input id="frequency-daily" name="frequency" type="radio" value="daily" required
+                            <input id="frequency-daily" name="anticipations" type="radio" value="daily" required
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="frequency-daily"
                                 class="text-sm font-medium text-cosmo-text-primary">Daily</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="frequency-weekly" name="frequency" type="radio" value="weekly"
+                            <input id="frequency-weekly" name="anticipations" type="radio" value="weekly"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="frequency-weekly" class="text-sm font-medium text-cosmo-text-primary">A few
                                 times a week</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="frequency-monthly" name="frequency" type="radio" value="monthly"
+                            <input id="frequency-monthly" name="anticipations" type="radio" value="monthly"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="frequency-monthly" class="text-sm font-medium text-cosmo-text-primary">A few
                                 times a month</label>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <input id="frequency-rarely" name="frequency" type="radio" value="rarely"
+                            <input id="frequency-rarely" name="anticipations" type="radio" value="rarely"
                                 class="focus:ring-cosmo-blue text-cosmo-blue border-cosmo-border bg-cosmo-input-bg">
                             <label for="frequency-rarely" class="text-sm font-medium text-cosmo-text-primary">Rarely /
                                 Occasionally</label>
@@ -360,12 +361,11 @@
                     <label for="comments" class="block text-base font-medium text-cosmo-text-secondary mb-1">
                         10. Any other comments or suggestions for Cosmo AI?
                     </label>
-                    <textarea id="comments" name="comments" rows="4"
+                    <textarea id="comments" name="suggestions" rows="4"
                         class="appearance-none rounded-md relative block w-full px-3 py-2 bg-cosmo-input-bg border border-cosmo-border text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150"
                         placeholder="We appreciate any additional feedback!"></textarea>
                 </div>
 
-                <!-- Submit Button -->
                 <div class="pt-3">
                     <button type="submit"
                         class="group relative w-full flex justify-center py-2.5 px-4 border border-transparent text-base font-semibold rounded-full text-white bg-cosmo-blue hover:bg-cosmo-blue-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cosmo-bg focus:ring-cosmo-blue transition-colors duration-150 ease-in-out">
