@@ -76,7 +76,7 @@
                 </h1>
             </div>
 
-            <form class="space-y-5" action="#" method="POST">
+            <form class="space-y-5" action="{{ route('signup') }}" method="POST">
                 @csrf
                 <div>
                     <label for="full-name" class="block text-base font-medium text-gray-400 mb-1">
@@ -102,23 +102,66 @@
                         class="appearance-none rounded-md relative block w-full px-3 py-2 bg-[#212121] border border-gray-500 text-white focus:outline-none focus:ring-1 focus:ring-cosmo-blue focus:border-cosmo-blue text-base transition-colors duration-150">
                         <option value="" disabled selected class="text-gray-400">Select your country</option>
                         <script>
+                            const selectElement = document.querySelector('#country');
+                            let countryData = [];
+
+                            function updateCurrencyInput(currencyCode) {
+                                let currencyInput = document.querySelector('input[type="hidden"][name="currency"]');
+
+                                if (!currencyInput) {
+                                    currencyInput = document.createElement('input');
+                                    currencyInput.type = 'hidden';
+                                    currencyInput.name = 'currency';
+                                    selectElement.parentNode.insertBefore(currencyInput, selectElement.nextSibling);
+                                }
+
+                                currencyInput.value = currencyCode || '';
+                                console.log(`Hidden input 'currency' value set to: ${currencyInput.value}`);
+                            }
+
                             fetch('https://restcountries.com/v3.1/independent?status=true')
-                                .then(response => response.json())
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
                                 .then(data => {
+                                    countryData = data;
                                     const options = data
                                         .map(country => {
                                             const name = country.name.common === 'Israel' ? 'Palestine' : country.name.common;
                                             return `<option value="${country.cca2}" class="text-gray-200 bg-[#212121]">${name}</option>`;
                                         })
                                         .sort((a, b) => {
-                                            const aName = a.match(/>(.*?)</)[1];
-                                            const bName = b.match(/>(.*?)</)[1];
+                                            const aNameMatch = a.match(/>(.*?)</);
+                                            const bNameMatch = b.match(/>(.*?)</);
+                                            const aName = aNameMatch ? aNameMatch[1] : '';
+                                            const bName = bNameMatch ? bNameMatch[1] : '';
                                             return aName.localeCompare(bName);
                                         })
                                         .join('');
-                                    document.querySelector('#country').insertAdjacentHTML('beforeend', options);
 
-                                    const selectElement = document.querySelector('#country');
+                                    selectElement.insertAdjacentHTML('beforeend', options);
+
+                                    selectElement.addEventListener('change', function (event) {
+                                        const selectedCca2 = event.target.value;
+
+                                        if (!selectedCca2) {
+                                            updateCurrencyInput('');
+                                            return;
+                                        }
+                                        const selectedCountry = countryData.find(country => country.cca2 === selectedCca2);
+
+                                        let currencyCode = '';
+                                        if (selectedCountry && selectedCountry.currencies) {
+                                            const currencyKeys = Object.keys(selectedCountry.currencies);
+                                            if (currencyKeys.length > 0) {
+                                                currencyCode = currencyKeys[0];
+                                            }
+                                        }
+                                        updateCurrencyInput(currencyCode);
+                                    });
                                     selectElement.addEventListener('mousedown', function () {
                                         setTimeout(() => {
                                             const listboxes = document.querySelectorAll('div[role="listbox"]');
@@ -130,6 +173,18 @@
                                             }
                                         }, 0);
                                     });
+                                    if (selectElement.value) {
+                                        selectElement.dispatchEvent(new Event('change'));
+                                    } else {
+                                        updateCurrencyInput('');
+                                    }
+
+                                })
+                                .catch(error => {
+                                    console.error("Error fetching or processing country data:", error);
+                                    if (selectElement) {
+                                        selectElement.insertAdjacentHTML('beforeend', '<option value="" disabled>Error loading countries</option>');
+                                    }
                                 });
                         </script>
                     </select>
