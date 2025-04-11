@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuestionnaireController;
 use App\Http\Middleware\VerifyQuestionnaireCompletion;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,5 @@ Route::get('/questionnaire', function () {
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::post('/que_complete', [QuestionnaireController::class, 'store'])->name('que_complete');
