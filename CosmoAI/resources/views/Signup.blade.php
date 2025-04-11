@@ -76,6 +76,12 @@
                 </h1>
             </div>
 
+            @error('message')
+                <div class=" text-red-500 relative" role="alert">
+                    <span class="block sm:inline">{{ $message }}</span>
+                </div>
+            @enderror
+
             <form class="space-y-5" action="{{ route('signup') }}" method="POST">
                 @csrf
                 <div>
