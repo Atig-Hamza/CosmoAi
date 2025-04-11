@@ -7,6 +7,10 @@
     <title>Cosmo AI Questionnaire</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="{{ asset('images/favicon-32x32.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script>
         tailwind.config = {
             theme: {
@@ -94,6 +98,10 @@
                 src="{{ asset('images/white.png') }}" alt="">Cosmo</span>
     </div>
 
+    <div class="absolute top-4 right-5">
+        <a href="/chat" class="text-white flex flex-row items-center gap-2">skip<i class="fa-solid fa-forward"></i></a>
+    </div>
+
     <div id="promo-modal"
         class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 transition-opacity duration-300 ease-out hidden opacity-0"
         aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -104,7 +112,8 @@
                 <img class="object-cover h-full w-full" src="{{ asset('offers/qeust.png') }}"
                     alt="Survey Promotion Image">
             </div>
-            <div class="sm:w-1/2 w-full px-6 py-5 border-l border-gray-400 sm:p-8 flex flex-col justify-between bg-[#101010]">
+            <div
+                class="sm:w-1/2 w-full px-6 py-5 border-l border-gray-400 sm:p-8 flex flex-col justify-between bg-[#101010]">
                 <div>
                     <div class="flex justify-between items-start">
                         <h3 id="modal-title" class="text-xl font-semibold text-white leading-6">
@@ -113,8 +122,8 @@
                         <button type="button" id="close-modal-btn"
                             class="text-gray-400 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-cosmo-blue rounded-md">
                             <span class="sr-only">Close</span>
-                            <svg class="h-6 w-6 absolute top-2 right-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                            <svg class="h-6 w-6 absolute top-2 right-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
                             </svg>
