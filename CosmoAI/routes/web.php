@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\QuestionnaireController;
 use App\Http\Middleware\VerifyQuestionnaireCompletion;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/que_complete', [QuestionnaireController::class, 'store'])->name('que_complete');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/google/redirect', [GoogleAuthController::class, 'redirect'])->name('google.redirect');
+
+Route::get('/google/callback', [GoogleAuthController::class, 'Callback'])->name('google.callback');
