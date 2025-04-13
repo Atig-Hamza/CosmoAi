@@ -241,7 +241,7 @@
             </div>
 
             <div class="space-y-3">
-                <button type="button"
+                <a href="{{ route('google.redirect') }}"
                     class="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-400 rounded-full shadow-sm bg-transparent text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cosmo-bg focus:ring-blue-500 transition-colors duration-150 ease-in-out">
                     <svg class="w-5 h-5 mr-2 -ml-1" viewBox="-3 0 262 262" preserveAspectRatio="xMidYMid"
                         xmlns="http://www.w3.org/2000/svg">
@@ -259,7 +259,7 @@
                             fill="#EB4335" />
                     </svg>
                     Sign up with Google
-                </button>
+                </a>
 
                 <a href="/login"
                     class="w-full inline-flex justify-center items-center py-2.5 px-4 border border-gray-400 rounded-full shadow-sm bg-transparent text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cosmo-bg focus:ring-blue-500 transition-colors duration-150 ease-in-out">
