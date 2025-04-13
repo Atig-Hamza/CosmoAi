@@ -149,6 +149,26 @@
         </button>
     </aside>
 
+    <div class="absolute top-4 right-2 flex flex-row items-center">
+        <a id="talkto" href="/voice" class="mr-3 bg-[#4e4d4d] text-white hover:bg-[#444] rounded-lg p-2"
+            title="Voice Call">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-sound-waves">
+                <path d="M3 11V13M6 8V16M9 10V14M12 7V17M15 4V20M18 9V15M21 11V13"></path>
+            </svg>
+        </a>
+        <a id="gotovideo" href="/video"
+            class="mr-3 bg-[#4e4d4d] text-white hover:bg-[#444] rounded-lg p-2" title="Video Call with AI">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-video">
+                <path d="M23 7l-7 5 7 5V7z"></path>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+        </a>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const sidebar = document.getElementById('sidebar');
