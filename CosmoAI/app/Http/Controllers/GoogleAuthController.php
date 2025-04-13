@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Exception;
+use Str;
 
 class GoogleAuthController extends Controller
 {
@@ -23,14 +24,23 @@ class GoogleAuthController extends Controller
 
             if ($user) {
                 Auth::login($user);
-                return redirect('/chat');
             } else {
-                return redirect('/signup')->with('email', $googleUser->getEmail());
+                $user = User::create([
+                    'full_name' => $googleUser->getName(),
+                    'email' => $googleUser->getEmail(),
+                    'password' => bcrypt(Str::random(16)),
+                    'country' => 'Unknown',
+                    'currency' => 'USD',
+                ]);
+
+                Auth::login($user);
             }
+
+            return redirect('/questionnaire');
         } catch (Exception $e) {
-            // Handle login error
             logger('Google login error', ['message' => $e->getMessage()]);
             return redirect('/login')->with('error', 'Something went wrong or you cancelled login.');
         }
     }
+
 }
