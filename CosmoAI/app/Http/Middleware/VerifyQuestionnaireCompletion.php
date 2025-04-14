@@ -17,6 +17,7 @@ class VerifyQuestionnaireCompletion
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
+        $user = $user->profile;
         if (
             is_null($user->primary_role) ||
             is_null($user->size_of_company) ||
