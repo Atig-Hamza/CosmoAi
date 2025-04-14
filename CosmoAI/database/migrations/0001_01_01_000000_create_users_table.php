@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -18,19 +17,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('country');
             $table->string('currency');
-            $table->string('primary_role')->nullable();
-            $table->string('size_of_company')->nullable();
-            $table->string('primarily_hope')->nullable();
-            $table->string('important_features')->nullable();
-            $table->string('familiarity')->nullable();
-            $table->string('hear_about_us')->nullable();
-            $table->string('feature_wish')->nullable();
-            $table->string('satisfaction_with_other')->nullable();
-            $table->string('anticipations')->nullable();
-            $table->string('suggestions')->nullable();
-            $table->string('plan')->default('free');
-            $table->timestamp('plan_start')->nullable();
-            $table->timestamp('plan_end')->nullable();
             $table->boolean('is_verified')->default(false);
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
