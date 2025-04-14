@@ -23,19 +23,6 @@ class User extends Authenticatable
         'password',
         'country',
         'currency',
-        'primary_role',
-        'size_of_company',
-        'primarily_hope',
-        'important_features',
-        'familiarity',
-        'hear_about_us',
-        'feature_wish',
-        'satisfaction_with_other',
-        'anticipations',
-        'suggestions',
-        'plan',
-        'plan_start',
-        'plan_end',
         'is_verified',
         'is_admin',
     ];
@@ -61,5 +48,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
     }
 }
