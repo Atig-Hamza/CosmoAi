@@ -11,7 +11,7 @@ class QuestionnaireController extends Controller
     {
     }
 
-    public function store(Request $request, User $user)
+    public function store(Request $request)
     {
         $user = auth()->user();
 
@@ -28,18 +28,21 @@ class QuestionnaireController extends Controller
             'suggestions' => 'nullable|string|max:255',
         ]);
 
-        $user->update([
-            'primary_role' => $request->primary_role,
-            'size_of_company' => $request->size_of_company,
-            'primarily_hope' => $request->primarily_hope,
-            'important_features' => $request->important_features,
-            'familiarity' => $request->familiarity,
-            'hear_about_us' => $request->hear_about_us,
-            'feature_wish' => $request->feature_wish,
-            'satisfaction_with_other' => $request->satisfaction_with_other,
-            'anticipations' => $request->anticipations,
-            'suggestions' => $request->suggestions,
-        ]);
+        $user->profile()->updateOrCreate(
+            ['user_id' => $user->id],
+            $request->only([
+                'primary_role',
+                'size_of_company',
+                'primarily_hope',
+                'important_features',
+                'familiarity',
+                'hear_about_us',
+                'feature_wish',
+                'satisfaction_with_other',
+                'anticipations',
+                'suggestions',
+            ])
+        );
 
         return redirect()->route('chat');
     }
