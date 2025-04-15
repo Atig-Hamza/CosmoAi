@@ -37,3 +37,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/google/redirect', [GoogleAuthController::class, 'redirect'])->name('google.redirect');
 
 Route::get('/google/callback', [GoogleAuthController::class, 'Callback'])->name('google.callback');
+
+Route::get('/voice', function () {
+    return view('Voice');
+})->name('voice');
