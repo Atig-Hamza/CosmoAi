@@ -256,8 +256,7 @@
                     <div id="prevThemeDesc" class="text-xs md:text-sm truncate">Random</div>
                 </div>
 
-                <button id="prevArrow"
-                    class="text-gray-400 hover:text-white text-3xl md:text-4xl rounded-full z-40">
+                <button id="prevArrow" class="text-gray-400 hover:text-white text-3xl md:text-4xl rounded-full z-40">
                     < </button>
 
                         <div class="flex flex-col items-center gap-3 md:gap-4 flex-shrink-0 mt-[6%]">
@@ -425,8 +424,7 @@
                             </div>
                         </div>
 
-                        <button id="nextArrow"
-                            class="text-gray-400 hover:text-white text-3xl md:text-4xl rounded-full">
+                        <button id="nextArrow" class="text-gray-400 hover:text-white text-3xl md:text-4xl rounded-full">
                             >
                         </button>
 
@@ -454,14 +452,14 @@
                     name: 'Arbor',
                     description: 'Simple and versatile',
                     svgMods: {
-                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#ADD8E6' },
-                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#87CEEB' },
-                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#87CEEB' },
-                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#FFFFFF' },
-                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#E0FFFF' },
-                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#B0E0E6' },
-                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#B0E0E6' },
-                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#B0E0E6' },
+                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#7FDBFF' }, // Brighter blue
+                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#39CCCC' }, // Teal
+                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#39CCCC' }, // Teal
+                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#DDDDDD' }, // Light gray
+                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#B2EBF2' }, // Light cyan
+                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#80DEEA' }, // Medium cyan
+                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#80DEEA' }, // Medium cyan
+                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#80DEEA' }, // Medium cyan
                         'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '0' }
                     }
                 },
@@ -470,15 +468,15 @@
                     name: 'Sol',
                     description: 'Erudite and casual',
                     svgMods: {
-                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#FFD700' },
-                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#FFA500' },
-                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#FFA500' },
-                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#FF4500' },
-                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#FF8C00' },
-                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#FF6347' },
-                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#FF6347' },
-                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#FF6347' },
-                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '45' }
+                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#F9A825' }, // Amber
+                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#FF6F00' }, // Deep orange
+                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#FF6F00' }, // Deep orange
+                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#E65100' }, // Darker orange
+                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#FFCC80' }, // Light orange
+                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#F57C00' }, // Medium orange
+                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#F57C00' }, // Medium orange
+                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#F57C00' }, // Medium orange
+                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '35' }
                     }
                 },
                 {
@@ -486,15 +484,15 @@
                     name: 'Luna',
                     description: 'Mysterious and calm',
                     svgMods: {
-                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#483D8B' },
-                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#7B68EE' },
-                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#6A5ACD' },
-                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#9370DB' },
-                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#8A2BE2' },
-                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#9932CC' },
-                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#9932CC' },
-                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#9932CC' },
-                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '120' }
+                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#512DA8' }, // Deep purple
+                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#7C4DFF' }, // Brighter purple
+                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#673AB7' }, // Regular purple
+                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#B39DDB' }, // Light purple
+                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#9575CD' }, // Medium purple
+                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#5E35B1' }, // Dark purple
+                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#5E35B1' }, // Dark purple
+                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#5E35B1' }, // Dark purple
+                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '130' }
                     }
                 },
                 {
@@ -502,15 +500,15 @@
                     name: 'Monday',
                     description: 'Random and vibrant',
                     svgMods: {
-                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#fa01fc' },
-                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#0054ff' },
-                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#0054ff' },
-                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#fc0137' },
-                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#fa01fc' },
-                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#d347ff' },
-                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#d347ff' },
-                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#d347ff' },
-                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '-15.030654' }
+                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#00E676' }, // Green
+                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#00B0FF' }, // Blue
+                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#00B0FF' }, // Blue
+                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#FF1744' }, // Red
+                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#76FF03' }, // Light green
+                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#FF4081' }, // Pink
+                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#FF4081' }, // Pink
+                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#FF4081' }, // Pink
+                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '-20' }
                     }
                 },
                 {
@@ -518,15 +516,15 @@
                     name: 'Forest',
                     description: 'Natural and soothing',
                     svgMods: {
-                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#228B22' },
-                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#90EE90' },
-                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#98FB98' },
-                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#3CB371' },
-                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#8FBC8F' },
-                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#2E8B57' },
-                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#2E8B57' },
-                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#2E8B57' },
-                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '-120' }
+                        'e0D7ZBtOImG6-fill-0': { 'stop-color': '#795548' }, // Brown
+                        'e0D7ZBtOImG7-fill-0': { 'stop-color': '#8D6E63' }, // Light brown
+                        'e0D7ZBtOImG11-fill-0': { 'stop-color': '#A1887F' }, // Even lighter brown
+                        'e0D7ZBtOImG11-fill-1': { 'stop-color': '#4E342E' }, // Dark brown
+                        'e0D7ZBtOImG14-fill-0': { 'stop-color': '#BCAAA4' }, // Very light brown
+                        'e0D7ZBtOImG17-fill-1': { 'stop-color': '#6D4C41' }, // Medium brown
+                        'e0D7ZBtOImG19-fill-1': { 'stop-color': '#6D4C41' }, // Medium brown
+                        'e0D7ZBtOImG20-fill-1': { 'stop-color': '#6D4C41' }, // Medium brown
+                        'e0D7ZBtOImG8-filter-hue-rotate-0': { 'values': '-100' }
                     }
                 }
             ];
