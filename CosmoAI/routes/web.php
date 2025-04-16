@@ -40,4 +40,4 @@ Route::get('/google/callback', [GoogleAuthController::class, 'Callback'])->name(
 
 Route::get('/voice', function () {
     return view('Voice');
-})->name('voice');
+})->name('voice')->middleware('auth');
