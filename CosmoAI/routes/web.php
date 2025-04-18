@@ -41,3 +41,7 @@ Route::get('/google/callback', [GoogleAuthController::class, 'Callback'])->name(
 Route::get('/voice', function () {
     return view('User/Voice');
 })->name('voice')->middleware('auth');
+
+Route::get('/admin-dash', function () {
+    return view('Admin/Dash');
+})->name('admin-dash');
