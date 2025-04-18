@@ -219,32 +219,6 @@
         </button>
     </div>
 
-    <script>
-        const micButton = document.getElementById('micBtn');
-        const micOnIcon = document.getElementById('micOnIcon');
-        const micOffIcon = document.getElementById('micOffIcon');
-
-        let isMicOn = true;
-
-        micButton.addEventListener('click', () => {
-            isMicOn = !isMicOn;
-
-            if (isMicOn) {
-                micOnIcon.classList.remove('hidden');
-                micOffIcon.classList.add('hidden');
-                micButton.classList.remove('bg-red-500', 'text-white', 'hover:bg-red-600');
-                micButton.classList.add('bg-gray-200', 'text-black', 'hover:bg-gray-300');
-                micButton.setAttribute('aria-label', 'Mute Microphone');
-            } else {
-                micOnIcon.classList.add('hidden');
-                micOffIcon.classList.remove('hidden');
-                micButton.classList.remove('bg-gray-200', 'text-black', 'hover:bg-gray-300');
-                micButton.classList.add('bg-red-500', 'text-white', 'hover:bg-red-600');
-                micButton.setAttribute('aria-label', 'Unmute Microphone');
-            }
-        });
-    </script>
-
     <div id="selectV" popover
         class="w-full h-full bg-[#212121] text-white font-sans rounded-lg shadow-xl overflow-hidden border border-gray-700">
 
