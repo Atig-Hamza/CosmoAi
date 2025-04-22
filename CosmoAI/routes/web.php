@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\QuestionnaireController;
+use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\isSupport;
 use App\Http\Middleware\VerifyQuestionnaireCompletion;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +46,8 @@ Route::get('/voice', function () {
 
 Route::get('/admin-dash', function () {
     return view('Admin/Dash');
-})->name('admin-dash');
+})->name('admin-dash')->middleware(isAdmin::class);
+
+Route::get('/support-dash', function () {
+    return view('Support/Dash');
+})->name('support-dash')->middleware(isSupport::class);
