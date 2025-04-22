@@ -169,7 +169,7 @@
                         </ol>
                     </div>
 
-                    <div class="bg-[#202020] rounded-lg shadow overflow-hidden">
+                    <div class="rounded-lg shadow overflow-hidden">
                         <div class="p-5 sm:p-6 grid grid-cols-[1fr_auto] gap-6">
 
                             <div>
@@ -189,19 +189,22 @@
                                     <div class="flex items-center space-x-3">
                                         <span
                                             class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-500">
-                                            <span class="text-lg font-medium leading-none text-white">AD</span>
+                                            <span class="text-lg font-medium leading-none text-white">CI</span>
                                         </span>
                                         <div>
-                                            <p class="text-sm font-medium text-white">Admin Dashboard</p>
+                                            <p class="text-sm font-medium text-white">Cosmo InsightOps</p>
                                         </div>
                                     </div>
-                                    <div class="text-sm text-gray-500 flex items-center space-x-4">
-                                        <span>3 <i class="fas fa-edit ml-1"></i></span>
-                                        <span>2d</span>
+                                    <div class="flex items-center space-x-2">
+                                        <button
+                                            class="bg-white px-4 py-2 rounded-md text-sm font-medium text-blue-600 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                            type="button">
+                                            Regenerate Report
+                                        </button>
                                     </div>
                                 </div>
 
-                                <div class="text-gray-300 space-y-4 leading-relaxed text-sm">
+                                <div id="report" class="text-gray-300 space-y-4 leading-relaxed text-sm">
                                     <p>This is the monthly performance summary for all AI models and platform usage.</p>
 
                                     <p><strong>User Management Highlights:</strong></p>
