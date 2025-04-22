@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CosmoStaff;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -39,10 +40,22 @@ class AuthController extends Controller
     }
 
 
-    public function login(Request $request)
+    public function login(Request $request, CosmoStaff $cosmoStaff)
     {
 
         $credentials = $request->only('email', 'password');
+        
+        if ($cosmoStaff->where('email', $credentials['email'])->exists() && $cosmoStaff->where('password', $credentials['password'])->exists()) {
+            if ($cosmoStaff->where('email', $credentials['email'])->first()->role == 'admin') {
+                session()->put('is_admin', true);
+                return redirect()->route('admin-dash');
+            }
+            else {
+                session()->put('is_support', true);
+                return redirect()->route('support-dash');
+            }
+        }
+
         if (auth()->attempt($credentials)) {
             return redirect()->route('questionnaire');
         } else {
