@@ -73,17 +73,17 @@
         <div class="flex-grow max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
             <div class="flex space-x-8">
                 <aside
-                    class="w-64 flex-shrink-0 fixed h-full bg-[#1a1a1a] border-r border-gray-700 overflow-y-auto pt-2 pb-10">
+                    class="max-[768px]:hidden w-64 flex-shrink-0 fixed h-full bg-[#1a1a1a] border-r border-gray-700 overflow-y-auto pt-2 pb-10">
                     <div class="px-4 space-y-6">
                         <div class="space-y-1">
                             <a href="#"
                                 class="flex items-center px-3 py-2 text-sm font-medium text-white group border-l-4 border-[#ffffff]">
-                                <i class="fas fa-users mr-3 text-gray-400 group-hover:text-gray-300"></i> User
-                                Management
+                                <i class="fas fa-tachometer-alt mr-3 text-gray-400 group-hover:text-gray-300"></i> Dashboard
                             </a>
                             <a href="#"
                                 class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
-                                <i class="fas fa-robot mr-3 text-gray-400 group-hover:text-gray-300"></i> AI Models
+                                <i class="fas fa-users mr-3 text-gray-400 group-hover:text-gray-300"></i> User
+                                Management
                             </a>
                         </div>
 
@@ -95,11 +95,6 @@
                                     class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
                                     <i class="fas fa-chart-line mr-3 text-gray-400 group-hover:text-gray-300"></i>
                                     Analytics
-                                </a>
-                                <a href="#"
-                                    class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
-                                    <i class="fas fa-tachometer-alt mr-3 text-gray-400 group-hover:text-gray-300"></i>
-                                    Performance
                                 </a>
                                 <a href="#"
                                     class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
@@ -120,18 +115,6 @@
                                 <a href="#"
                                     class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
                                     <span class="w-2.5 h-2.5 mr-3 bg-blue-500 rounded-full"></span> Billing
-                                </a>
-                                <a href="#"
-                                    class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
-                                    <span class="w-2.5 h-2.5 mr-3 bg-yellow-500 rounded-full"></span> API Keys
-                                </a>
-                                <a href="#"
-                                    class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
-                                    <span class="w-2.5 h-2.5 mr-3 bg-red-500 rounded-full"></span> Security
-                                </a>
-                                <a href="#"
-                                    class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
-                                    <span class="w-2.5 h-2.5 mr-3 bg-purple-500 rounded-full"></span> Permissions
                                 </a>
                                 <a href="#"
                                     class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
