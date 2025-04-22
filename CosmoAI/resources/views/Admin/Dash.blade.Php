@@ -58,8 +58,6 @@
                     <div class="flex items-center space-x-6">
                         <nav class="hidden md:flex space-x-6">
                             <a href="#" class="text-gray-300 hover:text-white text-sm font-medium">Documentation</a>
-                            <a href="#" class="text-gray-300 hover:text-white text-sm font-medium">Settings</a>
-                            <a href="#" class="text-gray-300 hover:text-white text-sm font-medium">Help</a>
                         </nav>
                         <button class="text-gray-400 hover:text-white">
                             <i class="fas fa-search text-lg"></i>
