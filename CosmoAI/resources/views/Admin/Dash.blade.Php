@@ -74,11 +74,11 @@
                     class="max-[768px]:hidden w-64 flex-shrink-0 fixed h-full bg-[#1a1a1a] border-r border-gray-700 overflow-y-auto pt-2 pb-10">
                     <div class="px-4 space-y-6">
                         <div class="space-y-1">
-                            <a href="#"
+                            <a href="/admin-dash"
                                 class="flex items-center px-3 py-2 text-sm font-medium text-white group border-l-4 border-[#ffffff]">
                                 <i class="fas fa-tachometer-alt mr-3 text-gray-400 group-hover:text-gray-300"></i> Dashboard
                             </a>
-                            <a href="#"
+                            <a href="/user-management"
                                 class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
                                 <i class="fas fa-users mr-3 text-gray-400 group-hover:text-gray-300"></i> User
                                 Management

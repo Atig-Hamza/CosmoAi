@@ -130,13 +130,13 @@
                         class="fixed h-[calc(100vh-4rem)] bg-[#1a1a1a] border-r border-gray-700 overflow-y-auto pt-2 pb-10 w-64">
                         <div class="px-4 space-y-6">
                             <div class="space-y-1">
-                                <a href="#"
-                                    class="flex items-center px-3 py-2 text-sm font-medium text-white group border-l-4 border-[#ffffff]">
+                                <a href="/admin-dash"
+                                    class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group bg-[#28282898]">
                                     <i class="fas fa-tachometer-alt mr-3 text-gray-400 group-hover:text-gray-300"></i>
                                     Dashboard
                                 </a>
-                                <a href="#"
-                                    class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group bg-[#28282898]">
+                                <a href="/user-management"
+                                    class="flex items-center px-3 py-2 text-sm font-medium text-white group border-l-4 border-[#ffffff]">
                                     <i class="fas fa-users mr-3 text-gray-400 group-hover:text-gray-300"></i> User
                                     Management
                                 </a>
@@ -523,7 +523,7 @@
                             <div>
                                 <label for="userName" class="block text-sm font-medium text-gray-400 mb-1">User
                                     Name</label>
-                                <input type="text" id="userName" name="userName" placeholder="Enter user name"
+                                <input type="text" id="userName" name="name" placeholder="Enter Full name"
                                     class="w-full bg-[#2b2b2b] border border-gray-600 rounded-md px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
                             </div>
                             <div>
