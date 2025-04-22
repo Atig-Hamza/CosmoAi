@@ -51,3 +51,7 @@ Route::get('/admin-dash', function () {
 Route::get('/support-dash', function () {
     return view('Support/Dash');
 })->name('support-dash')->middleware(isSupport::class);
+
+Route::get('/user-management', function () {
+    return view('Admin/User');
+})->name('user-management')->middleware(isAdmin::class);
