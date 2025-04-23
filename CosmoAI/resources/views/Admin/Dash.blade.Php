@@ -76,11 +76,18 @@
                         <div class="space-y-1">
                             <a href="/admin-dash"
                                 class="flex items-center px-3 py-2 text-sm font-medium text-white group border-l-4 border-[#ffffff]">
-                                <i class="fas fa-tachometer-alt mr-3 text-gray-400 group-hover:text-gray-300"></i> Dashboard
+                                <i class="fas fa-tachometer-alt mr-3 text-gray-400 group-hover:text-gray-300"></i>
+                                Dashboard
                             </a>
                             <a href="/user-management"
                                 class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
                                 <i class="fas fa-users mr-3 text-gray-400 group-hover:text-gray-300"></i> User
+                                Management
+                            </a>
+                            <a href="/candidates-management"
+                                class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
+                                <i class="fas fa-user-check mr-3 text-gray-400 group-hover:text-gray-300"></i>
+                                Support
                                 Management
                             </a>
                         </div>
