@@ -740,11 +740,10 @@
 
             <nav class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
                 <a href="#safety" class="text-gray-400 hover:text-white transition-colors">Safety</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Use</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                <a href="/privacy-policy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/terms-of-use" class="text-gray-400 hover:text-white transition-colors">Terms of Use</a>
+                <a href="/apply-support" class="text-gray-400 hover:text-white transition-colors">Apply Support</a>
+                <a href="/contact-support" class="text-gray-400 hover:text-white transition-colors">Contact Support</a>
             </nav>
 
             <div class="flex space-x-5">
