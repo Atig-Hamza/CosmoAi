@@ -66,3 +66,7 @@ Route::post('/send-support-candidate', [SupportCandidatesController::class, 'sen
 Route::get('/candidates-management', function () {
     return view('Admin/Support');
 })->name('candidates-management')->middleware(isAdmin::class);
+
+Route::get('/approve/{candidate}', [SupportCandidatesController::class, 'acceptSupportCandidate'])->middleware(isAdmin::class);
+
+Route::get('/rejected/{candidate}', [SupportCandidatesController::class, 'rejectSupportCandidate'])->middleware(isAdmin::class);
