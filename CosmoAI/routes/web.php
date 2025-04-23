@@ -9,15 +9,15 @@ use App\Http\Middleware\VerifyQuestionnaireCompletion;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('User/Home');
+    return view('Home');
 });
 
 Route::get('/login', function () {
-    return view('User/Login');
+    return view('Login');
 })->name('login')->middleware('guest');
 
 Route::get('/signup', function () {
-    return view('User/Signup');
+    return view('Signup');
 })->middleware('guest');
 
 Route::get('/chat', function () {
