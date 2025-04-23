@@ -62,3 +62,7 @@ Route::get('/user-management', function () {
 })->name('user-management')->middleware(isAdmin::class);
 
 Route::post('/send-support-candidate', [SupportCandidatesController::class, 'sendSupportCandidate'])->name('send-support-candidate');
+
+Route::get('/candidates-management', function () {
+    return view('Admin/Support');
+})->name('candidates-management')->middleware(isAdmin::class);
