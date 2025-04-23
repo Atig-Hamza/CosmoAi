@@ -45,7 +45,7 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         
-        if ($cosmoStaff->where('email', $credentials['email'])->exists() && $cosmoStaff->where('password', $credentials['password'])->exists()) {
+        if ($cosmoStaff->where('email', $credentials['email'])->exists() && \Hash::check($credentials['password'], $cosmoStaff->where('email', $credentials['email'])->first()->password)) {
             if ($cosmoStaff->where('email', $credentials['email'])->first()->role == 'admin') {
                 session()->put('is_admin', true);
                 return redirect()->route('admin-dash');
