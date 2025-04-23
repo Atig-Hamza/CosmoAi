@@ -12,6 +12,10 @@ Route::get('/', function () {
     return view('Home');
 });
 
+Route::get('/apply-support', function () {
+    return view('ApplySupport');
+});
+
 Route::get('/login', function () {
     return view('Login');
 })->name('login')->middleware('guest');
