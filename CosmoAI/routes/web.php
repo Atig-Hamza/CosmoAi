@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\QuestionnaireController;
+use App\Http\Controllers\SupportCandidatesController;
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\isSupport;
 use App\Http\Middleware\VerifyQuestionnaireCompletion;
@@ -59,3 +60,5 @@ Route::get('/support-dash', function () {
 Route::get('/user-management', function () {
     return view('Admin/User');
 })->name('user-management')->middleware(isAdmin::class);
+
+Route::post('/send-support-candidate', [SupportCandidatesController::class, 'sendSupportCandidate'])->name('send-support-candidate');
