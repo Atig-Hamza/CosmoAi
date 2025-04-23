@@ -187,9 +187,13 @@
         <div class="container mx-auto px-6 py-16 max-w-3xl">
             <h1 class="text-3xl font-semibold text-white mb-8 text-center">Apply for Remote Support Position</h1>
             <p class="text-gray-400 mb-10 text-center">Interested in joining our remote support team? Fill out the form below.</p>
-
-            <form action="/submit-application" method="POST" enctype="multipart/form-data" class="space-y-6">
-                
+            @if(session('success'))
+                <div class="text-green-400 mb-10 text-center">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <form action="/send-support-candidate" method="POST" enctype="multipart/form-data" class="space-y-6">
+                @csrf
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
                     <input type="text" id="name" name="name" required
@@ -213,9 +217,9 @@
 
                 <div>
                     <label for="cv" class="block text-sm font-medium text-gray-300 mb-1">Upload CV</label>
-                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.txt" required
+                    <input type="file" id="cv" name="CV" accept=".pdf" required
                            class="w-full px-4 py-2 bg-gray-950 border border-gray-700 rounded-md text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-700 file:text-gray-300 hover:file:bg-gray-600">
-                           <p class="mt-1 text-xs text-gray-500">Accepted formats: PDF, DOC, DOCX, TXT. Max size: 5MB.</p>
+                           <p class="mt-1 text-xs text-gray-500">Accepted formats: PDF. Max size: 5MB.</p>
                 </div>
 
                 <div>
