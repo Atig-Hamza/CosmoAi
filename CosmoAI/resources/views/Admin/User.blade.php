@@ -127,7 +127,7 @@
                 <!-- Sidebar Placeholder (visible on md+) -->
                 <aside class="w-64 flex-shrink-0 hidden md:block">
                     <div
-                        class="fixed h-[calc(100vh-4rem)] bg-[#1a1a1a] border-r border-gray-700 overflow-y-auto pt-2 pb-10 w-64">
+                        class="fixed h-[calc(100vh-4rem)] border-r border-gray-700 overflow-y-auto pt-2 pb-10 w-64">
                         <div class="px-4 space-y-6">
                             <div class="space-y-1">
                                 <a href="/admin-dash"

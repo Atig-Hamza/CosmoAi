@@ -71,7 +71,7 @@
         <div class="flex-grow max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
             <div class="flex space-x-8">
                 <aside
-                    class="max-[768px]:hidden w-64 flex-shrink-0 fixed h-full bg-[#1a1a1a] border-r border-gray-700 overflow-y-auto pt-2 pb-10">
+                    class="max-[768px]:hidden w-64 flex-shrink-0 fixed h-full border-r border-gray-700 overflow-y-auto pt-2 pb-10">
                     <div class="px-4 space-y-6">
                         <div class="space-y-1">
                             <a href="/admin-dash"
