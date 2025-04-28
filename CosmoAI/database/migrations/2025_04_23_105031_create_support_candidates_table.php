@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('support_candidates', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('CV');
             $table->string('details');
             $table->enum('status', ['pending', 'approved', 'rejected']);
+            
             $table->timestamps();
         });
     }

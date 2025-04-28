@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('cosmo_staff', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['admin', 'support']);
+            
             $table->timestamps();
         });
     }

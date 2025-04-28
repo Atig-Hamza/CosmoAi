@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('primary_role')->nullable();
             $table->string('size_of_company')->nullable();
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('plan')->default('free');
             $table->timestamp('plan_start')->nullable();
             $table->timestamp('plan_end')->nullable();
+            
             $table->timestamps();
         });
     }
