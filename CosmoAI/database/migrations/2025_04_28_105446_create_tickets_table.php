@@ -20,10 +20,11 @@ return new class extends Migration
             $table->enum('status', ['open', 'closed'])->default('open');
             $table->string('response')->nullable();
             $table->string('attachment')->nullable();
+            $table->string('closed_by')->nullable();
+            $table->string('closer_id')->nullable();
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('cosmo_staff_id')->constrained()->onDelete('cascade');
         });
     }
 
