@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('ticket_id')->unique();
             $table->string('problem');
             $table->string('email');
             $table->enum('status', ['open', 'closed'])->default('open');
