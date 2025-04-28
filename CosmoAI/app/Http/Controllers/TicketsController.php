@@ -30,5 +30,7 @@ class TicketsController extends Controller
 
         $ticket->save();
 
+        return back()->with('success', 'Ticket opened successfully.');
+
     }
 }
