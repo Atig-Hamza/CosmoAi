@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\QuestionnaireController;
 use App\Http\Controllers\SupportCandidatesController;
+use App\Http\Controllers\TicketsController;
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\isSupport;
 use App\Http\Middleware\VerifyQuestionnaireCompletion;
@@ -70,3 +71,9 @@ Route::get('/candidates-management', function () {
 Route::get('/approve/{candidate}', [SupportCandidatesController::class, 'acceptSupportCandidate'])->middleware(isAdmin::class);
 
 Route::get('/rejected/{candidate}', [SupportCandidatesController::class, 'rejectSupportCandidate'])->middleware(isAdmin::class);
+
+Route::get('/support', function () {
+    return view('User/Support');
+})->name('support')->middleware('auth');
+
+Route::post('/support', [TicketsController::class, 'openTicket'])->middleware('auth');
