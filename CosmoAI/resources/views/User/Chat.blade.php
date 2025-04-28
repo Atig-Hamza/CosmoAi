@@ -121,14 +121,14 @@
                     class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Chat</span>
             </button>
 
-            <button class="sidebar-item w-full h-10 flex items-center px-3">
+            <a href="/support" class="sidebar-item w-full h-10 flex items-center px-3">
                 <span
                     class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
-                    <span class="material-symbols-rounded">bookmark</span>
+                    <span class="material-symbols-rounded">help</span>
                 </span>
                 <span
-                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Bookmarks</span>
-            </button>
+                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Support</span>
+            </a>
 
             <button class="sidebar-item w-full h-10 flex items-center px-3">
                 <span
@@ -448,5 +448,7 @@
         })
         
     </script>
+
+    
 </body>
 </html>
