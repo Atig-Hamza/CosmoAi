@@ -3,9 +3,11 @@ import fs from 'fs';
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-const HYPERBOLIC_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJoYW16YWF0aWc1OEBnbWFpbC5jb20iLCJpYXQiOjE3NDIyOTQyNDV9.AKK1DBxR29fSSkLhA9sB_eR1jEgz0tIq1pZJP50QLjM';
+const HYPERBOLIC_API_KEY = process.env.HYPER_API_KEY;
 
 app.use(cors());
 app.use(express.json());
