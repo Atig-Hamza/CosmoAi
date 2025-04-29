@@ -52,6 +52,8 @@ class AuthController extends Controller
             }
             else {
                 session()->put('is_support', true);
+                session()->put('support_id', $cosmoStaff->where('email', $credentials['email'])->first()->id);
+                session()->put('support_name', $cosmoStaff->where('email', $credentials['email'])->first()->name);
                 return redirect()->route('support-dash');
             }
         }
