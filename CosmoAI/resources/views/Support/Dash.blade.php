@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fikri Studio - Customer Dashboard</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/heroicons/2.0.18/24/outline/heroicons.min.css" rel="stylesheet">
-    
+
     <style>
         /* Optional: Custom scrollbar styling (Webkit browsers) */
         ::-webkit-scrollbar {
@@ -40,7 +40,7 @@
 
 <body class="bg-gray-100 font-sans text-sm">
     <div class="flex h-screen">
-        
+
         <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
             <div class="px-4 pt-4 flex items-center flex-row justify-center">
                 <img class="w-10" src="{{ asset('images/Design sans titre (1).png') }}" alt="cosmo logo">
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            
+
             <nav class="flex-grow px-2 space-y-1 overflow-y-auto">
                 <a href="#" class="flex items-center px-2 py-2 text-gray-700 rounded-md hover:bg-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -80,66 +80,74 @@
                     </svg>
                     Ticket
                 </a>
+                <a href="#" class="flex items-center px-2 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5 mr-3 text-gray-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Report (Coming soon)
+                </a>
+                <a href="#" class="flex items-center px-2 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5 mr-3 text-gray-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Customer (Coming soon)
+                </a>
+                <a href="#" class="flex items-center px-2 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5 mr-3 text-gray-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Contact Admin (Coming soon)
+                </a>
             </nav>
 
             <div class="px-4 py-2 mt-4 border-t border-gray-200">
-                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Conversation</h3>
-                <a href="#"
-                    class="flex items-center justify-between px-2 py-1.5 text-gray-700 rounded-md hover:bg-gray-100 text-sm">
-                    <span class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-4 h-4 mr-2 text-gray-500">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                        </svg>
-                        Call <span class="text-gray-400 ml-1">(123)45678...</span>
-                    </span>
-                    <span class="bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">1</span>
-                </a>
-                <a href="#"
-                    class="flex items-center justify-between px-2 py-1.5 text-gray-700 rounded-md hover:bg-gray-100 text-sm">
-                    <span class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-4 h-4 mr-2 text-gray-500">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M2.25 3h19.5M2.25 7.5h19.5M4.5 12H6m13.5 0H19.5M2.25 16.5h19.5M4.5 21H6m13.5 0H19.5" />
-                        </svg>
-                        Side Conversa...
-                    </span>
-                    <span class="bg-gray-200 text-gray-600 text-xs font-bold px-1.5 py-0.5 rounded-full">0</span>
-                </a>
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Last User Contacted
+                    Support</h3>
+                @foreach (\App\Models\Tickets::all()->sortByDesc('created_at')->take(2) as $email)
+                    <a href=""
+                        class="cursor-pointer flex items-center justify-between px-2 py-1.5 text-gray-700 rounded-md hover:bg-gray-100 text-sm">
+                        <span class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-4 h-4 mr-2 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            {{ $email->email }}
+                        </span>
+                    </a>
+                @endforeach
             </div>
 
             <div class="px-4 py-2 mt-2">
-                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Favorites</h3>
-                <p class="text-xs text-gray-400 mb-2">Hover over any table and click the star to add it here.</p>
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Response</h3>
+                <p class="text-xs text-gray-400 mb-2">Please select a ticket from the list to submit a response</p>
             </div>
 
             <div class="px-4 py-2 border-t border-gray-200">
                 <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Pinned Tickets</h3>
-                    <button class="text-xs text-indigo-600 hover:text-indigo-800">Unpin All</button>
+                    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Last Opened Tickets</h3>
+                    <button class="text-xs text-indigo-600 hover:text-indigo-800">view All</button>
                 </div>
                 <div class="space-y-1.5 text-xs">
-                    <div class="flex items-center justify-between text-gray-700">
-                        <span><span class="text-green-500 mr-1.5">#</span>TC-192 produc...</span>
-                        <button class="text-gray-400 hover:text-gray-600">[X]</button>
-                    </div>
-                    <div class="flex items-center justify-between text-gray-700">
-                        <span><span class="text-green-500 mr-1.5">#</span>TC-191 paymen...</span>
-                        <button class="text-gray-400 hover:text-gray-600">[X]</button>
-                    </div>
-                    <div class="flex items-center justify-between text-gray-700">
-                        <span><span class="text-green-500 mr-1.5">📞</span>+1 678-908-78...</span>
-                        <button class="text-gray-400 hover:text-gray-600">[X]</button>
-                    </div>
+                    @foreach (\App\Models\Tickets::orderBy('created_at', 'desc')->limit(3)->get() as $ticket)
+                        <div class="flex items-center justify-between text-gray-700">
+                            <span><span class="text-green-500 mr-1.5">-></span>{{ $ticket->ticket_id }}</span>
+                            <button class="text-gray-400 hover:text-gray-600">[X]</button>
+                        </div>
+                    @endforeach
                 </div>
                 <button class="mt-2 flex items-center text-indigo-600 hover:text-indigo-800 text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="w-4 h-4 mr-1">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
-                    Add new
+                    response now
                 </button>
             </div>
 
@@ -155,7 +163,7 @@
             </div>
         </aside>
 
-        
+
         <main class="flex-1 flex flex-col overflow-hidden">
             <div class="bg-white p-6 border-b border-gray-200 flex items-center justify-between">
                 <div class="flex items-center space-x-4">
@@ -171,8 +179,8 @@
                             </span>
                         </h2>
                         <div class="text-sm text-gray-500 flex items-center">
-                            <img src="{{ asset('images/Design sans titre (1).png') }}"
-                                alt="Microsoft Logo" class="w-4 h-4 mr-1">
+                            <img src="{{ asset('images/Design sans titre (1).png') }}" alt="Microsoft Logo"
+                                class="w-4 h-4 mr-1">
                             Cosmo Support Agent
                         </div>
                     </div>
@@ -242,7 +250,7 @@
                     </a>
                 </nav>
             </div>
-            
+
             <div class="flex-1 overflow-y-auto bg-white border border-gray-200 rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50 sticky top-0">
@@ -267,7 +275,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        
+
                         <tr>
                             <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
                                     class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
@@ -311,7 +319,7 @@
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-gray-500">06/11/2023, 05:31AM</td>
                         </tr>
-                        
+
                         <tr>
                             <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
                                     class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
@@ -456,7 +464,7 @@
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-gray-500">26/10/2023, 10:33AM</td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
