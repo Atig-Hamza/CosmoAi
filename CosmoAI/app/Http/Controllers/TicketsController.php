@@ -33,4 +33,20 @@ class TicketsController extends Controller
         return back()->with('success', 'Ticket opened successfully.');
 
     }
+
+    public function responseTicket(Request $request, Tickets $ticket) {
+        $request->validate([
+            'response' => 'required',
+        ]);
+
+        $ticket->status = 'closed';
+        $ticket->closed_by = session()->get('support_name');
+        $ticket->closer_id = session()->get('support_id');
+
+        $ticket->response = $request->response;
+        $ticket->save();
+
+        return back()->with('success', 'Response sent successfully.');
+    }
+            
 }
