@@ -8,7 +8,9 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/heroicons/2.0.18/24/outline/heroicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* Optional: Custom scrollbar styling (Webkit browsers) */
@@ -156,8 +158,7 @@
                 <a href="/logout" class="flex items-center text-gray-600 hover:text-gray-800" title="Logout">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5 mr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 12H5m7 7l-7-7 7-7" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7 7l-7-7 7-7" />
                     </svg>
                     Logout
                 </a>
@@ -269,10 +270,10 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-
                         @foreach (App\Models\Tickets::all() as $ticket)
                             <tr>
-                                <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    <input type="checkbox"
                                         class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
                                 </td>
                                 <td class="px-4 py-3 whitespace-nowrap text-gray-700">{{ $ticket->ticket_id }}</td>
@@ -291,10 +292,11 @@
                                     @endif
                                 </td>
                                 <td class="px-4 py-3 whitespace-nowrap text-gray-500">
-                                    {{ $ticket->created_at->format('d/m/Y, h:i A') }}</td>
+                                    {{ $ticket->created_at->format('d/m/Y, h:i A') }}
+                                </td>
                                 <td class="px-4 py-3 whitespace-nowrap">
                                     @if ($ticket->status == 'open')
-                                        <button
+                                        <button onclick="toggleForm({{ $ticket->id }})"
                                             class="flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 hover:bg-green-200 transition-colors">
                                             <i class="fas fa-check-circle mr-1.5"></i>
                                             Resolve
@@ -302,9 +304,47 @@
                                     @endif
                                 </td>
                             </tr>
-                        @endforeach
+                            <tr id="form-row-{{ $ticket->id }}" class="hidden">
+                                <td colspan="6" class="px-6 py-4 bg-gray-50 rounded-lg shadow-inner">
+                                    @if (is_null($ticket->attachment))
+                                        <p class="text-gray-500 italic">No attachment provided</p>
+                                    @else
+                                        <div class="mb-4">
+                                            <h4 class="text-sm font-medium text-gray-700 mb-2">Attachment:</h4>
+                                            <img src="{{ asset('storage/' . $ticket->attachment) }}" alt="Ticket attachment"
+                                                class="max-w-md rounded-md border border-gray-200 shadow-sm">
+                                        </div>
+                                    @endif
 
+                                    <form action="response/{{ $ticket->id }}" method="POST" class="mt-4 space-y-3">
+                                        @csrf
+                                        <div>
+                                            <textarea name="response" rows="3" placeholder="Enter your response here..."
+                                                required
+                                                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm"></textarea>
+                                        </div>
+                                        <div>
+                                            <button type="submit"
+                                                class="px-4 py-2 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors shadow-sm">
+                                                Submit Response
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
+                    <script>
+                        function toggleForm(id) {
+                            const formRow = document.getElementById('form-row-' + id);
+                            if (formRow.classList.contains('hidden')) {
+                                formRow.classList.remove('hidden');
+                            } else {
+                                formRow.classList.add('hidden');
+                            }
+                        }
+                    </script>
+
                 </table>
             </div>
     </div>
