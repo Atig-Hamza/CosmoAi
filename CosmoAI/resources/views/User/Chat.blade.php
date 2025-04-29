@@ -102,14 +102,14 @@
             </button>
         </div>
 
-        <button class="sidebar-item w-full h-10 mb-12 flex items-center px-3">
+        <a href="/" class="sidebar-item w-full h-10 mb-12 flex items-center px-3">
             <span
                 class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
                 <span class="material-symbols-rounded">home</span>
             </span>
             <span
                 class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Home</span>
-        </button>
+        </a>
 
         <div class="flex flex-col items-center gap-4 mt-auto mb-auto w-full">
             <button class="sidebar-item w-full h-10 flex items-center px-3">
