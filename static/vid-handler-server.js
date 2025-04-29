@@ -1,11 +1,13 @@
-const express = require('express');
-const { HfInference } = require('@huggingface/inference');
-const cors = require('cors');
-const https = require('https');
-const fs = require('fs');
+import express from 'express';
+import { HfInference } from '@huggingface/inference';
+import cors from 'cors';
+import https from 'https';
+import fs from 'fs';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-const client = new HfInference('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');
+const client = new HfInference(process.env.HUGGING_API_KEY);
 const conversations = new Map();
 
 app.use(cors());
