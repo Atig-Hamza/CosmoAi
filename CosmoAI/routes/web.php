@@ -54,9 +54,9 @@ Route::get('/admin-dash', function () {
     return view('Admin/Dash');
 })->name('admin-dash')->middleware(isAdmin::class);
 
-Route::get('/support-dash', function () {
+Route::get('/Tickets', function () {
     return view('Support/Dash');
-})->name('support-dash')->middleware(isSupport::class);
+})->name('Tickets')->middleware(isSupport::class);
 
 Route::get('/user-management', function () {
     return view('Admin/User');
@@ -77,3 +77,5 @@ Route::get('/support', function () {
 })->name('support')->middleware('auth');
 
 Route::post('/support', [TicketsController::class, 'openTicket'])->middleware('auth');
+
+Route::post('/response/{ticket}', [TicketsController::class, 'responseTicket'])->middleware(isSupport::class);
