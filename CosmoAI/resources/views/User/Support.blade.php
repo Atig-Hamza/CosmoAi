@@ -63,6 +63,102 @@
 </head>
 
 <body>
+    <aside id="sidebar"
+        class="fixed max-[1080px]:hidden left-0 top-0 h-full z-50 bg-[#1e1e1e] flex flex-col py-6 transition-all duration-300 w-16">
+        <div class="flex items-center justify-between px-3 mb-4">
+            <button id="menu-toggle"
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+            <button id="collapse-btn"
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors opacity-0 scale-0 transition-all duration-300 absolute right-3">
+                <span class="material-symbols-rounded">chevron_left</span>
+            </button>
+        </div>
+
+        <a href="/" class="sidebar-item w-full h-10 mb-12 flex items-center px-3">
+            <span
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded">home</span>
+            </span>
+            <span
+                class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Home</span>
+        </a>
+
+        <div class="flex flex-col items-center gap-4 mt-auto mb-auto w-full">
+            <a href="/chat" class="sidebar-item w-full h-10 flex items-center px-3">
+                <span
+                    class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                    <span class="material-symbols-rounded">chat</span>
+                </span>
+                <span
+                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Chat</span>
+            </a>
+
+            <a href="/support" class="sidebar-item w-full h-10 flex items-center px-3">
+                <span
+                    class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                    <span class="material-symbols-rounded">help</span>
+                </span>
+                <span
+                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Support</span>
+            </a>
+
+            <button class="sidebar-item w-full h-10 flex items-center px-3">
+                <span
+                    class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                    <span class="material-symbols-rounded">history</span>
+                </span>
+                <span
+                    class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">History</span>
+            </button>
+        </div>
+        <button class="sidebar-item w-full h-10 mt-auto flex items-center px-3">
+            <span
+                class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
+                <span class="material-symbols-rounded">settings</span>
+            </span>
+            <span
+                class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Settings</span>
+        </button>
+    </aside>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.getElementById('menu-toggle');
+            const collapseBtn = document.getElementById('collapse-btn');
+            const textElements = document.querySelectorAll('.sidebar-item span:nth-child(2)');
+
+            let isExpanded = false;
+
+            function toggleSidebar() {
+                isExpanded = !isExpanded;
+
+                if (isExpanded) {
+                    sidebar.style.width = '200px';
+                    collapseBtn.style.opacity = '1';
+                    collapseBtn.style.scale = '1';
+
+                    textElements.forEach(element => {
+                        element.style.opacity = '1';
+                    });
+                } else {
+                    sidebar.style.width = '64px';
+                    collapseBtn.style.opacity = '0';
+                    collapseBtn.style.scale = '0';
+
+                    textElements.forEach(element => {
+                        element.style.opacity = '0';
+                    });
+                }
+            }
+
+            menuToggle.addEventListener('click', toggleSidebar);
+            collapseBtn.addEventListener('click', toggleSidebar);
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <div id="alert-message" class="hidden"></div>
@@ -132,6 +228,24 @@
                         </button>
                     </div>
                 </form>
+
+                <div class="mt-8 w-[110%]">
+                    <h2>Your Support Tickets</h2>
+                    @foreach (App\Models\Tickets::where('user_id', Auth::user()->id)->get() as $ticket)
+                        <div class="bg-[#222222] p-4 rounded-lg mb-4">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-sm text-gray-400">Ticket ID: {{ $ticket->id }}</p>
+                                    <p class="text-sm text-gray-400">Subject: {{ $ticket->problem }}</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Created: {{ $ticket->created_at }}</p>
+                                    <p class="text-sm text-gray-400">Status: {{ $ticket->status }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
 
                 <div class="mt-8 text-center">
                     <p class="text-sm text-gray-400">
