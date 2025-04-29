@@ -1,10 +1,11 @@
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
+import { getSpeechKey, getSpeechRegion } from './env.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Configuration ---
-    const speechKey = '68TGifJUn3lU0oln8ieaiHIbn2lrJO1TrREhyQPfimqz7prmoFM7JQQJ99BDACYeBjFXJ3w3AAAYACOGElsn';
-    const speechRegion = 'eastus';
+    const speechKey = getSpeechKey();
+    const speechRegion = getSpeechRegion();
     const backendUrl = 'https://localhost:8000/chat';
     const hiddenPrompt = "Respond like a human in a brief, conversational manner. ";
 
