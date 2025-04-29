@@ -8,6 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/heroicons/2.0.18/24/outline/heroicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* Optional: Custom scrollbar styling (Webkit browsers) */
@@ -152,13 +153,13 @@
             </div>
 
             <div class="mt-auto p-4 border-t border-gray-200">
-                <a href="#" class="flex items-center text-gray-600 hover:text-gray-800">
+                <a href="/logout" class="flex items-center text-gray-600 hover:text-gray-800" title="Logout">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5 mr-2">
                         <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                            d="M19 12H5m7 7l-7-7 7-7" />
                     </svg>
-                    Help & Support
+                    Logout
                 </a>
             </div>
         </aside>
@@ -225,15 +226,6 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-4 h-4 mr-1.5">
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                        </svg>
-                        Activity
-                    </a>
-                    <a href="#"
-                        class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-4 h-4 mr-1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
                         </svg>
                         Attachment
@@ -245,8 +237,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                         </svg>
-                        Notes <span
-                            class="ml-1.5 bg-gray-200 text-gray-600 text-xs font-bold px-1.5 py-0.5 rounded-full">2</span>
+                        Response
                     </a>
                 </nav>
             </div>
@@ -268,202 +259,50 @@
                                 Subject</th>
                             <th scope="col"
                                 class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Priority <span class="text-gray-400">↓</span></th>
+                                Status <span class="text-gray-400">↓</span></th>
                             <th scope="col"
                                 class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Request Date <span class="text-gray-400">↓</span></th>
+                            <th scope="col"
+                                class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Actions <span class="text-gray-400">↓</span></th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-192</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Unrecognized Charges on My Account
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                    <span class="w-2 h-2 bg-red-500 rounded-full mr-1.5"></span> High
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">07/11/2023, 06:25AM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-191</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Defective Item Received</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span> Low
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">06/11/2023, 11:47PM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-190</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Unable to Access My Account</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-1.5"></span> Medium
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">06/11/2023, 05:31AM</td>
-                        </tr>
-
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-189</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Missing Item in Order, Need
-                                Replacement</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span> Low
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">05/11/2023, 09:05PM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-188</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Order Assistance Needed,
-                                Customization Re...</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span> Low
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">04/11/2023, 02:30PM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-187</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Tracking Order #12345</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-1.5"></span> Medium
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">04/11/2023, 11:28AM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-186</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Tracking Order #4567</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span> Low
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">03/11/2023, 10:10AM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-185</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Card Declined for Order #98765
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-1.5"></span> Medium
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">31/10/2023, 04:13PM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-184</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Help me cancel my order</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-1.5"></span> Medium
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">30/10/2023, 07:46PM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-183</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Out-of-Stock Item in Order</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                    <span class="w-2 h-2 bg-red-500 rounded-full mr-1.5"></span> High
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">29/10/2023, 03:07AM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-182</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Dissatisfied with Order</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                    <span class="w-2 h-2 bg-red-500 rounded-full mr-1.5"></span> High
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">27/10/2023, 12:00PM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-181</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Lost Package Inquiry</td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                    <span class="w-2 h-2 bg-yellow-500 rounded-full mr-1.5"></span> Medium
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">26/10/2023, 01:04PM</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
-                                    class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">#TC-180</td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-700">Card Declined for Order #98765
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span> Low
-                                </span>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-gray-500">26/10/2023, 10:33AM</td>
-                        </tr>
+                        @foreach (App\Models\Tickets::all() as $ticket)
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap"><input type="checkbox"
+                                        class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4">
+                                </td>
+                                <td class="px-4 py-3 whitespace-nowrap text-gray-700">{{ $ticket->ticket_id }}</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-gray-700">{{ $ticket->problem }}</td>
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    @if ($ticket->status == 'open')
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            <span class="w-2 h-2 bg-green-500 rounded-full mr-1.5"></span> {{ $ticket->status }}
+                                        </span>
+                                    @else
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                            <span class="w-2 h-2 bg-red-500 rounded-full mr-1.5"></span> {{ $ticket->status }}
+                                        </span>
+                                    @endif
+                                </td>
+                                <td class="px-4 py-3 whitespace-nowrap text-gray-500">
+                                    {{ $ticket->created_at->format('d/m/Y, h:i A') }}</td>
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    @if ($ticket->status == 'open')
+                                        <button
+                                            class="flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 hover:bg-green-200 transition-colors">
+                                            <i class="fas fa-check-circle mr-1.5"></i>
+                                            Resolve
+                                        </button>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
 
                     </tbody>
                 </table>
