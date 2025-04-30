@@ -32,12 +32,6 @@
             background-color: #171717;
         }
 
-        .badge-admin {
-            background-color: #dcfce7;
-            color: #166534;
-            border: 1px solid #bbf7d0;
-        }
-
         .badge-export {
             background-color: #e0f2fe;
             color: #075985;
@@ -126,8 +120,7 @@
             <div class="flex flex-col md:flex-row md:space-x-8">
                 <!-- Sidebar Placeholder (visible on md+) -->
                 <aside class="w-64 flex-shrink-0 hidden md:block">
-                    <div
-                        class="fixed h-[calc(100vh-4rem)] border-r border-gray-700 overflow-y-auto pt-2 pb-10 w-64">
+                    <div class="fixed h-[calc(100vh-4rem)] border-r border-gray-700 overflow-y-auto pt-2 pb-10 w-64">
                         <div class="px-4 space-y-6">
                             <div class="space-y-1">
                                 <a href="/admin-dash"
@@ -256,11 +249,11 @@
                                     </th>
                                     <th scope="col"
                                         class="py-3.5 px-3 text-left text-sm font-semibold text-gray-400 w-3/12">
-                                        Access
+                                        Plan
                                     </th>
                                     <th scope="col"
                                         class="py-3.5 px-3 text-left text-sm font-semibold text-gray-400 w-2/12 cursor-pointer hover:text-white">
-                                        Last active <i class="fas fa-arrow-down text-xs ml-1"></i>
+                                        Pro End <i class="fas fa-arrow-down text-xs ml-1"></i>
                                     </th>
                                     <th scope="col"
                                         class="py-3.5 px-3 text-left text-sm font-semibold text-gray-400 w-2/12">
@@ -272,245 +265,54 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-700">
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <span
-                                                    class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-500">
-                                                    <span class="text-lg font-medium leading-none text-white">F</span>
-                                                </span>
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="font-medium text-white">Florence Shaw</div>
-                                                <div class="text-gray-400">florence@untitleddui.com</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span
-                                                class="badge-admin text-xs font-medium px-2 py-0.5 rounded-md">Admin</span>
-                                            <span class="badge-export text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Export</span>
-                                            <span class="badge-import text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Import</span>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">Mar 4, 2024</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">July 4, 2022</td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button class="text-gray-400 hover:text-white"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
+                                @foreach(App\Models\User::all() as $user)
+                                    <tr>
+                                        <td class="whitespace-nowrap py-4 px-3 text-sm">
+                                            <div class="flex items-center">
                                                 <div class="h-10 w-10 flex-shrink-0">
                                                     <span
-                                                        class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-green-500">
-                                                        <span
-                                                            class="text-lg font-medium leading-none text-white">A</span>
+                                                        class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-500">
+                                                        <span class="text-lg font-medium leading-none text-white">
+                                                            {{ strtoupper(substr($user->full_name, 0, 1)) }}
+                                                        </span>
                                                     </span>
                                                 </div>
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="font-medium text-white">Amélie Laurent</div>
-                                                <div class="text-gray-400">amelie@untitleddui.com</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span
-                                                class="badge-admin text-xs font-medium px-2 py-0.5 rounded-md">Admin</span>
-                                            <span class="badge-export text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Export</span>
-                                            <span class="badge-import text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Import</span>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">Mar 4, 2024</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">July 4, 2022</td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button class="text-gray-400 hover:text-white"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <div class="h-10 w-10 flex-shrink-0">
-                                                    <span
-                                                        class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-purple-500">
-                                                        <span
-                                                            class="text-lg font-medium leading-none text-white">A</span>
-                                                    </span>
+                                                <div class="ml-4">
+                                                    <div class="font-medium text-white">{{ $user->full_name }}</div>
+                                                    <div class="text-gray-400">{{ $user->email }}</div>
                                                 </div>
                                             </div>
-                                            <div class="ml-4">
-                                                <div class="font-medium text-white">Ammar Foley</div>
-                                                <div class="text-gray-400">ammar@untitleddui.com</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span class="badge-export text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Export</span>
-                                            <span class="badge-import text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Import</span>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">Mar 2, 2024</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">July 4, 2022</td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button class="text-gray-400 hover:text-white"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <div class="h-10 w-10 flex-shrink-0">
-                                                    <span
-                                                        class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-500">
-                                                        <span
-                                                            class="text-lg font-medium leading-none text-white">C</span>
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
+                                            <div class="flex items-center gap-1.5 flex-wrap">
+                                                @if($user->profile->plan == 'pro')
+                                                    <span class="text-[#f4ff53] text-xs font-medium px-2 py-0.5 rounded-md">
+                                                        <i class="fa-solid fa-crown"></i> Pro
                                                     </span>
-                                                </div>
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="font-medium text-white">Caitlyn King</div>
-                                                <div class="text-gray-400">caitlyn@untitleddui.com</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span class="badge-export text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Export</span>
-                                            <span class="badge-import text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Import</span>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">Mar 6, 2024</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">July 4, 2022</td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button class="text-gray-400 hover:text-white"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <div class="h-10 w-10 flex-shrink-0">
-                                                    <span
-                                                        class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-300">
-                                                        <span
-                                                            class="text-lg font-medium leading-none text-white">S</span>
+                                                @else
+                                                    <span class="text-xs font-medium px-2 py-0.5 rounded-md">
+                                                        Free
                                                     </span>
-                                                </div>
+                                                @endif
                                             </div>
-                                            <div class="ml-4">
-                                                <div class="font-medium text-white">Sienna Hewitt</div>
-                                                <div class="text-gray-400">sienna@untitleddui.com</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span class="badge-export text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Export</span>
-                                            <span class="badge-import text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Import</span>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">Mar 8, 2024</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">July 4, 2022</td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button class="text-gray-400 hover:text-white"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <div class="h-10 w-10 flex-shrink-0">
-                                                    <span
-                                                        class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-green-300">
-                                                        <span
-                                                            class="text-lg font-medium leading-none text-white">O</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="font-medium text-white">Olly Shroeder</div>
-                                                <div class="text-gray-400">olly@untitleddui.com</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span class="badge-export text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Export</span>
-                                            <span class="badge-import text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Import</span>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">Mar 6, 2024</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">July 4, 2022</td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button class="text-gray-400 hover:text-white"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <div class="h-10 w-10 flex-shrink-0">
-                                                    <span
-                                                        class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-red-300">
-                                                        <span
-                                                            class="text-lg font-medium leading-none text-white">M</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="font-medium text-white">Mathilde Lewis</div>
-                                                <div class="text-gray-400">mathilde@untitleddui.com</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
-                                        <div class="flex items-center gap-1.5 flex-wrap">
-                                            <span class="badge-export text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Export</span>
-                                            <span class="badge-import text-xs font-medium px-2 py-0.5 rounded-md">Data
-                                                Import</span>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">Mar 4, 2024</td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">July 4, 2022</td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <button class="text-gray-400 hover:text-white"><i
-                                                class="fas fa-ellipsis-v"></i></button>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">
+                                            @if ($user->profile->plan == 'free')
+                                                No Pro Plan
+                                            @else
+                                                {{ $user->profile->plan_end->format('M d, Y') }}
+                                            @endif
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">
+                                            {{ $user->created_at->format('M d, Y') }}
+                                        </td>
+                                        <td
+                                            class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                            <button class="text-gray-400 hover:text-white"><i
+                                                    class="fas fa-ellipsis-v"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -524,7 +326,7 @@
                             </button>
                         </div>
 
-                        <form class="space-y-4">
+                        <form action="/createuser" method="POST" class="space-y-4">
                             @csrf
                             <div>
                                 <label for="userName" class="block text-sm font-medium text-gray-400 mb-1">User
