@@ -65,6 +65,26 @@ class AuthController extends Controller
         }
     }
 
+    public function createUser(Request $request, User $user)
+    {
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users', 
+        ]);
+
+        $password = \Str::random(12);
+        
+        $user->create([
+            'full_name' => $request->full_name,
+            'email' => $request->email,
+            'password' => \Hash::make($password),
+            'country' => 'Unknown',
+            'currency' => 'USD',
+        ]);
+
+        return back();
+    }
+
     public function logout()
     {
         auth()->logout();
