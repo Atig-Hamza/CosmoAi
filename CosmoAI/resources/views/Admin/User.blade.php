@@ -285,7 +285,7 @@
                                         </td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                @if($user->profile->plan == 'pro')
+                                                @if($user->profile && $user->profile->plan === 'pro')
                                                     <span class="text-[#f4ff53] text-xs font-medium px-2 py-0.5 rounded-md">
                                                         <i class="fa-solid fa-crown"></i> Pro
                                                     </span>
@@ -297,10 +297,10 @@
                                             </div>
                                         </td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">
-                                            @if ($user->profile->plan == 'free')
+                                            @if (is_null($user->profile) || $user->profile->plan === 'free')
                                                 No Pro Plan
                                             @else
-                                                {{ $user->profile->plan_end->format('M d, Y') }}
+                                                {{ $user->profile && $user->profile->plan_end->format('M d, Y') }}
                                             @endif
                                         </td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">
@@ -329,15 +329,15 @@
                         <form action="/createuser" method="POST" class="space-y-4">
                             @csrf
                             <div>
-                                <label for="userName" class="block text-sm font-medium text-gray-400 mb-1">User
+                                <label for="full_name" class="block text-sm font-medium text-gray-400 mb-1">User
                                     Name</label>
-                                <input type="text" id="userName" name="name" placeholder="Enter Full name"
+                                <input type="text" id="full_name" name="full_name" placeholder="Enter Full name"
                                     class="w-full bg-[#2b2b2b] border border-gray-600 rounded-md px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
                             </div>
                             <div>
-                                <label for="userEmail" class="block text-sm font-medium text-gray-400 mb-1">Email
+                                <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email
                                     Address</label>
-                                <input type="email" id="userEmail" name="userEmail" placeholder="Enter email address"
+                                <input type="email" id="email" name="email" placeholder="Enter email address"
                                     class="w-full bg-[#2b2b2b] border border-gray-600 rounded-md px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
                             </div>
                             <div class="pt-4 flex justify-end space-x-3">
