@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CosmoStaff;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -81,6 +82,11 @@ class AuthController extends Controller
             'country' => 'Unknown',
             'currency' => 'USD',
         ]);
+
+        Mail::raw("Hi {$user->full_name},\n\nYour account has been created. Your email: {$request->email} and temporary password: {$password}", function ($message) use ($request) {
+            $message->to($request->email)
+                ->subject('Account Created');
+        });
 
         return back();
     }
