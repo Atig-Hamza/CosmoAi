@@ -79,3 +79,5 @@ Route::get('/support', function () {
 Route::post('/support', [TicketsController::class, 'openTicket'])->middleware('auth');
 
 Route::post('/response/{ticket}', [TicketsController::class, 'responseTicket'])->middleware(isSupport::class);
+
+Route::post('/createuser', [AuthController::class, 'createUser'])->middleware(isAdmin::class);
