@@ -307,10 +307,42 @@
                                             {{ $user->created_at->format('M d, Y') }}
                                         </td>
                                         <td
-                                            class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                            <button class="text-gray-400 hover:text-white"><i
-                                                    class="fas fa-ellipsis-v"></i></button>
+                                            class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6 relative">
+                                            <button onclick="toggleDropdown({{ $user->id }})"
+                                                class="text-gray-400 hover:text-white">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                            <div id="mod{{ $user->id }}"
+                                                class="hidden absolute top-8 right-0 w-40 bg-white shadow-lg rounded-md p-2 z-50">
+                                                <button class="text-gray-600 hover:text-black block w-full mb-2">
+                                                    <i class="fas fa-edit mr-2"></i> Update Plan
+                                                </button>
+                                                <a href="/deleteuser/{{ $user->id }}"
+                                                    class="text-gray-600 hover:text-red-500 block w-full">
+                                                    <i class="fas fa-trash-alt mr-2"></i> Delete Account
+                                                </a>
+                                            </div>
                                         </td>
+                                        <script>
+                                            function toggleDropdown(userId) {
+                                                const modal = document.getElementById('mod' + userId);
+                                                document.querySelectorAll('[id^="mod"]').forEach(el => {
+                                                    if (el.id !== 'mod' + userId) {
+                                                        el.classList.add('hidden');
+                                                    }
+                                                });
+                                                modal.classList.toggle('hidden');
+                                            }
+
+                                            document.addEventListener('click', function (e) {
+                                                const dropdowns = document.querySelectorAll('[id^="mod"]');
+                                                dropdowns.forEach(drop => {
+                                                    if (!drop.contains(e.target) && !e.target.closest('button[onclick^="toggleDropdown"]')) {
+                                                        drop.classList.add('hidden');
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     </tr>
                                 @endforeach
                             </tbody>
