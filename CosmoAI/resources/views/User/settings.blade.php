@@ -102,15 +102,7 @@
             </a>
             <a href="#"
                 class="px-3 py-2 text-sm font-medium text-secondary-text hover:text-primary-text border-b-2 border-transparent hover:border-gray-500 whitespace-nowrap transition-colors duration-150 ease-in-out">
-                Monitoring
-            </a>
-            <a href="#"
-                class="px-3 py-2 text-sm font-medium text-secondary-text hover:text-primary-text border-b-2 border-transparent hover:border-gray-500 whitespace-nowrap transition-colors duration-150 ease-in-out">
-                Properties
-            </a>
-            <a href="#"
-                class="px-3 py-2 text-sm font-medium text-secondary-text hover:text-primary-text border-b-2 border-transparent hover:border-gray-500 whitespace-nowrap transition-colors duration-150 ease-in-out">
-                Settings
+                Upgrade Plan
             </a>
         </nav>
         <main class="space-y-8">
@@ -119,7 +111,7 @@
                 <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
                     <div
                         class="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-teal-600 to-cyan-700 flex items-center justify-center border-2 border-avatar-border shadow-md">
-                        <span class="text-3xl sm:text-4xl font-semibold text-white">YP</span>
+                        <span class="text-3xl sm:text-4xl font-semibold text-white">{{ substr(Auth::user()->full_name, 0, 1) }}</span>
                     </div>
                     <div>
                         <p class="text-xl font-semibold text-white">{{ Auth::user()->full_name }}</p>
