@@ -5,6 +5,7 @@ use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\QuestionnaireController;
 use App\Http\Controllers\SupportCandidatesController;
 use App\Http\Controllers\TicketsController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\isSupport;
 use App\Http\Middleware\VerifyQuestionnaireCompletion;
@@ -81,3 +82,9 @@ Route::post('/support', [TicketsController::class, 'openTicket'])->middleware('a
 Route::post('/response/{ticket}', [TicketsController::class, 'responseTicket'])->middleware(isSupport::class);
 
 Route::post('/createuser', [AuthController::class, 'createUser'])->middleware(isAdmin::class);
+
+Route::post('/deleteuser/{user}', [UserController::class, 'deleteUser'])->middleware(isAdmin::class);
+
+Route::get('suportboard', function () {
+    return view('Support/Board');
+})->name('suportboard')->middleware(isSupport::class);
