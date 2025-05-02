@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QuestionnaireController;
 use App\Http\Controllers\SupportCandidatesController;
 use App\Http\Controllers\TicketsController;
@@ -96,3 +97,9 @@ Route::get('/settings', function () {
 Route::get('/plan', function () {
     return view('User/Plan');
 })->name('plan')->middleware('auth');
+
+Route::post('/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
+
+Route::get('/cancel', function () {
+    return "Payment Canceled!";
+})->name('payment.cancel');
