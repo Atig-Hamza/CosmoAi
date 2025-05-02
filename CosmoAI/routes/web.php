@@ -92,3 +92,7 @@ Route::get('suportboard', function () {
 Route::get('/settings', function () {
     return view('User/Settings');
 })->name('settings')->middleware('auth');
+
+Route::get('/plan', function () {
+    return view('User/Plan');
+})->name('plan')->middleware('auth');
