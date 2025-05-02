@@ -67,7 +67,7 @@
 
 
             <nav class="flex-grow px-2 space-y-1 overflow-y-auto">
-                <a href="#" class="flex items-center px-2 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                <a href="{{route('suportboard')}}" class="flex items-center px-2 py-2 text-gray-700 rounded-md hover:bg-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5 mr-3 text-gray-500">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -170,11 +170,11 @@
             <div class="bg-white p-6 border-b border-gray-200 flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <div class="w-12 h-12 rounded-full overflow-hidden bg-black flex items-center justify-center">
-                        <p class="text-white text-2xl font-bold mb-1">S</p>
+                        <p class="text-white text-2xl font-bold mb-1">{{ substr(session('support_name'), 0, 1) }}</p>
                     </div>
                     <div>
                         <h2 class="text-lg font-semibold text-gray-800 flex items-center">
-                            Santi Cazorla
+                            {{ session('support_name') }}
                             <span
                                 class="ml-2 text-xs bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full flex items-center">
                                 <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1"></span> online
