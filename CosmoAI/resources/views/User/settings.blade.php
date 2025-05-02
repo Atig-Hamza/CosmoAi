@@ -201,10 +201,10 @@
             <section class="pt-6 mt-4 border-t border-border-color">
                 <h2 class="text-base font-semibold text-white mb-4">Account Actions</h2>
                 <div class="flex justify-start">
-                    <button type="button" onclick="alert('Logout functionality to be implemented.')"
+                    <a href="{{ route('logout') }}"
                         class="px-5 py-2 bg-button-danger-bg hover:bg-button-danger-hover text-white font-medium rounded-md text-sm transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-bg focus:ring-red-500">
                         <i class="fa-solid fa-right-from-bracket mr-2"></i> Logout
-                    </button>
+                    </a>
                 </div>
             </section>
         </main>
