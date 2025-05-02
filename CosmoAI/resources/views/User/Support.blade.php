@@ -113,14 +113,14 @@
                     class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">History</span>
             </button>
         </div>
-        <button class="sidebar-item w-full h-10 mt-auto flex items-center px-3">
+        <a href="/settings" class="sidebar-item w-full h-10 mt-auto flex items-center px-3">
             <span
                 class="w-10 h-10 rounded-full bg-[#383838] flex items-center justify-center text-[#e3e3e3] hover:bg-[#444] transition-colors flex-shrink-0">
                 <span class="material-symbols-rounded">settings</span>
             </span>
             <span
                 class="ml-3 text-[#e3e3e3] font-medium whitespace-nowrap opacity-0 transition-opacity duration-300">Settings</span>
-        </button>
+        </a>
     </aside>
 
     <script>
