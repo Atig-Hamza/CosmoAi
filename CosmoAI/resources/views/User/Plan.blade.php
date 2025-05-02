@@ -103,6 +103,16 @@
                 Upgrade Plan
             </a>
         </nav>
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ session('success') }}</span>
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ session('error') }}</span>
+            </div>
+        @endif
         <main class="space-y-8">
             <section class="bg-subtle-bg p-5 rounded-md">
                 <h2 class="text-lg font-semibold text-white mb-2">Subscription Plans</h2>
@@ -150,8 +160,9 @@
                         </button>
                     </div>
 
-                    <div
+                    <form action="{{ route('payment.checkout') }}" method="POST"
                         class="border-2 border-active-tab-border rounded-lg p-6 flex flex-col relative transition-shadow hover:shadow-xl">
+                        @csrf
                         <span
                             class="absolute top-0 right-0 mr-4 -mt-3 inline-block px-3 py-1 bg-active-tab-border text-white text-xs font-semibold rounded-full">Recommended</span>
                         <h3 class="text-xl font-semibold text-white mb-1">Pro</h3>
@@ -177,11 +188,11 @@
                                 <i class="fa-solid fa-check text-green-500 fa-fw"></i> Early Access Features
                             </li>
                         </ul>
-                        <button type="button"
+                        <button type="submit"
                             class="mt-auto w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-subtle-bg focus:ring-active-tab-border">
                             Upgrade to Pro
                         </button>
-                    </div>
+                    </form>
 
                     <div
                         class="border border-border-color rounded-lg p-6 flex flex-col transition-shadow hover:shadow-lg">
