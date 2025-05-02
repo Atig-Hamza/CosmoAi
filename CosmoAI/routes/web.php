@@ -88,3 +88,7 @@ Route::post('/deleteuser/{user}', [UserController::class, 'deleteUser'])->middle
 Route::get('suportboard', function () {
     return view('Support/Board');
 })->name('suportboard')->middleware(isSupport::class);
+
+Route::get('/settings', function () {
+    return view('User/Settings');
+})->name('settings')->middleware('auth');
