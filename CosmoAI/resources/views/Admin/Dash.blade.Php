@@ -63,6 +63,7 @@
                             <i class="fas fa-search text-lg"></i>
                         </button>
                     </div>
+
                 </div>
             </div>
         </header>
@@ -150,7 +151,12 @@
 
                         <div class="pt-6 border-t border-gray-700 mt-6 flex items-center justify-between text-gray-500">
                             <button><i class="fas fa-cog"></i></button>
-                            <button><i class="fas fa-keyboard"></i></button>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                @method('GET')
+                                <button><i class="fas fa-sign-out-alt"></i>
+                            </form>
+                            </button>
                         </div>
                     </div>
                 </aside>
