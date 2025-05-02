@@ -418,8 +418,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function processYouTubeLinks(html) {
-      const youtubeRegex = /https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/g;
-      return html.replace(youtubeRegex, (match, videoId) => {
+      const youtubeLinkRegex = /<a\s+(?:[^>]*?\s+)?href="(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})"[^>]*?>.*?<\/a>/gi;
+      return html.replace(youtubeLinkRegex, (match, videoId) => {
         return `<div class="youtube-embed"><iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
       });
     }
