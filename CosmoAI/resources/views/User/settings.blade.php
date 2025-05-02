@@ -100,7 +100,7 @@
                 aria-current="page">
                 Overview
             </a>
-            <a href="#"
+            <a href="/plan"
                 class="px-3 py-2 text-sm font-medium text-secondary-text hover:text-primary-text border-b-2 border-transparent hover:border-gray-500 whitespace-nowrap transition-colors duration-150 ease-in-out">
                 Upgrade Plan
             </a>
