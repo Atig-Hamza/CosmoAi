@@ -239,7 +239,7 @@
                     </div>
 
                     <!-- User Table -->
-                    <div class="overflow-x-auto">
+                    <div class="overflow-x-auto h-full">
                         <table class="min-w-full divide-y divide-gray-700 table-fixed">
                             <thead>
                                 <tr>
@@ -317,10 +317,14 @@
                                                 <button class="text-gray-600 hover:text-black block w-full mb-2">
                                                     <i class="fas fa-edit mr-2"></i> Update Plan
                                                 </button>
-                                                <a href="/deleteuser/{{ $user->id }}"
+                                                <form action="/deleteuser/{{ $user->id }}" method="POST"
                                                     class="text-gray-600 hover:text-red-500 block w-full">
-                                                    <i class="fas fa-trash-alt mr-2"></i> Delete Account
-                                                </a>
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit">
+                                                        <i class="fas fa-trash-alt mr-2"></i> Delete Account
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                         <script>
