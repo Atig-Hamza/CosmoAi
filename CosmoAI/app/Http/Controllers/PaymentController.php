@@ -22,7 +22,7 @@ class PaymentController extends Controller
                             'product_data' => [
                                 'name' => 'Laravel Stripe Payment',
                             ],
-                            'unit_amount' => 1500,
+                            'unit_amount' => $request->amount * 100,
                         ],
                         'quantity' => 1,
                     ]
