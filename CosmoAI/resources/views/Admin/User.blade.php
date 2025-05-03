@@ -289,7 +289,7 @@
                                         </td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-300">
                                             <div class="flex items-center gap-1.5 flex-wrap">
-                                                @if($user->profile && $user->profile->plan === 'pro')
+                                                @if($user->profile && $user->profile->plan === 'Pro')
                                                     <span class="text-[#f4ff53] text-xs font-medium px-2 py-0.5 rounded-md">
                                                         <i class="fa-solid fa-crown"></i> Pro
                                                     </span>
@@ -304,7 +304,7 @@
                                             @if (is_null($user->profile) || $user->profile->plan === 'free')
                                                 No Pro Plan
                                             @else
-                                                {{ $user->profile && $user->profile->plan_end->format('M d, Y') }}
+                                                {{ $user->profile->plan_end }}
                                             @endif
                                         </td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-400">
