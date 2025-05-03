@@ -107,3 +107,7 @@ Route::get('/cancel', function () {
 })->name('payment.cancel');
 
 Route::get('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+
+Route::get('/Analytics', function () {
+    return view('Admin/Analytics');
+})->name('Analytics')->middleware(isAdmin::class);

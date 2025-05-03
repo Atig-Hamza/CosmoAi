@@ -97,7 +97,7 @@
                             <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
                                 Monitoring</h3>
                             <div class="space-y-1">
-                                <a href="#"
+                                <a href="/Analytics"
                                     class="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-[#28282898] hover:text-white group">
                                     <i class="fas fa-chart-line mr-3 text-gray-400 group-hover:text-gray-300"></i>
                                     Analytics
