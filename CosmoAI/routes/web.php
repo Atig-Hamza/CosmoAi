@@ -9,6 +9,7 @@ use App\Http\Controllers\SupportCandidatesController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\isPro;
 use App\Http\Middleware\isSupport;
 use App\Http\Middleware\VerifyQuestionnaireCompletion;
 use Illuminate\Support\Facades\Route;
@@ -51,7 +52,7 @@ Route::get('/google/callback', [GoogleAuthController::class, 'Callback'])->name(
 
 Route::get('/voice', function () {
     return view('User/Voice');
-})->name('voice')->middleware('auth');
+})->name('voice')->middleware('auth')->middleware(isPro::class);
 
 Route::get('/admin-dash', function () {
     return view('Admin/Dash');
