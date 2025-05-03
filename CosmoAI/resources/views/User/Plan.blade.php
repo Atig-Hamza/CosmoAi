@@ -145,10 +145,10 @@
                         </div>
                         <ul class="space-y-3 text-sm text-primary-text flex-grow mb-6">
                             <li class="flex items-center gap-x-3">
-                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> 1 User
+                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Standard Chat Access
                             </li>
                             <li class="flex items-center gap-x-3">
-                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Basic Feature Set A
+                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Basic AI Debate Access
                             </li>
                             <li class="flex items-center gap-x-3">
                                 <i class="fa-solid fa-check text-green-500 fa-fw"></i> Community Support
@@ -163,6 +163,7 @@
                     <form action="{{ route('payment.checkout') }}" method="POST"
                         class="border-2 border-active-tab-border rounded-lg p-6 flex flex-col relative transition-shadow hover:shadow-xl">
                         @csrf
+                        <input type="hidden" name="amount" value="{{ \App\Models\Plans::where('name', 'Pro Creator')->first()->price }}">
                         <span
                             class="absolute top-0 right-0 mr-4 -mt-3 inline-block px-3 py-1 bg-active-tab-border text-white text-xs font-semibold rounded-full">Recommended</span>
                         <h3 class="text-xl font-semibold text-white mb-1">Pro</h3>
@@ -170,22 +171,22 @@
                             teams.</p>
                         <div class="my-4">
                             <span class="text-4xl font-bold text-white">$<span class="plan-price-amount"
-                                    data-monthly-price="15" data-annual-price="150">15</span></span>
+                                    data-monthly-price="{{ \App\Models\Plans::where('name', 'Pro Creator')->first()->price }}" data-annual-price="{{ \App\Models\Plans::where('name', 'Pro Creator')->first()->price * 10 }}">{{ \App\Models\Plans::where('name', 'Pro Creator')->first()->price }}</span></span>
                             <span class="text-sm font-medium text-secondary-text plan-price-freq"
                                 data-monthly-freq="/month" data-annual-freq="/year">/month</span>
                         </div>
                         <ul class="space-y-3 text-sm text-primary-text flex-grow mb-6">
                             <li class="flex items-center gap-x-3">
-                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Up to 5 Users
+                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Advanced Chat Features
                             </li>
                             <li class="flex items-center gap-x-3">
-                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Advanced Feature Set B
+                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> High Volume Image Generations
                             </li>
                             <li class="flex items-center gap-x-3">
-                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Priority Email Support
+                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Voice & Video Chat Enabled
                             </li>
                             <li class="flex items-center gap-x-3">
-                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Early Access Features
+                                <i class="fa-solid fa-check text-green-500 fa-fw"></i> Priority Access
                             </li>
                         </ul>
                         <button type="submit"
