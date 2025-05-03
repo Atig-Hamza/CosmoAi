@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\QuestionnaireController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\SupportCandidatesController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
@@ -103,3 +104,5 @@ Route::post('/checkout', [PaymentController::class, 'checkout'])->name('payment.
 Route::get('/cancel', function () {
     return "Payment Canceled!";
 })->name('payment.cancel');
+
+Route::get('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
