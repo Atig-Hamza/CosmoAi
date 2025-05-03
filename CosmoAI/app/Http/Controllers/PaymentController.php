@@ -28,7 +28,7 @@ class PaymentController extends Controller
                     ]
                 ],
                 'mode' => 'payment',
-                'success_url' => route('plan'),
+                'success_url' => route('subscribe'),
                 'cancel_url' => route('plan'),
             ]);
 
