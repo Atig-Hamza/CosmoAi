@@ -324,7 +324,7 @@
                                                             title="Accept">
                                                             <i class="fas fa-check"></i> Accept
                                                         </a>
-                                                        <a href="/reject/{{ $candidate->id }}"
+                                                        <a href="/rejected/{{ $candidate->id }}"
                                                             class="text-red-400 hover:text-red-300 text-xs font-medium py-1 px-2 rounded border border-red-600 hover:bg-red-900/50"
                                                             title="Refuse">
                                                             <i class="fas fa-times"></i> Refuse
