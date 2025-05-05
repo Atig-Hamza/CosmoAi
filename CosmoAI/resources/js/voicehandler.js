@@ -153,19 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
         micButton.addEventListener('click', async () => {
             if (!(await resumeAudioContext())) {
                 console.warn("Audio context not ready after click.");
-                 // Don't proceed if audio isn't ready
-                 // Alert might have been shown in resumeAudioContext
                 return;
             }
             if (!sdkReady) { alert("Speech services not ready."); return; }
 
             isMicOn = !isMicOn;
             if (isMicOn) {
-                startConversation(); // Start listening
+                startConversation();
             } else {
                 console.log('Mic off by user.');
                 isListening = false;
-                // If using continuous recognition, call recognizer.stopContinuousRecognitionAsync() here.
             }
             updateMicButtonUI();
         });
